@@ -69,46 +69,61 @@ public class DirectorEquipo {
      * @param nuevoJugador El objeto Jugador a añadir.
      * @throws Exception Si la validación de negocio falla (ej: nickname duplicado).
      */
-    public void agregarJugador(Jugador nuevoJugador) throws Exception {
-        
-        //1. VALIDACIÓN: Nickname duplicado
-        if (equipoAsignado.existeJugadorConNickname(nuevoJugador.getNickname())) {
-            // Se puede usar una excepción personalizada como en el ejemplo (ElementoExisteException)
-            throw new Exception("El Nickname '" + nuevoJugador.getNickname() + "' ya existe en el equipo.");
-        }
-        
-        // 2. EJECUCIÓN (En Memoria): Añadir a la lista del Equipo
-        equipoAsignado.addJugador(nuevoJugador);
-        
-        // 3. PERSISTENCIA (En Archivo): Lógica de I/O integrada
-        try {
-            // a) Formatear el nombre del archivo (ej: jugadoresTeam_Alpha.txt)
-            String nombreLimpio = equipoAsignado.getNombre().replaceAll("\\s+", "_");
-            String nombreArchivo = "jugadores" + nombreLimpio + ".txt";
-            
-            // b) Formatear la línea de datos (CSV)
-            // Se asume que Jugador tiene: idJugador, idEquipo, nombre, nickname, correo, telefono, activo
-            String lineaJugador = nuevoJugador.getIdJugador() + "," 
-                                + nuevoJugador.getIdEquipo() + ","
-                                + nuevoJugador.getNombre() + ","
-                                + nuevoJugador.getNickname();
+   public void agregarJugador(Jugador nuevoJugador) throws Exception {
 
-            // c) Escribir en el archivo (usando 'true' para anexar)
-            // Usamos try-with-resources para asegurar que los flujos se cierren.
-            try (FileWriter fileWriter = new FileWriter(nombreArchivo, true);
-                 PrintWriter printWriter = new PrintWriter(fileWriter)) {
-                 
-                printWriter.println(lineaJugador);
-                
-            } 
-            
-            System.out.println("LOG: Jugador agregado y guardado en " + nombreArchivo);
-
-        } catch (IOException e) {
-            // Lanzar una excepción de alto nivel que la Interfaz pueda manejar
-            throw new Exception("Error al guardar el jugador en el archivo: " + e.getMessage());
-        }
+    // Validaciones básicas de entrada
+    if (equipoAsignado == null) {
+        throw new Exception("No hay un equipo asignado al director.");
     }
+    if (nuevoJugador == null) {
+        throw new Exception("El jugador proporcionado es nulo.");
+    }
+
+    // Normalizar y validar campos obligatorios
+    String name = (nuevoJugador.getNombre() != null) ? nuevoJugador.getNombre().trim() : "";
+    String nickname = (nuevoJugador.getNickname() != null) ? nuevoJugador.getNickname().trim() : "";
+
+    if (name.isEmpty()) {
+        throw new Exception("Nombre del jugador es obligatorio.");
+    }
+    if (nickname.isEmpty()) {
+        throw new Exception("Nickname del jugador es obligatorio.");
+    }
+ 
+
+    // Validación: nickname duplicado (usa la lista en memoria)
+    if (equipoAsignado.existeJugadorConNickname(nickname)) {
+        throw new Exception("El Nickname '" + nickname + "' ya existe en el equipo.");
+    }
+
+    // Preparar línea para persistencia (asegurando nombre de archivo seguro)
+    String nombreEquipo = (equipoAsignado.getNombre() != null && !equipoAsignado.getNombre().trim().isEmpty())
+                          ? equipoAsignado.getNombre().replaceAll("\\s+", "_")
+                          : equipoAsignado.getIdEquipo();
+    String nombreArchivo = "jugadores " + nombreEquipo + ".txt";
+
+    String lineaJugador = (nuevoJugador.getIdJugador() != null ? nuevoJugador.getIdJugador() : "") + "," 
+                        + (nuevoJugador.getIdEquipo() != null ? nuevoJugador.getIdEquipo() : "") + ","
+                        + nombre + ","
+                        + nickname ;
+
+    // Persistencia: escribir en archivo primero
+    try (FileWriter fileWriter = new FileWriter(nombreArchivo, true);
+         PrintWriter printWriter = new PrintWriter(fileWriter)) {
+
+        printWriter.println(lineaJugador);
+
+    } catch (IOException e) {
+        // No añadimos en memoria porque la persistencia falló
+        throw new Exception("Error al guardar el jugador en el archivo: " + e.getMessage(), e);
+    }
+
+    // Si todo salió bien en el archivo, añadimos en memoria
+    equipoAsignado.addJugador(nuevoJugador);
+
+    System.out.println("LOG: Jugador agregado y guardado en " + nombreArchivo);
+}
+
 
     
     
