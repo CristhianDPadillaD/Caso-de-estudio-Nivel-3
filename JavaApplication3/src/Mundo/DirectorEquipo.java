@@ -1,8 +1,13 @@
 package Mundo;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 // No se usa ArrayList directamente aquí, solo en la clase Equipo y el Main.
 
 public class DirectorEquipo {
@@ -67,7 +72,7 @@ public class DirectorEquipo {
      * Registra un nuevo jugador en el equipo dirigido por este Director.
      * Incluye las validaciones de negocio.
      * @param nuevoJugador El objeto Jugador a añadir.
-     * @throws Exception Si la validación de negocio falla (ej: nickname duplicado).
+     * @throws Exception Si la validación  falla .
      */
    public void agregarJugador(Jugador nuevoJugador) throws Exception {
 
@@ -102,9 +107,24 @@ public class DirectorEquipo {
                           : equipoAsignado.getIdEquipo();
     String nombreArchivo = "jugadores " + nombreEquipo + ".txt";
 
+     // 3. Leer el archivo y contar cuántos jugadores hay
+    int contador = 0;
+    File archivo = new File(nombreArchivo);
+    if (archivo.exists()) {
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            while (br.readLine() != null) {
+                contador++;
+            }
+        }
+    }
+
+    // 4. Generar id incremental según el equipo
+    String idJugador = "J" + (contador + 1);
+    nuevoJugador.setIdJugador(idJugador);
+    
     String lineaJugador = (nuevoJugador.getIdJugador() != null ? nuevoJugador.getIdJugador() : "") + "," 
                         + (nuevoJugador.getIdEquipo() != null ? nuevoJugador.getIdEquipo() : "") + ","
-                        + nombre + ","
+                        + name + ","
                         + nickname ;
 
     // Persistencia: escribir en archivo primero
@@ -125,7 +145,6 @@ public class DirectorEquipo {
 }
 
 
-    
-    
+       
  
 }

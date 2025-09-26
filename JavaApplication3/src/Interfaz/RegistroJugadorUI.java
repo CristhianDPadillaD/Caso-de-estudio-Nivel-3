@@ -1,47 +1,66 @@
+// Archivo: Interfaz/RegistroJugadorUI.java
 package Interfaz;
 
+import Mundo.DirectorEquipo;
+import Mundo.Jugador;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import java.net.URL;
 
 public class RegistroJugadorUI extends JFrame {
 
-    private JTextField txtNombre, txtNickname, txtCorreo, txtTelefono;
+    private JTextField txtNombre, txtNickname;
     private JButton btnRegistrar;
     private Image backgroundImage;
+    private final DirectorEquipo director; // ahora la UI conoce al director
 
-    public RegistroJugadorUI() {
+    // Constructor recibe el DirectorEquipo (inyectar dependencia)
+    public RegistroJugadorUI(DirectorEquipo director) {
+        this.director = director;
+        initUI();
+    }
+
+    private void initUI() {
         setTitle("🎮 Registro de Jugador - Esports");
         setSize(600, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-         backgroundImage = new ImageIcon(getClass().getResource("/Data/Imagenes/fondo.jpg")).getImage();
 
+        // Cargar imagen de fondo de forma segura (evita NullPointerException)
+        URL imgUrl = getClass().getResource("/Data/Imagenes/fondo.jpg");
+        if (imgUrl != null) {
+            backgroundImage = new ImageIcon(imgUrl).getImage();
+        } else {
+            backgroundImage = null; // fallback: no hay imagen
+        }
 
-        // Panel principal con imagen de fondo
         JPanel panelFondo = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+                if (backgroundImage != null) {
+                    g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+                } else {
+                    // fondo por defecto si no hay imagen
+                    g.setColor(new Color(25, 25, 25));
+                    g.fillRect(0, 0, getWidth(), getHeight());
+                }
             }
         };
         panelFondo.setLayout(new GridBagLayout());
 
-        // Panel "card" donde va el formulario
         JPanel cardPanel = new JPanel(new GridBagLayout());
-        cardPanel.setBackground(new Color(20, 20, 20, 200)); // semi-transparente
-        cardPanel.setBorder(BorderFactory.createLineBorder(new Color(138, 43, 226), 3, true)); // borde morado redondeado
+        cardPanel.setBackground(new Color(20, 20, 20, 200));
+        cardPanel.setBorder(BorderFactory.createLineBorder(new Color(138, 43, 226), 3, true));
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.insets = new Insets(8, 8, 8, 8);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         Font fontTitulo = new Font("Consolas", Font.BOLD, 22);
         Font fontTexto = new Font("Consolas", Font.PLAIN, 16);
 
-        // 🔹 Título
         JLabel lblTitulo = new JLabel("Registro de Jugador");
         lblTitulo.setFont(fontTitulo);
         lblTitulo.setForeground(new Color(138, 43, 226));
@@ -50,10 +69,9 @@ public class RegistroJugadorUI extends JFrame {
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         cardPanel.add(lblTitulo, gbc);
+        gbc.gridwidth = 1;
 
-        gbc.gridwidth = 1; // reset
-
-        // 🔹 Campos
+        // Campos
         gbc.gridy++;
         gbc.gridx = 0;
         JLabel lblNombre = new JLabel("Nombre completo:");
@@ -78,31 +96,9 @@ public class RegistroJugadorUI extends JFrame {
         estilizarCampo(txtNickname, fontTexto);
         cardPanel.add(txtNickname, gbc);
 
-        gbc.gridy++;
-        gbc.gridx = 0;
-        JLabel lblCorreo = new JLabel("Correo:");
-        lblCorreo.setForeground(Color.WHITE);
-        lblCorreo.setFont(fontTexto);
-        cardPanel.add(lblCorreo, gbc);
 
-        gbc.gridx = 1;
-        txtCorreo = new JTextField(15);
-        estilizarCampo(txtCorreo, fontTexto);
-        cardPanel.add(txtCorreo, gbc);
 
-        gbc.gridy++;
-        gbc.gridx = 0;
-        JLabel lblTelefono = new JLabel("Teléfono:");
-        lblTelefono.setForeground(Color.WHITE);
-        lblTelefono.setFont(fontTexto);
-        cardPanel.add(lblTelefono, gbc);
-
-        gbc.gridx = 1;
-        txtTelefono = new JTextField(15);
-        estilizarCampo(txtTelefono, fontTexto);
-        cardPanel.add(txtTelefono, gbc);
-
-        // 🔹 Botón
+        // Botón
         gbc.gridy++;
         gbc.gridx = 0;
         gbc.gridwidth = 2;
@@ -114,11 +110,8 @@ public class RegistroJugadorUI extends JFrame {
         btnRegistrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         cardPanel.add(btnRegistrar, gbc);
 
-        btnRegistrar.addActionListener((ActionEvent e) -> {
-            registrarJugador();
-        });
+        btnRegistrar.addActionListener((ActionEvent e) -> registrarJugador());
 
-        // Añadir la "card" al panel con fondo
         panelFondo.add(cardPanel);
         add(panelFondo);
     }
@@ -131,34 +124,50 @@ public class RegistroJugadorUI extends JFrame {
         campo.setBorder(BorderFactory.createLineBorder(new Color(138, 43, 226), 2));
     }
 
+    // Método conectado al botón: crea Jugador y delega en DirectorEquipo
     private void registrarJugador() {
         String nombre = txtNombre.getText().trim();
         String nickname = txtNickname.getText().trim();
-        String correo = txtCorreo.getText().trim();
-        String telefono = txtTelefono.getText().trim();
-
-        if (nombre.isEmpty() || nickname.isEmpty() || correo.isEmpty() || telefono.isEmpty()) {
+       //System.out.println("Este es el nombre"+ nombre);
+        if (nombre.isEmpty() || nickname.isEmpty()) {
             JOptionPane.showMessageDialog(this,
                     "⚠️ Debe completar todos los campos obligatorios",
                     "Error de registro",
                     JOptionPane.ERROR_MESSAGE);
-        } else {
+            return;
+        }
+
+        // Crear un id para el jugador (puedes adaptar el esquema a tu modelo)
+        //String idJugador = java.util.UUID.randomUUID().toString();
+        String idEquipo = (director.getEquipoAsignado() != null) ? director.getEquipoAsignado().getIdEquipo() : "E01";
+
+
+        try {
+   
+Jugador nuevo = new Jugador("", idEquipo, nombre, nickname);
+
+            director.agregarJugador(nuevo);
+
             JOptionPane.showMessageDialog(this,
-                    """
-                    \u2705 Jugador registrado exitosamente:
-                    Nombre: """ + nombre + "\n"
-                    + "Nickname: " + nickname + "\n"
-                    + "Correo: " + correo + "\n"
-                    + "Teléfono: " + telefono,
+                    "✅ Jugador registrado exitosamente:\n" +
+                            "Nombre: " + nombre + "\n" +
+                            "Nickname: " + nickname,
                     "Registro exitoso",
                     JOptionPane.INFORMATION_MESSAGE);
 
-            txtNombre.setText("");
-            txtNickname.setText("");
-            txtCorreo.setText("");
-            txtTelefono.setText("");
+            limpiarCampos();
+
+        } catch (Exception ex) {
+            // Mostrar el mensaje que lanzó la lógica de negocio (validaciones / persistencia)
+            JOptionPane.showMessageDialog(this,
+                    "❌ Error al registrar el jugador:\n" + ex.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    
+
+    private void limpiarCampos() {
+        txtNombre.setText("");
+        txtNickname.setText("");
+    }
 }
