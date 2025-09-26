@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             // Crear modelo
-            Equipo equipo = new Equipo("E01", "Dark Warriors", new ArrayList<>(), "E01");
+            Equipo equipo = new Equipo("E01", "Dark Warriors", new ArrayList<>(), "D01");
             DirectorEquipo director = new DirectorEquipo("D01","E01","Luis Ramírez","luis@esports.com", equipo);
 
             // Crear UI inyectando el director

@@ -1,3 +1,1 @@
-J01,E01,Omar,Santiago
-J01,E01,Stiven,Manco
-J3,E01,Calpa,rayo
+J1,E01,Carlos Pérez,Shadow,Shadow@mail.com

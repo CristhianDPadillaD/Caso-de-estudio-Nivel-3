@@ -21,7 +21,7 @@ public class TestRegistroJugador {
     
     @Test
     public void testRegistroJugador() throws Exception {
-                Jugador jugador1 = new Jugador("01", "E01", "Carlos Pérez", "Shadow");
+                Jugador jugador1 = new Jugador("01", "E01", "Carlos Pérez", "Shadow", "Shadow@mail.com");
         director1.agregarJugador(jugador1);
 
         assertTrue(equipo1.existeJugadorConNickname("Shadow"));
@@ -29,14 +29,14 @@ public class TestRegistroJugador {
     // invalido nombre vacío
     @Test(expected = Exception.class)
     public void testRegistrarJugador02() throws Exception {
-        Jugador jugador = new Jugador("02", "E01", "", "Zero");
+        Jugador jugador = new Jugador("02", "E01", "", "Zero","zero@mail.com");
         director1.agregarJugador(jugador);
     }
     
     //invalido por campos vacios
  @Test(expected = Exception.class)
     public void testRegistrarJugador03() throws Exception {
-        Jugador jugador = new Jugador("03", "E01", "Carlos Pérez", "");
+        Jugador jugador = new Jugador("03", "E01", "Carlos Pérez", "","");
         director1.agregarJugador(jugador);
     }
     

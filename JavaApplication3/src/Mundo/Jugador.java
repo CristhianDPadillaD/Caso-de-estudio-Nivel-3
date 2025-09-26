@@ -7,13 +7,15 @@ public class Jugador {
     private String idEquipo; 
     private String nombre;
     private String nickname;
+    private String correo;
     //constructor
 
-    public Jugador(String idJugador, String idEquipo, String nombre, String nickname) {
+    public Jugador(String idJugador, String idEquipo, String nombre, String nickname, String correo) {
         this.idJugador = idJugador;
         this.idEquipo = idEquipo;
         this.nombre = nombre;
         this.nickname = nickname;
+        this.correo = correo;
     }
     
     //getter and setter
@@ -48,10 +50,18 @@ public class Jugador {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
+    
+       public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
    
     @Override
     public String toString() {
-        return idJugador +" | "+ idEquipo+" | "+nickname+" | "+nombre;
+        return idJugador +" | "+ idEquipo+" | "+nickname+" | "+nombre+ correo;
     }
 }

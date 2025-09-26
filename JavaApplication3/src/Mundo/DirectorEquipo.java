@@ -6,8 +6,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 // No se usa ArrayList directamente aquí, solo en la clase Equipo y el Main.
 
 public class DirectorEquipo {
@@ -87,6 +85,7 @@ public class DirectorEquipo {
     // Normalizar y validar campos obligatorios
     String name = (nuevoJugador.getNombre() != null) ? nuevoJugador.getNombre().trim() : "";
     String nickname = (nuevoJugador.getNickname() != null) ? nuevoJugador.getNickname().trim() : "";
+    String mail = (nuevoJugador.getCorreo()!=null)? nuevoJugador.getCorreo().trim():"";
 
     if (name.isEmpty()) {
         throw new Exception("Nombre del jugador es obligatorio.");
@@ -125,7 +124,8 @@ public class DirectorEquipo {
     String lineaJugador = (nuevoJugador.getIdJugador() != null ? nuevoJugador.getIdJugador() : "") + "," 
                         + (nuevoJugador.getIdEquipo() != null ? nuevoJugador.getIdEquipo() : "") + ","
                         + name + ","
-                        + nickname ;
+                        + nickname+","+
+                            mail;
 
     // Persistencia: escribir en archivo primero
     try (FileWriter fileWriter = new FileWriter(nombreArchivo, true);

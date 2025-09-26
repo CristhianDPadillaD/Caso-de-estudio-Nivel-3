@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class RegistroJugadorUI extends JFrame {
 
-    private JTextField txtNombre, txtNickname;
+    private JTextField txtNombre, txtNickname, txtCorreo;
     private JButton btnRegistrar;
     private Image backgroundImage;
     private final DirectorEquipo director; // ahora la UI conoce al director
@@ -96,6 +96,18 @@ public class RegistroJugadorUI extends JFrame {
         estilizarCampo(txtNickname, fontTexto);
         cardPanel.add(txtNickname, gbc);
 
+         gbc.gridy++;
+        gbc.gridx = 0;
+        JLabel lblCorreo = new JLabel("Correo:");
+        lblCorreo.setForeground(Color.WHITE);
+        lblCorreo.setFont(fontTexto);
+        cardPanel.add(lblCorreo, gbc);
+
+        gbc.gridx = 1;
+        txtCorreo = new JTextField(15);
+        estilizarCampo(txtCorreo, fontTexto);
+        cardPanel.add(txtCorreo, gbc);
+
 
 
         // Botón
@@ -128,8 +140,9 @@ public class RegistroJugadorUI extends JFrame {
     private void registrarJugador() {
         String nombre = txtNombre.getText().trim();
         String nickname = txtNickname.getText().trim();
+        String correo = txtCorreo.getText().trim();
        //System.out.println("Este es el nombre"+ nombre);
-        if (nombre.isEmpty() || nickname.isEmpty()) {
+        if (nombre.isEmpty() || nickname.isEmpty() || correo.isEmpty()) {
             JOptionPane.showMessageDialog(this,
                     "⚠️ Debe completar todos los campos obligatorios",
                     "Error de registro",
@@ -144,14 +157,16 @@ public class RegistroJugadorUI extends JFrame {
 
         try {
    
-Jugador nuevo = new Jugador("", idEquipo, nombre, nickname);
+Jugador nuevo = new Jugador("", idEquipo, nombre, nickname, correo);
 
             director.agregarJugador(nuevo);
 
             JOptionPane.showMessageDialog(this,
                     "✅ Jugador registrado exitosamente:\n" +
                             "Nombre: " + nombre + "\n" +
-                            "Nickname: " + nickname,
+                            "Nickname: " + nickname+"\n"+
+                            "Correo: " + correo,
+                    
                     "Registro exitoso",
                     JOptionPane.INFORMATION_MESSAGE);
 
