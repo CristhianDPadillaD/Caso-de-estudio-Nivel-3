@@ -19,8 +19,6 @@ public class RegistroJugadorUI extends JFrame {
          backgroundImage = new ImageIcon(getClass().getResource("/Data/Imagenes/fondo.jpg")).getImage();
 
 
-    
-
         // Panel principal con imagen de fondo
         JPanel panelFondo = new JPanel() {
             @Override
@@ -161,4 +159,6 @@ public class RegistroJugadorUI extends JFrame {
             txtTelefono.setText("");
         }
     }
+    
+    
 }
