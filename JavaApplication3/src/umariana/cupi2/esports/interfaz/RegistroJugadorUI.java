@@ -157,7 +157,6 @@ public class RegistroJugadorUI extends JFrame {
 
         try {
    
-Jugador nuevo = new Jugador("", idEquipo, nombre, nickname, correo, "kills", "death", "assists");
 
             director.agregarJugador(nuevo);
 
