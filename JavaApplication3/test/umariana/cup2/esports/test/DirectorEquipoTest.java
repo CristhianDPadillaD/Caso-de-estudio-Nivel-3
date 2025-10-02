@@ -1,4 +1,4 @@
-package TestRegistroJugdor;
+package umariana.cup2.esports.test;
 
 import umariana.cupi2.esports.mundo.DirectorEquipo;
 import umariana.cupi2.esports.mundo.Equipo;
@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TestRegistroJugador {
+public class DirectorEquipoTest {
     
     private Equipo equipo1; 
     private DirectorEquipo director1;
