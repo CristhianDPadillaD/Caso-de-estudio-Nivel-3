@@ -1,8 +1,8 @@
 // Archivo: Interfaz/RegistroJugadorUI.java
-package Interfaz;
+package umariana.cupi2.esports.interfaz;
 
-import Mundo.DirectorEquipo;
-import Mundo.Jugador;
+import umariana.cupi2.esports.mundo.DirectorEquipo;
+import umariana.cupi2.esports.mundo.Jugador;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -157,7 +157,7 @@ public class RegistroJugadorUI extends JFrame {
 
         try {
    
-Jugador nuevo = new Jugador("", idEquipo, nombre, nickname, correo);
+Jugador nuevo = new Jugador("", idEquipo, nombre, nickname, correo, "kills", "death", "assists");
 
             director.agregarJugador(nuevo);
 

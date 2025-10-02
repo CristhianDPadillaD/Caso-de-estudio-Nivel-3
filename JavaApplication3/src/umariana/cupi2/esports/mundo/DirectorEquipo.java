@@ -1,4 +1,4 @@
-package Mundo;
+package umariana.cupi2.esports.mundo;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,11 +6,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-// No se usa ArrayList directamente aquí, solo en la clase Equipo y el Main.
 
 public class DirectorEquipo {
 
-    // Atributos basados en los Datos de la HU (Director1)
+ 
     private String idDirector;
     private String idEquipo; 
     private String nombre;

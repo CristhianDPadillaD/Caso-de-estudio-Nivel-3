@@ -1,4 +1,4 @@
-package Mundo;
+package umariana.cupi2.esports.mundo;
 
 public class Jugador {
 
@@ -8,14 +8,20 @@ public class Jugador {
     private String nombre;
     private String nickname;
     private String correo;
+    private int kills;
+    private int deaths;
+    private int assists;
     //constructor
 
-    public Jugador(String idJugador, String idEquipo, String nombre, String nickname, String correo) {
+    public Jugador(String idJugador, String idEquipo, String nombre, String nickname, String correo, int kills, int deaths, int assists) {
         this.idJugador = idJugador;
         this.idEquipo = idEquipo;
         this.nombre = nombre;
         this.nickname = nickname;
         this.correo = correo;
+        this.kills = kills;
+        this.deaths = deaths;
+        this.assists = assists;
     }
     
     //getter and setter
@@ -59,9 +65,30 @@ public class Jugador {
         this.correo = correo;
     }
 
-   
-    @Override
-    public String toString() {
-        return idJugador +" | "+ idEquipo+" | "+nickname+" | "+nombre+ correo;
+    public int getKills() {
+        return kills;
     }
+
+    public void setKills(int kills) {
+        this.kills = kills;
+    }
+
+    public int getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(int deaths) {
+        this.deaths = deaths;
+    }
+
+    public int getAssists() {
+        return assists;
+    }
+
+    public void setAssists(int assists) {
+        this.assists = assists;
+    }
+
+   
+   
 }

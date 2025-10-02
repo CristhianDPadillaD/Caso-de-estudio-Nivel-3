@@ -1,4 +1,4 @@
-package Mundo;
+package umariana.cupi2.esports.mundo;
 
 import java.util.ArrayList;
 
@@ -7,8 +7,7 @@ public class Equipo {
 
     private String idEquipo;
     private String nombre;
-    private ArrayList<Jugador> jugadores; // Lista de jugadores que pertenecen a este equipo
-
+    private ArrayList<Jugador> jugadores;
     private String idDirector; 
 
     public Equipo(String idEquipo, String nombre, ArrayList<Jugador> jugadores, String idDirector) {
@@ -27,7 +26,6 @@ public class Equipo {
         return jugadores;
     }
     
-    // Método de búsqueda para validación
     public boolean existeJugadorConNickname(String nickname) {
         for (Jugador j : jugadores) {
             if (j.getNickname().equalsIgnoreCase(nickname)) {
