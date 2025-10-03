@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DirectorEquipo {
 
@@ -142,8 +144,46 @@ public class DirectorEquipo {
 
     System.out.println("LOG: Jugador agregado y guardado en " + nombreArchivo);
 }
+       public void registrarPartida(String pIdPartida, Equipo pEquipoRival, int pPuntuacionPropia, int pPuntuacionRival) throws Exception {
 
+        // Criterio 3: Validación de omisión de datos obligatorios
+        if (pIdPartida == null || pIdPartida.trim().isEmpty()) {
+            throw new Exception("El ID de la partida es un dato obligatorio.");
+        }
+        if (pEquipoRival == null) {
+            throw new Exception("El equipo rival es un dato obligatorio.");
+        }
+        // Asumiendo que las puntuaciones no pueden ser negativas
+        if (pPuntuacionPropia < 0 || pPuntuacionRival < 0) {
+             throw new Exception("Las puntuaciones no pueden ser negativas.");
+        }
+        
+        // 1. Crear el objeto Partida
+        // El equipo propio es el equipo asignado a este director
+        Partida nuevaPartida = new Partida(pIdPartida, equipoAsignado, pEquipoRival, pPuntuacionPropia, pPuntuacionRival);
+        
+        // 2. Criterio 2: Guardar los resultados en el sistema
+        
+        // El equipo del director guarda la partida en su historial
+        equipoAsignado.addPartida(nuevaPartida);
+        
+        // También se debería registrar la partida en el historial del equipo rival
+        // pEquipoRival.addPartida(nuevaPartida); 
 
+        System.out.println("LOG: Partida " + pIdPartida + " registrada exitosamente para el equipo " + equipoAsignado.getNombre());
+    }
+
+public List<Jugador> consultarListaJugadores() {
+        // Criterio 1: El director accede a la lista del equipo asignado
+        if (equipoAsignado == null) {
+            // Manejar caso extremo si no hay equipo asignado
+            System.err.println("Advertencia: El director no tiene un equipo asignado.");
+            return new ArrayList<>();
+        }
+        
+        
+        return equipoAsignado.getJugadores();
+    }
        
  
 }

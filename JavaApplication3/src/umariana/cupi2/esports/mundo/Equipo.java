@@ -9,15 +9,17 @@ public class Equipo {
     private String nombre;
     private ArrayList<Jugador> jugadores;
     private String idDirector; 
+    private ArrayList <Partida> partidas;
 
-    public Equipo(String idEquipo, String nombre, ArrayList<Jugador> jugadores, String idDirector) {
+    public Equipo(String idEquipo, String nombre, ArrayList<Jugador> jugadores, String idDirector, ArrayList<Partida> partidas ) {
         this.idEquipo = idEquipo;
         this.nombre = nombre;
         this.jugadores = jugadores;
         this.idDirector = idDirector;
+        this.partidas = partidas;
     }
   
-     // Método de bajo nivel: solo añade el jugador a su lista.
+    
     public void addJugador(Jugador nuevoJugador) {
         jugadores.add(nuevoJugador);
     }
@@ -25,15 +27,7 @@ public class Equipo {
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
     }
-    
-    public boolean existeJugadorConNickname(String nickname) {
-        for (Jugador j : jugadores) {
-            if (j.getNickname().equalsIgnoreCase(nickname)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     public String getIdEquipo() {
         return idEquipo;
@@ -59,6 +53,29 @@ public class Equipo {
         this.idDirector = idDirector;
     }
 
- 
+    public boolean existeJugadorConNickname(String nickname) {
+        for (Jugador j : jugadores) {
+            if (j.getNickname().equalsIgnoreCase(nickname)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+  public void addPartida(Partida pPartida) {
+        if (partidas == null) {
+            partidas = new ArrayList<>();
+        }
+        this.partidas.add(pPartida);
+    }
+    
+    // Getter esencial para las pruebas y consultas
+    public ArrayList<Partida> getPartidas() {
+        if (partidas == null) {
+            partidas = new ArrayList<>();
+        }
+        return partidas;
+    }
+    
 
 }

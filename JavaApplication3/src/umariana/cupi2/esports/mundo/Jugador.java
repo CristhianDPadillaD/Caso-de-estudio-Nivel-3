@@ -24,7 +24,8 @@ public class Jugador {
         this.assists = assists;
     }
     
-    //getter and setter
+
+    
     public String getIdJugador() {
         return idJugador;
     }

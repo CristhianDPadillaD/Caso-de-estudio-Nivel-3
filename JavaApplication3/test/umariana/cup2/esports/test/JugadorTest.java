@@ -4,10 +4,7 @@
  */
 package umariana.cup2.esports.test;
 
-/**
- *
- * @author Cris
- */
+
 public class JugadorTest {
     
 }
