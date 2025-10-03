@@ -131,7 +131,7 @@ public class Esports_UI extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Stencil", 2, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registro de partidas");
@@ -139,7 +139,9 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 310, 60));
 
         jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField1.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Equipo a registrar->");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
@@ -157,7 +159,9 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 310, 30));
 
         jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField2.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("NoMbre CoMpleto ->");
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
@@ -169,7 +173,9 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 170, 30));
 
         jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField3.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("NICKNAME ->");
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
@@ -186,8 +192,10 @@ public class Esports_UI extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 310, 30));
 
-        jButton1.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
-        jButton1.setText("rEGISTRAR");
+        jButton1.setBackground(new java.awt.Color(204, 0, 255));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Registrar");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +205,9 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 620, 140, 50));
 
         jTextField4.setEditable(false);
-        jTextField4.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField4.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setText("CORREO ELECTRONICO->");
         jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
@@ -214,7 +224,7 @@ public class Esports_UI extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 310, 30));
 
-        jComboBox1.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +235,9 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 442, 290, 30));
 
         jTextField5.setEditable(false);
-        jTextField5.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField5.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         jTextField5.setText("Equipo 1");
         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -243,13 +255,15 @@ public class Esports_UI extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 170, 300, 30));
 
-        jComboBox2.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jComboBox2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 300, 30));
 
         jTextField6.setEditable(false);
-        jTextField6.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField6.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setText("Fecha");
         jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -260,13 +274,17 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, 70, 30));
 
         jTextField7.setEditable(false);
-        jTextField7.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField7.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
         jTextField7.setText("Rival");
         jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 70, 30));
 
         jTextField8.setEditable(false);
-        jTextField8.setFont(new java.awt.Font("Stencil", 2, 13)); // NOI18N
+        jTextField8.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 13)); // NOI18N
+        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
         jTextField8.setText("Marcador");
         jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
@@ -277,25 +295,33 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 90, 30));
 
         jTextField9.setEditable(false);
-        jTextField9.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField9.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField9.setForeground(new java.awt.Color(255, 255, 255));
         jTextField9.setText("Kills");
         jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, 70, 30));
 
         jTextField10.setEditable(false);
-        jTextField10.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField10.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField10.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField10.setForeground(new java.awt.Color(255, 255, 255));
         jTextField10.setText("Deaths");
         jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 330, 70, 30));
 
         jTextField11.setEditable(false);
-        jTextField11.setFont(new java.awt.Font("Stencil", 2, 13)); // NOI18N
+        jTextField11.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 13)); // NOI18N
+        jTextField11.setForeground(new java.awt.Color(255, 255, 255));
         jTextField11.setText("Assists");
         jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 70, 30));
 
         jTextField12.setEditable(false);
-        jTextField12.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField12.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField12.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField12.setForeground(new java.awt.Color(255, 255, 255));
         jTextField12.setText("Equipo 2");
         jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
@@ -306,18 +332,22 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 70, 30));
 
         jTextField13.setEditable(false);
-        jTextField13.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField13.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField13.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField13.setForeground(new java.awt.Color(255, 255, 255));
         jTextField13.setText("Fecha");
         jTextField13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 70, 30));
 
-        jComboBox3.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jComboBox3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 420, 300, 30));
 
         jTextField14.setEditable(false);
-        jTextField14.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField14.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField14.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField14.setForeground(new java.awt.Color(255, 255, 255));
         jTextField14.setText("Rival");
         jTextField14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 500, 70, 30));
@@ -355,7 +385,9 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, 300, 30));
 
         jTextField15.setEditable(false);
-        jTextField15.setFont(new java.awt.Font("Stencil", 2, 11)); // NOI18N
+        jTextField15.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField15.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        jTextField15.setForeground(new java.awt.Color(255, 255, 255));
         jTextField15.setText("Marcador");
         jTextField15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 540, 70, 30));
@@ -377,17 +409,19 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 620, 300, 30));
 
         jTextField18.setEditable(false);
-        jTextField18.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField18.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField18.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField18.setForeground(new java.awt.Color(255, 255, 255));
         jTextField18.setText("Assists");
         jTextField18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 660, 70, 30));
 
-        jComboBox4.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jComboBox4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 300, 30));
 
-        jComboBox5.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jComboBox5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 300, 30));
@@ -401,12 +435,16 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, 300, 30));
 
         jTextField16.setEditable(false);
-        jTextField16.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField16.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField16.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField16.setForeground(new java.awt.Color(255, 255, 255));
         jTextField16.setText("Kills");
         jTextField16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 70, 30));
 
-        jButton3.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(204, 0, 255));
+        jButton3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Registrar");
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 720, 120, 30));
@@ -428,12 +466,14 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 250, 300, 30));
 
         jTextField17.setEditable(false);
-        jTextField17.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
+        jTextField17.setBackground(new java.awt.Color(102, 0, 102));
+        jTextField17.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 14)); // NOI18N
+        jTextField17.setForeground(new java.awt.Color(255, 255, 255));
         jTextField17.setText("Deaths");
         jTextField17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 620, 70, 30));
 
-        jLabel5.setFont(new java.awt.Font("Stencil", 2, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Registro de Jugadores");
