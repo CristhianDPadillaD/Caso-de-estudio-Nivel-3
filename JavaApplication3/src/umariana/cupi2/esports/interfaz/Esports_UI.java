@@ -18,7 +18,6 @@ import umariana.cupi2.esports.mundo.Jugador;
  *
  * @author Omar Salazar
  */
-
 public class Esports_UI extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Esports_UI.class.getName());
@@ -26,6 +25,7 @@ public class Esports_UI extends javax.swing.JFrame {
     // ---------- ATRIBUTOS DE LÓGICA ----------
     private DirectorEquipo director;
     private ArrayList<Equipo> equipos; // ⚠ must be 'equipos' (lowercase)
+    
 
     // ---------- CONSTRUCTORES ----------
     /**
@@ -67,7 +67,8 @@ public class Esports_UI extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    private void initComponents() {//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -83,7 +84,48 @@ public class Esports_UI extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jEditorPane4 = new javax.swing.JEditorPane();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jTextField5 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jTextField14 = new javax.swing.JTextField();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea7 = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea9 = new javax.swing.JTextArea();
+        jTextField15 = new javax.swing.JTextField();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTextArea10 = new javax.swing.JTextArea();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTextArea11 = new javax.swing.JTextArea();
+        jTextField18 = new javax.swing.JTextField();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jTextField16 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTextArea12 = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,9 +135,9 @@ public class Esports_UI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Stencil", 2, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Registro de Jugadores");
+        jLabel1.setText("Registro de partidas");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 255)));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 310, 60));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 310, 60));
 
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
@@ -182,8 +224,150 @@ public class Esports_UI extends javax.swing.JFrame {
         });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 442, 290, 30));
 
+        jTextField5.setText("Equipo 1");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 130, 70, 30));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 170, 300, 30));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 300, 30));
+
+        jTextField6.setText("Fecha");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, 70, 30));
+
+        jTextField7.setText("Rival");
+        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 70, 30));
+
+        jTextField8.setText("Marcador");
+        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 70, 30));
+
+        jTextField9.setText("Kills");
+        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, 70, 30));
+
+        jTextField10.setText("Deaths");
+        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 330, 70, 30));
+
+        jTextField11.setText("Assists");
+        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 70, 30));
+
+        jTextField12.setText("Equipo 2");
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 70, 30));
+
+        jTextField13.setText("Fecha");
+        jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 70, 30));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 420, 300, 30));
+
+        jTextField14.setText("Rival");
+        jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 500, 70, 30));
+
+        jTextArea7.setColumns(20);
+        jTextArea7.setRows(5);
+        jScrollPane10.setViewportView(jTextArea7);
+
+        jPanel1.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 300, 30));
+
+        jTextArea6.setColumns(20);
+        jTextArea6.setRows(5);
+        jScrollPane9.setViewportView(jTextArea6);
+
+        jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 370, 300, 30));
+
+        jTextArea5.setColumns(20);
+        jTextArea5.setRows(5);
+        jScrollPane8.setViewportView(jTextArea5);
+
+        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 330, 300, 30));
+
+        jTextArea9.setColumns(20);
+        jTextArea9.setRows(5);
+        jScrollPane12.setViewportView(jTextArea9);
+
+        jPanel1.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, 300, 30));
+
+        jTextField15.setText("Marcador");
+        jPanel1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 540, 70, 30));
+
+        jTextArea10.setColumns(20);
+        jTextArea10.setRows(5);
+        jScrollPane13.setViewportView(jTextArea10);
+
+        jPanel1.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, 300, 30));
+
+        jTextArea11.setColumns(20);
+        jTextArea11.setRows(5);
+        jScrollPane14.setViewportView(jTextArea11);
+
+        jPanel1.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 620, 300, 30));
+
+        jTextField18.setText("Assists");
+        jPanel1.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 660, 70, 30));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 300, 30));
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 300, 30));
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane7.setViewportView(jTextArea4);
+
+        jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, 300, 30));
+
+        jTextField16.setText("Kills");
+        jPanel1.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 70, 30));
+
+        jButton3.setText("Registrar");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 720, 90, 30));
+
+        jTextArea12.setColumns(20);
+        jTextArea12.setRows(5);
+        jScrollPane15.setViewportView(jTextArea12);
+
+        jPanel1.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 660, 300, 30));
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane6.setViewportView(jTextArea3);
+
+        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 250, 300, 30));
+
+        jTextField17.setText("Deaths");
+        jPanel1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 620, 70, 30));
+
+        jLabel5.setFont(new java.awt.Font("Stencil", 2, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Registro de Jugadores");
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 255)));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 310, 60));
+
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 550, 610));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 550, 660));
+
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 550, 610));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/Imagenes/Fondo2.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 1080));
@@ -200,7 +384,7 @@ public class Esports_UI extends javax.swing.JFrame {
         );
 
         pack();
-    }//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -233,51 +417,74 @@ public class Esports_UI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
+            // Leer datos de los campos
             String nombre = jEditorPane2.getText().trim();
             String nickname = jEditorPane3.getText().trim();
             String correo = jEditorPane4.getText().trim();
 
-            if (nombre.isEmpty() || nickname.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Nombre y nickname son obligatorios.");
+            // Validaciones básicas
+            if (nombre.isEmpty() || nickname.isEmpty() || correo.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor completa todos los campos antes de registrar.");
                 return;
             }
 
+            // Verificar selección de equipo
             int idx = jComboBox1.getSelectedIndex();
             if (idx < 0 || idx >= equipos.size()) {
                 JOptionPane.showMessageDialog(this, "Selecciona un equipo válido.");
                 return;
             }
 
-            Equipo seleccionado = equipos.get(idx);
+            Equipo equipoSeleccionado = equipos.get(idx);
 
-            // IMPORTANTE: actualizar el equipo asignado al director para que la persistencia
-            // en DirectorEquipo use el equipo correcto
+            // Crear un nuevo jugador (con estadísticas iniciales en 0)
+            Jugador nuevoJugador = new Jugador(
+                    null, // ID (puedes generarlo automático en Jugador)
+                    equipoSeleccionado.getIdEquipo(), // ID del equipo
+                    nombre,
+                    nickname,
+                    correo,
+                    0, 0, 0 // Kills, Deaths, Assists
+            );
+
+            // Registrar jugador
             if (director != null) {
-                director.setEquipoAsignado(seleccionado);
-            }
-
-            Jugador nuevo = new Jugador(null, seleccionado.getIdEquipo(), nombre, nickname, correo, 0, 0, 0);
-
-            // La lógica de agregarJugador maneja validaciones y la persistencia en archivo
-            if (director == null) {
-                // si por alguna razón no hay director, añadimos en memoria directamente al equipo
-                seleccionado.addJugador(nuevo);
+                // Se usa la lógica del DirectorEquipo (que guarda el jugador en archivo)
+                director.agregarJugador(nuevoJugador);
             } else {
-                director.agregarJugador(nuevo);
+                // Si no hay director, se agrega directamente al equipo en memoria
+                equipoSeleccionado.addJugador(nuevoJugador);
             }
 
-            JOptionPane.showMessageDialog(this, "Jugador registrado correctamente en equipo: " + seleccionado.getNombre());
+            // Confirmar éxito
+            JOptionPane.showMessageDialog(this,
+                    "✅ Jugador registrado correctamente en el equipo: " + equipoSeleccionado.getNombre(),
+                    "Registro exitoso",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
 
-            // limpiar campos
+            // Limpiar los campos de texto
             jEditorPane2.setText("");
             jEditorPane3.setText("");
             jEditorPane4.setText("");
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Error al registrar: " + ex.getMessage());
+            JOptionPane.showMessageDialog(this, "❌ Error al registrar el jugador: " + ex.getMessage());
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,21 +514,62 @@ public class Esports_UI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton jButton1;
+    javax.swing.JButton jButton3;
     javax.swing.JComboBox<String> jComboBox1;
+    javax.swing.JComboBox<String> jComboBox2;
+    javax.swing.JComboBox<String> jComboBox3;
+    javax.swing.JComboBox<String> jComboBox4;
+    javax.swing.JComboBox<String> jComboBox5;
     javax.swing.JEditorPane jEditorPane2;
     javax.swing.JEditorPane jEditorPane3;
     javax.swing.JEditorPane jEditorPane4;
     javax.swing.JLabel jLabel1;
     javax.swing.JLabel jLabel2;
     javax.swing.JLabel jLabel3;
+    javax.swing.JLabel jLabel4;
+    javax.swing.JLabel jLabel5;
     javax.swing.JPanel jPanel1;
+    javax.swing.JScrollPane jScrollPane1;
+    javax.swing.JScrollPane jScrollPane10;
+    javax.swing.JScrollPane jScrollPane12;
+    javax.swing.JScrollPane jScrollPane13;
+    javax.swing.JScrollPane jScrollPane14;
+    javax.swing.JScrollPane jScrollPane15;
     javax.swing.JScrollPane jScrollPane2;
     javax.swing.JScrollPane jScrollPane3;
     javax.swing.JScrollPane jScrollPane4;
+    javax.swing.JScrollPane jScrollPane6;
+    javax.swing.JScrollPane jScrollPane7;
+    javax.swing.JScrollPane jScrollPane8;
+    javax.swing.JScrollPane jScrollPane9;
+    javax.swing.JTextArea jTextArea1;
+    javax.swing.JTextArea jTextArea10;
+    javax.swing.JTextArea jTextArea11;
+    javax.swing.JTextArea jTextArea12;
+    javax.swing.JTextArea jTextArea3;
+    javax.swing.JTextArea jTextArea4;
+    javax.swing.JTextArea jTextArea5;
+    javax.swing.JTextArea jTextArea6;
+    javax.swing.JTextArea jTextArea7;
+    javax.swing.JTextArea jTextArea9;
     javax.swing.JTextField jTextField1;
+    javax.swing.JTextField jTextField10;
+    javax.swing.JTextField jTextField11;
+    javax.swing.JTextField jTextField12;
+    javax.swing.JTextField jTextField13;
+    javax.swing.JTextField jTextField14;
+    javax.swing.JTextField jTextField15;
+    javax.swing.JTextField jTextField16;
+    javax.swing.JTextField jTextField17;
+    javax.swing.JTextField jTextField18;
     javax.swing.JTextField jTextField2;
     javax.swing.JTextField jTextField3;
     javax.swing.JTextField jTextField4;
+    javax.swing.JTextField jTextField5;
+    javax.swing.JTextField jTextField6;
+    javax.swing.JTextField jTextField7;
+    javax.swing.JTextField jTextField8;
+    javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
 }
