@@ -67,8 +67,7 @@ public class Esports_UI extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() {//GEN-BEGIN:initComponents
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -217,6 +216,7 @@ public class Esports_UI extends javax.swing.JFrame {
 
         jComboBox1.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -224,7 +224,10 @@ public class Esports_UI extends javax.swing.JFrame {
         });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 442, 290, 30));
 
+        jTextField5.setEditable(false);
+        jTextField5.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField5.setText("Equipo 1");
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -233,15 +236,22 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 130, 70, 30));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 170, 300, 30));
 
+        jComboBox2.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 300, 30));
 
+        jTextField6.setEditable(false);
+        jTextField6.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField6.setText("Fecha");
+        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
@@ -249,22 +259,45 @@ public class Esports_UI extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, 70, 30));
 
+        jTextField7.setEditable(false);
+        jTextField7.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField7.setText("Rival");
+        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 70, 30));
 
+        jTextField8.setEditable(false);
+        jTextField8.setFont(new java.awt.Font("Stencil", 2, 13)); // NOI18N
         jTextField8.setText("Marcador");
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 70, 30));
+        jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 90, 30));
 
+        jTextField9.setEditable(false);
+        jTextField9.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField9.setText("Kills");
+        jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, 70, 30));
 
+        jTextField10.setEditable(false);
+        jTextField10.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField10.setText("Deaths");
+        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 330, 70, 30));
 
+        jTextField11.setEditable(false);
+        jTextField11.setFont(new java.awt.Font("Stencil", 2, 13)); // NOI18N
         jTextField11.setText("Assists");
+        jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 70, 30));
 
+        jTextField12.setEditable(false);
+        jTextField12.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField12.setText("Equipo 2");
+        jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField12ActionPerformed(evt);
@@ -272,88 +305,132 @@ public class Esports_UI extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 70, 30));
 
+        jTextField13.setEditable(false);
+        jTextField13.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField13.setText("Fecha");
+        jTextField13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 70, 30));
 
+        jComboBox3.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 420, 300, 30));
 
+        jTextField14.setEditable(false);
+        jTextField14.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField14.setText("Rival");
+        jTextField14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 500, 70, 30));
 
         jTextArea7.setColumns(20);
+        jTextArea7.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea7.setRows(5);
+        jTextArea7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane10.setViewportView(jTextArea7);
 
         jPanel1.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 300, 30));
 
         jTextArea6.setColumns(20);
+        jTextArea6.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea6.setRows(5);
+        jTextArea6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane9.setViewportView(jTextArea6);
 
         jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 370, 300, 30));
 
         jTextArea5.setColumns(20);
+        jTextArea5.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea5.setRows(5);
+        jTextArea5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane8.setViewportView(jTextArea5);
 
         jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 330, 300, 30));
 
         jTextArea9.setColumns(20);
+        jTextArea9.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea9.setRows(5);
+        jTextArea9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane12.setViewportView(jTextArea9);
 
         jPanel1.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, 300, 30));
 
+        jTextField15.setEditable(false);
+        jTextField15.setFont(new java.awt.Font("Stencil", 2, 11)); // NOI18N
         jTextField15.setText("Marcador");
+        jTextField15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 540, 70, 30));
 
         jTextArea10.setColumns(20);
+        jTextArea10.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea10.setRows(5);
+        jTextArea10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane13.setViewportView(jTextArea10);
 
         jPanel1.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, 300, 30));
 
         jTextArea11.setColumns(20);
+        jTextArea11.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea11.setRows(5);
+        jTextArea11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane14.setViewportView(jTextArea11);
 
         jPanel1.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 620, 300, 30));
 
+        jTextField18.setEditable(false);
+        jTextField18.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField18.setText("Assists");
+        jTextField18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 660, 70, 30));
 
+        jComboBox4.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 300, 30));
 
+        jComboBox5.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 300, 30));
 
         jTextArea4.setColumns(20);
+        jTextArea4.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea4.setRows(5);
+        jTextArea4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane7.setViewportView(jTextArea4);
 
         jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, 300, 30));
 
+        jTextField16.setEditable(false);
+        jTextField16.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField16.setText("Kills");
+        jTextField16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 70, 30));
 
+        jButton3.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jButton3.setText("Registrar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 720, 90, 30));
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 720, 120, 30));
 
         jTextArea12.setColumns(20);
+        jTextArea12.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea12.setRows(5);
+        jTextArea12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane15.setViewportView(jTextArea12);
 
         jPanel1.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 660, 300, 30));
 
         jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextArea3.setRows(5);
+        jTextArea3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jScrollPane6.setViewportView(jTextArea3);
 
         jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 250, 300, 30));
 
+        jTextField17.setEditable(false);
+        jTextField17.setFont(new java.awt.Font("Stencil", 2, 14)); // NOI18N
         jTextField17.setText("Deaths");
+        jTextField17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 620, 70, 30));
 
         jLabel5.setFont(new java.awt.Font("Stencil", 2, 24)); // NOI18N
@@ -364,7 +441,7 @@ public class Esports_UI extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 310, 60));
 
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 550, 660));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 550, 660));
 
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 255)));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 550, 610));
@@ -384,7 +461,7 @@ public class Esports_UI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -485,6 +562,10 @@ public class Esports_UI extends javax.swing.JFrame {
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
 
     /**
      * @param args the command line arguments
