@@ -4,31 +4,37 @@
  */
 package umariana.cupi2.esports.mundo;
 
-import java.util.List;
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
-import umariana.cupi2.esports.interfaz.RegistroJugadorUI;
+import umariana.cupi2.esports.interfaz.Esports_UI;
 
 
 public class Esports {
-    
-    private List<Equipo> equipos;
+
+    private ArrayList<Equipo> equipos;
 
     public Esports() {
-        this.equipos = new ArrayList <>();
+        this.equipos = new ArrayList<>();
     }
-    
-    
-        public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            // Crear modelo
-            Equipo equipo = new Equipo("E01", "Dark Warriors", new ArrayList<>(), "D01");
-            DirectorEquipo director = new DirectorEquipo("D01","E01","Luis Ramírez","luis@esports.com", equipo);
 
-            // Crear UI inyectando el director
-            RegistroJugadorUI ui = new RegistroJugadorUI( director);
-            ui.setVisible(true);
-        });
-    }
-    
-}
+   public static void main(String[] args) {
+    SwingUtilities.invokeLater(() -> {
+        ArrayList<Equipo> listaEquipos = new ArrayList<>();
+
+        listaEquipos.add(new Equipo("E01", "Dark Warriors", new ArrayList<>(), "D01"));
+        listaEquipos.add(new Equipo("E02", "Cyber Ninjas", new ArrayList<>(), "D02"));
+        listaEquipos.add(new Equipo("E03", "Pixel Masters", new ArrayList<>(), "D03"));
+
+        DirectorEquipo director = new DirectorEquipo(
+            "D01",
+            "E01",
+            "Luis Ramírez",
+            "luis@esports.com",
+            listaEquipos.get(0)  // por defecto el primer equipo
+        );
+
+        // Ahora pasamos la lista completa
+        Esports_UI ui = new Esports_UI(director, listaEquipos);
+        ui.setVisible(true);
+    });
+}}
