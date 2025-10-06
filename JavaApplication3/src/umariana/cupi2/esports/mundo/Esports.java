@@ -31,8 +31,8 @@ public void addEquipo(Equipo equipo) {
     
     public class CargadorDatos { // Puedes integrar esto en tu Interfaz principal
 
-    private static final String ARCHIVO_EQUIPOS = "../../Data/equipos.txt";
-    private static final String ARCHIVO_DIRECTORES = "../../Data/directores.txt";
+    private static final String ARCHIVO_EQUIPOS = "./test/data/equipos.txt";
+    private static final String ARCHIVO_DIRECTORES = "./test/data/directores.txt";
 
     /**
      * Carga todos los datos de equipos y directores e inicializa el modelo.

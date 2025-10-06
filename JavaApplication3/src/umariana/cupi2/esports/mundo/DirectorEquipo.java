@@ -105,7 +105,7 @@ public class DirectorEquipo {
     String nombreEquipo = (equipoAsignado.getNombre() != null && !equipoAsignado.getNombre().trim().isEmpty())
                           ? equipoAsignado.getNombre().replaceAll("\\s+", "_")
                           : equipoAsignado.getIdEquipo();
-    String nombreArchivo = "jugadores " + nombreEquipo + ".txt";
+    String nombreArchivo = "./data/jugadores " + nombreEquipo + ".txt";
 
      // 3. Leer el archivo y contar cuántos jugadores hay
     int contador = 0;

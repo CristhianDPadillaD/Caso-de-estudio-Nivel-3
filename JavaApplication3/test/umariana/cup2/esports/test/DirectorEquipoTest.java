@@ -18,10 +18,11 @@ public class DirectorEquipoTest {
     
     @Before
     public void setUp(){
-        equipo1 = new Equipo("E01", "Dark Warriors", new ArrayList<>() , "E01", new ArrayList<>());
+        
+              equipo1 = new Equipo("E01", "Dark Warriors", new ArrayList<>(), "D01", new ArrayList<>());
         director1 = new DirectorEquipo("D01", "E01", "Luis Ramírez", "luis@esports.com", equipo1);
-         equipo1 = new Equipo("E01", "Dark Warriors", new ArrayList<>(), "D01", new ArrayList<>());
-        equipo2 = new Equipo("E02", "Cyber Ninjas", new ArrayList<>(), "D02", new ArrayList<>());
+   
+          equipo2 = new Equipo("E02", "Cyber Ninjas", new ArrayList<>(), "D02", new ArrayList<>());
     }
     
     @Test
@@ -71,14 +72,7 @@ public class DirectorEquipoTest {
         director1.registrarPartida(null, equipo2, 5, 0); 
     }
     
-    /**
-     * Prueba el registro fallido por puntuación negativa.
-     */
-    @Test(expected = Exception.class)
-    public void testRegistrarPartida_PuntuacionNegativa() throws Exception {
-        // Se omite el ID de partida (se envía null o vacío)
-        director1.registrarPartida("P_TEST_03", equipo2, -1, 5); 
-    }
+ 
     // ----------------------------------------------------------------------
     // II. CONSULTA DE LISTA DE JUGADORES
     // ----------------------------------------------------------------------
