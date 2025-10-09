@@ -31,6 +31,37 @@ public class interfaz extends javax.swing.JFrame {
         fondoTitulo = new javax.swing.JPanel();
         fondoRegistroPartidas = new javax.swing.JPanel();
         registroPartidasTitulo = new javax.swing.JLabel();
+        equipo1Titulo = new javax.swing.JLabel();
+        nombreTitulo1 = new javax.swing.JLabel();
+        equipo1Registro = new javax.swing.JComboBox<>();
+        fecha1Titulo = new javax.swing.JLabel();
+        fecha1Registro = new javax.swing.JTextField();
+        rival1Titulo = new javax.swing.JLabel();
+        rival1Registro = new javax.swing.JComboBox<>();
+        Marcador1Titulo = new javax.swing.JLabel();
+        marcador1Registro = new javax.swing.JTextField();
+        kills1Titulo = new javax.swing.JLabel();
+        kills1Registro = new javax.swing.JTextField();
+        deaths1Titulo = new javax.swing.JLabel();
+        deaths1Registro = new javax.swing.JTextField();
+        assists1Titulo = new javax.swing.JLabel();
+        assists1Registro = new javax.swing.JTextField();
+        equipo2Titulo = new javax.swing.JLabel();
+        nombreTitulo2 = new javax.swing.JLabel();
+        equipo2Registro = new javax.swing.JComboBox<>();
+        fecha2Titulo = new javax.swing.JLabel();
+        fecha2Registro = new javax.swing.JTextField();
+        rival2Titulo = new javax.swing.JLabel();
+        rival2Registro = new javax.swing.JComboBox<>();
+        Marcador2Titulo = new javax.swing.JLabel();
+        marcador2Registro = new javax.swing.JTextField();
+        kills2Titulo = new javax.swing.JLabel();
+        kills2Registro = new javax.swing.JTextField();
+        deaths2Titulo = new javax.swing.JLabel();
+        deaths2Registro = new javax.swing.JTextField();
+        assists2Titulo = new javax.swing.JLabel();
+        assists2Registro = new javax.swing.JTextField();
+        registroPartidaBoton = new javax.swing.JButton();
         fondoRegistroJugadores = new javax.swing.JPanel();
         registroJugadoresTitulo = new javax.swing.JLabel();
         nombreRegistro = new javax.swing.JTextField();
@@ -62,7 +93,7 @@ public class interfaz extends javax.swing.JFrame {
         fondoTitulo.setLayout(fondoTituloLayout);
         fondoTituloLayout.setHorizontalGroup(
             fondoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 906, Short.MAX_VALUE)
+            .addGap(0, 916, Short.MAX_VALUE)
         );
         fondoTituloLayout.setVerticalGroup(
             fondoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,7 +101,7 @@ public class interfaz extends javax.swing.JFrame {
         );
 
         background.add(fondoTitulo);
-        fondoTitulo.setBounds(60, 20, 910, 90);
+        fondoTitulo.setBounds(50, 20, 920, 90);
 
         fondoRegistroPartidas.setBackground(new java.awt.Color(30, 78, 78));
 
@@ -78,25 +109,230 @@ public class interfaz extends javax.swing.JFrame {
         registroPartidasTitulo.setForeground(new java.awt.Color(255, 255, 255));
         registroPartidasTitulo.setText("Registro de partidas");
 
+        equipo1Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        equipo1Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        equipo1Titulo.setText("Equipo 1");
+
+        nombreTitulo1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        nombreTitulo1.setForeground(new java.awt.Color(255, 255, 255));
+        nombreTitulo1.setText("Equipo");
+
+        equipo1Registro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        equipo1Registro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equipo1RegistroActionPerformed(evt);
+            }
+        });
+
+        fecha1Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        fecha1Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        fecha1Titulo.setText("Fecha");
+
+        rival1Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        rival1Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        rival1Titulo.setText("Rival");
+
+        rival1Registro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        Marcador1Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        Marcador1Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        Marcador1Titulo.setText("Marcador");
+
+        kills1Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        kills1Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        kills1Titulo.setText("Kills");
+
+        deaths1Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        deaths1Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        deaths1Titulo.setText("Deaths");
+
+        assists1Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        assists1Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        assists1Titulo.setText("Assists");
+
+        equipo2Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        equipo2Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        equipo2Titulo.setText("Equipo 2");
+
+        nombreTitulo2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        nombreTitulo2.setForeground(new java.awt.Color(255, 255, 255));
+        nombreTitulo2.setText("Equipo");
+
+        equipo2Registro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        equipo2Registro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equipo2RegistroActionPerformed(evt);
+            }
+        });
+
+        fecha2Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        fecha2Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        fecha2Titulo.setText("Fecha");
+
+        rival2Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        rival2Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        rival2Titulo.setText("Rival");
+
+        rival2Registro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        Marcador2Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        Marcador2Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        Marcador2Titulo.setText("Marcador");
+
+        kills2Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        kills2Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        kills2Titulo.setText("Kills");
+
+        deaths2Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        deaths2Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        deaths2Titulo.setText("Deaths");
+
+        assists2Titulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        assists2Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        assists2Titulo.setText("Assists");
+
+        registroPartidaBoton.setBackground(new java.awt.Color(89, 140, 128));
+        registroPartidaBoton.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        registroPartidaBoton.setForeground(new java.awt.Color(255, 255, 255));
+        registroPartidaBoton.setText("Registrar");
+        registroPartidaBoton.setBorder(null);
+        registroPartidaBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registroPartidaBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout fondoRegistroPartidasLayout = new javax.swing.GroupLayout(fondoRegistroPartidas);
         fondoRegistroPartidas.setLayout(fondoRegistroPartidasLayout);
         fondoRegistroPartidasLayout.setHorizontalGroup(
             fondoRegistroPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoRegistroPartidasLayout.createSequentialGroup()
+                .addGroup(fondoRegistroPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoRegistroPartidasLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(equipo1Titulo))
+                    .addGroup(fondoRegistroPartidasLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(fondoRegistroPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreTitulo1)
+                            .addComponent(fecha1Titulo)
+                            .addComponent(fecha1Registro, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(rival1Titulo)
+                            .addComponent(Marcador1Titulo)
+                            .addComponent(marcador1Registro, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(kills1Titulo)
+                            .addComponent(kills1Registro, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(deaths1Titulo)
+                            .addComponent(deaths1Registro, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(assists1Titulo)
+                            .addComponent(assists1Registro, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(equipo1Registro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rival1Registro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(fondoRegistroPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoRegistroPartidasLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(equipo2Titulo))
+                    .addGroup(fondoRegistroPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(nombreTitulo2)
+                        .addComponent(fecha2Titulo)
+                        .addComponent(fecha2Registro)
+                        .addComponent(rival2Titulo)
+                        .addComponent(Marcador2Titulo)
+                        .addComponent(marcador2Registro)
+                        .addComponent(kills2Titulo)
+                        .addComponent(kills2Registro)
+                        .addComponent(deaths2Titulo)
+                        .addComponent(deaths2Registro)
+                        .addComponent(assists2Titulo)
+                        .addComponent(assists2Registro)
+                        .addComponent(equipo2Registro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rival2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoRegistroPartidasLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(registroPartidasTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGap(0, 54, Short.MAX_VALUE)
+                .addGroup(fondoRegistroPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoRegistroPartidasLayout.createSequentialGroup()
+                        .addComponent(registroPartidasTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoRegistroPartidasLayout.createSequentialGroup()
+                        .addComponent(registroPartidaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))))
         );
         fondoRegistroPartidasLayout.setVerticalGroup(
             fondoRegistroPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoRegistroPartidasLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(28, 28, 28)
                 .addComponent(registroPartidasTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(508, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fondoRegistroPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoRegistroPartidasLayout.createSequentialGroup()
+                        .addComponent(equipo1Titulo)
+                        .addGap(18, 18, 18)
+                        .addComponent(nombreTitulo1)
+                        .addGap(1, 1, 1)
+                        .addComponent(equipo1Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fecha1Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(fecha1Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rival1Titulo)
+                        .addGap(1, 1, 1)
+                        .addComponent(rival1Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Marcador1Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(marcador1Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kills1Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(kills1Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deaths1Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(deaths1Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(assists1Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(assists1Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondoRegistroPartidasLayout.createSequentialGroup()
+                        .addComponent(equipo2Titulo)
+                        .addGap(18, 18, 18)
+                        .addComponent(nombreTitulo2)
+                        .addGap(1, 1, 1)
+                        .addComponent(equipo2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fecha2Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(fecha2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rival2Titulo)
+                        .addGap(1, 1, 1)
+                        .addComponent(rival2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Marcador2Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(marcador2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kills2Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(kills2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deaths2Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(deaths2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(assists2Titulo)
+                        .addGap(2, 2, 2)
+                        .addComponent(assists2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(registroPartidaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         background.add(fondoRegistroPartidas);
-        fondoRegistroPartidas.setBounds(520, 130, 460, 580);
+        fondoRegistroPartidas.setBounds(520, 140, 460, 630);
 
         fondoRegistroJugadores.setBackground(new java.awt.Color(107, 64, 133));
 
@@ -155,10 +391,6 @@ public class interfaz extends javax.swing.JFrame {
         fondoRegistroJugadores.setLayout(fondoRegistroJugadoresLayout);
         fondoRegistroJugadoresLayout.setHorizontalGroup(
             fondoRegistroJugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoRegistroJugadoresLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(registroJugadoresTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
             .addGroup(fondoRegistroJugadoresLayout.createSequentialGroup()
                 .addGroup(fondoRegistroJugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoRegistroJugadoresLayout.createSequentialGroup()
@@ -176,13 +408,17 @@ public class interfaz extends javax.swing.JFrame {
                         .addGap(136, 136, 136)
                         .addComponent(registroJugadorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoRegistroJugadoresLayout.createSequentialGroup()
+                .addGap(0, 33, Short.MAX_VALUE)
+                .addComponent(registroJugadoresTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         fondoRegistroJugadoresLayout.setVerticalGroup(
             fondoRegistroJugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoRegistroJugadoresLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(30, 30, 30)
                 .addComponent(registroJugadoresTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(66, 66, 66)
                 .addComponent(nombreTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,14 +436,14 @@ public class interfaz extends javax.swing.JFrame {
                 .addComponent(equipoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(registroJugadorBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         background.add(fondoRegistroJugadores);
-        fondoRegistroJugadores.setBounds(40, 130, 440, 580);
+        fondoRegistroJugadores.setBounds(40, 140, 440, 630);
 
         getContentPane().add(background);
-        background.setBounds(0, 0, 1020, 740);
+        background.setBounds(0, 0, 1010, 920);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -227,6 +463,18 @@ public class interfaz extends javax.swing.JFrame {
     private void registroJugadorBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroJugadorBotonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registroJugadorBotonActionPerformed
+
+    private void equipo1RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipo1RegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_equipo1RegistroActionPerformed
+
+    private void equipo2RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipo2RegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_equipo2RegistroActionPerformed
+
+    private void registroPartidaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroPartidaBotonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registroPartidaBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,21 +512,52 @@ public class interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Marcador1Titulo;
+    private javax.swing.JLabel Marcador2Titulo;
+    private javax.swing.JTextField assists1Registro;
+    private javax.swing.JLabel assists1Titulo;
+    private javax.swing.JTextField assists2Registro;
+    private javax.swing.JLabel assists2Titulo;
     private javax.swing.JPanel background;
     private javax.swing.JTextField correoRegistro;
     private javax.swing.JLabel correoTitulo;
+    private javax.swing.JTextField deaths1Registro;
+    private javax.swing.JLabel deaths1Titulo;
+    private javax.swing.JTextField deaths2Registro;
+    private javax.swing.JLabel deaths2Titulo;
     private javax.swing.JLabel eSportsTitulo;
+    private javax.swing.JComboBox<String> equipo1Registro;
+    private javax.swing.JLabel equipo1Titulo;
+    private javax.swing.JComboBox<String> equipo2Registro;
+    private javax.swing.JLabel equipo2Titulo;
     private javax.swing.JComboBox<String> equipoRegistro;
     private javax.swing.JLabel equipoTitulo;
+    private javax.swing.JTextField fecha1Registro;
+    private javax.swing.JLabel fecha1Titulo;
+    private javax.swing.JTextField fecha2Registro;
+    private javax.swing.JLabel fecha2Titulo;
     private javax.swing.JPanel fondoRegistroJugadores;
     private javax.swing.JPanel fondoRegistroPartidas;
     private javax.swing.JPanel fondoTitulo;
+    private javax.swing.JTextField kills1Registro;
+    private javax.swing.JLabel kills1Titulo;
+    private javax.swing.JTextField kills2Registro;
+    private javax.swing.JLabel kills2Titulo;
+    private javax.swing.JTextField marcador1Registro;
+    private javax.swing.JTextField marcador2Registro;
     private javax.swing.JTextField nicknameRegistro;
     private javax.swing.JLabel nicknameTitulo;
     private javax.swing.JTextField nombreRegistro;
     private javax.swing.JLabel nombreTitulo;
+    private javax.swing.JLabel nombreTitulo1;
+    private javax.swing.JLabel nombreTitulo2;
     private javax.swing.JButton registroJugadorBoton;
     private javax.swing.JLabel registroJugadoresTitulo;
+    private javax.swing.JButton registroPartidaBoton;
     private javax.swing.JLabel registroPartidasTitulo;
+    private javax.swing.JComboBox<String> rival1Registro;
+    private javax.swing.JLabel rival1Titulo;
+    private javax.swing.JComboBox<String> rival2Registro;
+    private javax.swing.JLabel rival2Titulo;
     // End of variables declaration//GEN-END:variables
 }
