@@ -1,4 +1,4 @@
-package umariana.cup2.esports.test;
+package umariana.cupi2.esports.test;
 
 import umariana.cupi2.esports.mundo.DirectorEquipo;
 import umariana.cupi2.esports.mundo.Equipo;
@@ -15,8 +15,8 @@ public class DirectorEquipoTest {
     private Equipo equipo1;
     private Equipo equipo2;
     private DirectorEquipo director1;
-    
-    private static final String TEST_DATA_PATH = "/testData";
+
+    private static final String TEST_DATA_PATH = "./test/testData";
     
     @Before
     public void setUp() {

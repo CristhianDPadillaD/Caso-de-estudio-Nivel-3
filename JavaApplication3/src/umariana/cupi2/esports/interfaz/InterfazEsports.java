@@ -15,7 +15,7 @@ public class InterfazEsports extends javax.swing.JFrame {
     private PanelBanner panelBanner;
     private PanelRegistroJugador panelRegistroJugador;
     private PanelRegistroPartida panelRegistroPartida;
-    // private PanelRegistroPartida panelRegistroPartida; // Lo añadiremos después
+    private PanelConsulta panelConsulta;
 
     /**
      * Constructor de la ventana principal
@@ -121,7 +121,7 @@ public void registrarJugador() {
             director.setEquipoAsignado(equipoPropio);
 
             // Llamar al método del director
-            director.registrarPartida(equipoRival, puntosPropios, puntosRival,DATA_FOLDER_PATH);
+            director.registrarPartida(equipoRival, puntosPropios, puntosRival, DATA_FOLDER_PATH);
 
             // 4. Informa al usuario del éxito
             JOptionPane.showMessageDialog(this, "Partida registrada exitosamente para " + nombreEquipo1 + ".", "Registro Completo", JOptionPane.INFORMATION_MESSAGE);
@@ -132,6 +132,18 @@ public void registrarJugador() {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al registrar la partida:\n" + e.getMessage(), "Error de Negocio", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    public void mostrarConsulta() {
+        panelRegistroJugador.setVisible(false);
+        panelRegistroPartida.setVisible(false);
+        panelConsulta.setVisible(true);
+    }
+
+    public void mostrarPrincipal() {
+        panelRegistroJugador.setVisible(true);
+        panelRegistroPartida.setVisible(true);
+        panelConsulta.setVisible(false);
     }
 
     /**
@@ -166,6 +178,12 @@ public void registrarJugador() {
         panelRegistroPartida = new PanelRegistroPartida(this, esports);
         panelRegistroPartida.setBounds(520, 140, 460, 630); // Lo posicionamos a la derecha
         background.add(panelRegistroPartida);
+
+        // 4. Crear y añadir el panel de consulta
+        panelConsulta = new PanelConsulta(this, esports);
+        panelConsulta.setBounds(40, 140, 440, 630);
+        background.add(panelConsulta);
+        panelConsulta.setVisible(false);
 
         setSize(1010, 810);
         setResizable(false);

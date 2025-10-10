@@ -194,8 +194,6 @@ public void registrarPartida(Equipo pEquipoRival, int pPuntuacionPropia, int pPu
     if (!carpeta.exists()) {
         carpeta.mkdirs();
     }
-
-
     try (FileWriter fileWriter = new FileWriter(nombreArchivo, true);
          PrintWriter printWriter = new PrintWriter(fileWriter)) {
         printWriter.println(lineaPartida);

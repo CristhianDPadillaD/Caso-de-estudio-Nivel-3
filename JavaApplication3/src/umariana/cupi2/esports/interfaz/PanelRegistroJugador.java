@@ -67,6 +67,13 @@ public class PanelRegistroJugador extends JPanel {
         // IMPORTANTE: Cuando se haga clic, se llama al método en la ventana principal
         registroJugadorBoton.addActionListener(e -> principal.registrarJugador());
 
+        JButton consultarBoton = new JButton("Consultar Jugadores");
+        consultarBoton.setBackground(new Color(51, 0, 51));
+        consultarBoton.setFont(new Font("Bahnschrift", 1, 18));
+        consultarBoton.setForeground(Color.WHITE);
+        consultarBoton.setBorder(null);
+        consultarBoton.addActionListener(e -> principal.mostrarConsulta());
+
         // --- Layout de este panel ---
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -88,10 +95,13 @@ public class PanelRegistroJugador extends JPanel {
                                                                 .addComponent(nicknameRegistro)
                                                                 .addComponent(nombreTitulo)
                                                                 .addComponent(nombreRegistro)))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(136, 136, 136)
-                                                .addComponent(registroJugadorBoton, GroupLayout.PREFERRED_SIZE, 138,
-                                                        GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(registroJugadorBoton, GroupLayout.PREFERRED_SIZE, 120,
+                                GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(consultarBoton, GroupLayout.PREFERRED_SIZE, 140,
+                                GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(33, 33, 33)
                                                 .addComponent(registroJugadoresTitulo, GroupLayout.PREFERRED_SIZE, 380,
@@ -126,7 +136,10 @@ public class PanelRegistroJugador extends JPanel {
                                 .addGap(59, 59, 59)
                                 .addComponent(registroJugadorBoton, GroupLayout.PREFERRED_SIZE, 42,
                                         GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(105, Short.MAX_VALUE)));
+                                .addGap(18, 18, 18)
+                                .addComponent(consultarBoton, GroupLayout.PREFERRED_SIZE, 42,
+                                        GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(63, Short.MAX_VALUE)));
     }
 
     // Métodos para que la ventana principal pueda obtener los datos de este panel

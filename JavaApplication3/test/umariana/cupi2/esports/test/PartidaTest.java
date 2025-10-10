@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package umariana.cup2.esports.test;
+package umariana.cupi2.esports.test;
 
 
 import umariana.cupi2.esports.mundo.Partida;
@@ -27,7 +27,7 @@ public class PartidaTest {
         Partida partida = new Partida("P01", equipoA, equipoB, 3, 1);
         
         // El ganador calculado debe ser el nombre del Equipo A
-        assertEquals("El ganador debe ser el nombre del Equipo 1 (Furia)", equipoA.getNombre(), partida.getGanador());
+        assertEquals("El ganador debe ser el nombre del Equipo 1 (Furia)", equipoA.getNombre(), partida.getGanador().getNombre());
         assertTrue("La diferencia de puntuación debe ser correcta", partida.getPuntuacionEquipo1() > partida.getPuntuacionEquipo2());
     }
 
@@ -40,7 +40,7 @@ public class PartidaTest {
         Partida partida = new Partida("P02", equipoA, equipoB, 8, 10);
         
         // El ganador calculado debe ser el nombre del Equipo B
-        assertEquals("El ganador debe ser el nombre del Equipo 2 (Templarios)", equipoB.getNombre(), partida.getGanador());
+        assertEquals("El ganador debe ser el nombre del Equipo 2 (Templarios)", equipoB.getNombre(), partida.getGanador().getNombre());
     }
 
     /**
@@ -50,8 +50,8 @@ public class PartidaTest {
     public void testCalcularGanador_Empate() {
         // Puntuación: 2-2 (Empate)
         Partida partida = new Partida("P03", equipoA, equipoB, 2, 2);
-        
-        // El ganador calculado debe ser "Empate"
-        assertEquals("El resultado debe ser 'Empate'", "Empate", partida.getGanador());
+
+        // En caso de empate, el ganador debe ser null
+        assertNull("En caso de empate, el ganador debe ser null", partida.getGanador());
     }
 }

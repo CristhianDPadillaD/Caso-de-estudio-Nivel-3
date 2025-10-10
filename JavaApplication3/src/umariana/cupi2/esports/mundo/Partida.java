@@ -46,7 +46,8 @@ public class Partida implements Serializable {
 
     @Override
     public String toString() {
+        String resultado = (ganador != null) ? ganador.getNombre() : "Empate";
         return "Partida entre " + equipo1.getNombre() + " y " + equipo2.getNombre() +
-               " → Ganador: " + ganador + " (" + fechaHora + ")";
+               " → Ganador: " + resultado + " (" + fechaHora + ")";
     }
 }

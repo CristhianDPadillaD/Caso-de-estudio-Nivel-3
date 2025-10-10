@@ -1,0 +1,3 @@
+- [x] Actualizar testCalcularGanador_Empate en PartidaTest.java para verificar null en caso de empate
+- [x] Actualizar toString en Partida.java para mostrar "Empate" cuando ganador es null
+- [ ] Ejecutar las pruebas para verificar que pasan
