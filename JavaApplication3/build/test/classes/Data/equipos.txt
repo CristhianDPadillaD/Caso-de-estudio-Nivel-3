@@ -1,3 +1,0 @@
-E01,Dark Warriors,D01
-E02,Cyber Ninjas,D02
-E03,Pixel Masters,D03
