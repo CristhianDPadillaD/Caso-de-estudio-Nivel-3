@@ -6,10 +6,11 @@ import umariana.cupi2.esports.mundo.*;
 public class InterfazEsports extends javax.swing.JFrame {
 
     // --- Atributos ---
+    private static final String DATA_FOLDER_PATH = "./data";
     private Esports esports; // El modelo
     private DirectorEquipo director; // Para interactuar con el modelo
     private Jugador jugador;
-
+    
     // Los paneles (las vistas)
     private PanelBanner panelBanner;
     private PanelRegistroJugador panelRegistroJugador;
@@ -71,7 +72,7 @@ public void registrarJugador() {
             Jugador nuevoJugador = new Jugador(null, equipoSeleccionado.getIdEquipo(), nombre, nickname, correo, 0,0,0);
 
             // d. Llamar al método del director para agregar el jugador
-            director.agregarJugador(nuevoJugador);
+            director.agregarJugador(nuevoJugador,DATA_FOLDER_PATH);
 
             // 4. Informa al usuario del éxito y limpia el panel
             JOptionPane.showMessageDialog(this,
@@ -120,7 +121,7 @@ public void registrarJugador() {
             director.setEquipoAsignado(equipoPropio);
 
             // Llamar al método del director
-            director.registrarPartida(equipoRival, puntosPropios, puntosRival);
+            director.registrarPartida(equipoRival, puntosPropios, puntosRival,DATA_FOLDER_PATH);
 
             // 4. Informa al usuario del éxito
             JOptionPane.showMessageDialog(this, "Partida registrada exitosamente para " + nombreEquipo1 + ".", "Registro Completo", JOptionPane.INFORMATION_MESSAGE);
