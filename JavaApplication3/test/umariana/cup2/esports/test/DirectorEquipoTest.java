@@ -15,7 +15,9 @@ public class DirectorEquipoTest {
     private Equipo equipo1;
     private Equipo equipo2;
     private DirectorEquipo director1;
-
+    
+    private static final String TEST_DATA_PATH = "/testData";
+    
     @Before
     public void setUp() {
 
@@ -28,7 +30,7 @@ public class DirectorEquipoTest {
     @Test
     public void testRegistroJugador() throws Exception {
         Jugador jugador1 = new Jugador("01", "E01", "Carlos Pérez", "Shadow", "Shadow@mail.com", 0, 0, 0);
-        director1.agregarJugador(jugador1);
+        director1.agregarJugador(jugador1, TEST_DATA_PATH);
 
         assertTrue(equipo1.existeJugadorConNickname("Shadow"));
     }
@@ -37,14 +39,14 @@ public class DirectorEquipoTest {
     @Test(expected = Exception.class)
     public void testRegistrarJugador02() throws Exception {
         Jugador jugador = new Jugador("02", "E01", "", "Zero", "zero@mail.com", 0, 0, 0);
-        director1.agregarJugador(jugador);
+        director1.agregarJugador(jugador, TEST_DATA_PATH);
     }
 
     // invalido por campos vacios
     @Test(expected = Exception.class)
     public void testRegistrarJugador03() throws Exception {
         Jugador jugador = new Jugador("03", "E01", "Carlos Pérez", "", "", 0, 0, 0);
-        director1.agregarJugador(jugador);
+        director1.agregarJugador(jugador, TEST_DATA_PATH);
     }
 
     // ----------------------------------------------------------------------
@@ -53,7 +55,7 @@ public class DirectorEquipoTest {
     @Test
     public void testRegistrarPartida_Exitoso() throws Exception {
         // Ejecución
-        director1.registrarPartida(equipo2, 3, 1);
+        director1.registrarPartida(equipo2, 3, 1,TEST_DATA_PATH);
 
         // Verificación
         List<Partida> historial = equipo1.getPartidas();
@@ -75,10 +77,10 @@ public class DirectorEquipoTest {
     @Test
     public void testRegistrarPartida_Secuencial() throws Exception {
         // Preparación: Registrar una primera partida
-        director1.registrarPartida(equipo2, 2, 0);
+        director1.registrarPartida(equipo2, 2, 0,TEST_DATA_PATH);
 
         // Ejecución: Registrar una segunda partida
-        director1.registrarPartida(equipo2, 1, 3);
+        director1.registrarPartida(equipo2, 1, 3,TEST_DATA_PATH);
 
         // Verificación
         List<Partida> historial = equipo1.getPartidas();
@@ -94,7 +96,7 @@ public class DirectorEquipoTest {
     @Test(expected = Exception.class)
     public void testRegistrarPartida_RivalNulo() throws Exception {
         // Se envía un equipo rival nulo
-        director1.registrarPartida(null, 3, 1);
+        director1.registrarPartida(null, 3, 1,TEST_DATA_PATH);
     }
 
     // ----------------------------------------------------------------------
@@ -106,8 +108,8 @@ public class DirectorEquipoTest {
         // Preparación: Registrar jugadores
         Jugador j1 = new Jugador("J1", "E01", "Carlos Pérez", "Shadow", "s@m.com", 0, 0, 0);
         Jugador j2 = new Jugador("J2", "E01", "Ana Gómez", "Luna", "l@m.com", 0, 0, 0);
-        director1.agregarJugador(j1);
-        director1.agregarJugador(j2);
+        director1.agregarJugador(j1,TEST_DATA_PATH);
+        director1.agregarJugador(j2,TEST_DATA_PATH);
 
         // Ejecución
         List<Jugador> listaConsultada = director1.consultarListaJugadores();

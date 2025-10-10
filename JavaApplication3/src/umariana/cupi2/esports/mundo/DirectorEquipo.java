@@ -73,7 +73,7 @@ public class DirectorEquipo {
      * @param nuevoJugador El objeto Jugador a añadir.
      * @throws Exception Si la validación  falla .
      */
-   public void agregarJugador(Jugador nuevoJugador) throws Exception {
+   public void agregarJugador(Jugador nuevoJugador, String pDataFolderPath) throws Exception {
 
     // Validaciones básicas de entrada
     if (equipoAsignado == null) {
@@ -105,7 +105,11 @@ public class DirectorEquipo {
                           ? equipoAsignado.getNombre().replaceAll("\\s+", "_")
                           : equipoAsignado.getIdEquipo();
     
-    String nombreArchivo = daraFolderPath"./jugadores " + nombreEquipo + ".txt";
+    String nombreArchivo = pDataFolderPath+"/jugadores " + nombreEquipo + ".txt";
+     File carpeta = new File(pDataFolderPath);
+    if (!carpeta.exists()) {
+        carpeta.mkdirs();
+    }
 
      // 3. Leer el archivo y contar cuántos jugadores hay
     int contador = 0;
@@ -144,7 +148,7 @@ public class DirectorEquipo {
 
     System.out.println("LOG: Jugador agregado y guardado en " + nombreArchivo);
 }
-public void registrarPartida(Equipo pEquipoRival, int pPuntuacionPropia, int pPuntuacionRival) throws Exception {
+public void registrarPartida(Equipo pEquipoRival, int pPuntuacionPropia, int pPuntuacionRival, String pDataFolderPath) throws Exception {
 
 
     if (pEquipoRival == null) {
@@ -185,7 +189,11 @@ public void registrarPartida(Equipo pEquipoRival, int pPuntuacionPropia, int pPu
                           nuevaPartida.getPuntuacionEquipo2();
 
     String nombreEquipoSanitizado = equipoAsignado.getNombre().replaceAll("\\s+", "_");
-    String nombreArchivo = "./data/partidas_" + nombreEquipoSanitizado + ".txt";
+    String nombreArchivo = pDataFolderPath+"/partidas_" + nombreEquipoSanitizado + ".txt";
+     File carpeta = new File(pDataFolderPath);
+    if (!carpeta.exists()) {
+        carpeta.mkdirs();
+    }
 
 
     try (FileWriter fileWriter = new FileWriter(nombreArchivo, true);

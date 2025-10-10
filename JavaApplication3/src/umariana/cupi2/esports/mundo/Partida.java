@@ -11,7 +11,7 @@ public class Partida implements Serializable {
     private int puntuacionEquipo1;
     private int puntuacionEquipo2;
     private LocalDateTime fechaHora;
-    private String ganador;
+    private Equipo ganador;
 
     // Constructor
     public Partida(String idPartida, Equipo equipo1, Equipo equipo2, int puntuacionEquipo1, int puntuacionEquipo2) {
@@ -25,11 +25,11 @@ public class Partida implements Serializable {
     }
 
     // Método para determinar el ganador
-    private String calcularGanador() {
+    private Equipo calcularGanador() {
         if (puntuacionEquipo1 > puntuacionEquipo2) {
-            return equipo1.getNombre();
+            return equipo1;
         } else if (puntuacionEquipo2 > puntuacionEquipo1) {
-            return equipo2.getNombre();
+            return equipo2;
         } else {
             return null;
         }
@@ -41,7 +41,7 @@ public class Partida implements Serializable {
     public Equipo getEquipo2() { return equipo2; }
     public int getPuntuacionEquipo1() { return puntuacionEquipo1; }
     public int getPuntuacionEquipo2() { return puntuacionEquipo2; }
-    public String getGanador() { return ganador; }
+    public Equipo getGanador() { return ganador; }
     public LocalDateTime getFechaHora() { return fechaHora; }
 
     @Override
