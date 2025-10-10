@@ -94,7 +94,6 @@ public class DirectorEquipo {
     if (nickname.isEmpty()) {
         throw new Exception("Nickname del jugador es obligatorio.");
     }
- 
 
     // Validación: nickname duplicado (usa la lista en memoria)
     if (equipoAsignado.existeJugadorConNickname(nickname)) {
@@ -105,7 +104,8 @@ public class DirectorEquipo {
     String nombreEquipo = (equipoAsignado.getNombre() != null && !equipoAsignado.getNombre().trim().isEmpty())
                           ? equipoAsignado.getNombre().replaceAll("\\s+", "_")
                           : equipoAsignado.getIdEquipo();
-    String nombreArchivo = "./data/jugadores " + nombreEquipo + ".txt";
+    
+    String nombreArchivo = daraFolderPath"./jugadores " + nombreEquipo + ".txt";
 
      // 3. Leer el archivo y contar cuántos jugadores hay
     int contador = 0;
@@ -144,34 +144,61 @@ public class DirectorEquipo {
 
     System.out.println("LOG: Jugador agregado y guardado en " + nombreArchivo);
 }
-       public void registrarPartida(String pIdPartida, Equipo pEquipoRival, int pPuntuacionPropia, int pPuntuacionRival) throws Exception {
+public void registrarPartida(Equipo pEquipoRival, int pPuntuacionPropia, int pPuntuacionRival) throws Exception {
 
-        // Criterio 3: Validación de omisión de datos obligatorios
-        if (pIdPartida == null || pIdPartida.trim().isEmpty()) {
-            throw new Exception("El ID de la partida es un dato obligatorio.");
-        }
-        if (pEquipoRival == null) {
-            throw new Exception("El equipo rival es un dato obligatorio.");
-        }
-        // Asumiendo que las puntuaciones no pueden ser negativas
-        if (pPuntuacionPropia < 0 || pPuntuacionRival < 0) {
-             throw new Exception("Las puntuaciones no pueden ser negativas.");
-        }
-        
-        // 1. Crear el objeto Partida
-        // El equipo propio es el equipo asignado a este director
-        Partida nuevaPartida = new Partida(pIdPartida, equipoAsignado, pEquipoRival, pPuntuacionPropia, pPuntuacionRival);
-        
-        // 2. Criterio 2: Guardar los resultados en el sistema
-        
-        // El equipo del director guarda la partida en su historial
-        equipoAsignado.addPartida(nuevaPartida);
-        
-        // También se debería registrar la partida en el historial del equipo rival
-        // pEquipoRival.addPartida(nuevaPartida); 
 
-        System.out.println("LOG: Partida " + pIdPartida + " registrada exitosamente para el equipo " + equipoAsignado.getNombre());
+    if (pEquipoRival == null) {
+        throw new Exception("El equipo rival es un dato obligatorio.");
     }
+    if (equipoAsignado == null) {
+        throw new Exception("No hay un equipo asignado al director para registrar la partida.");
+    }
+    if (pPuntuacionPropia < 0 || pPuntuacionRival < 0) {
+        throw new Exception("Las puntuaciones no pueden ser negativas.");
+    }
+
+
+    StringBuilder abreviatura = new StringBuilder();
+    String[] palabras = equipoAsignado.getNombre().split("\\s+");
+    for (String palabra : palabras) {
+        if (!palabra.isEmpty()) {
+            abreviatura.append(palabra.charAt(0));
+        }
+    }
+    String prefijoId = abreviatura.toString().toUpperCase();
+
+
+    int numeroPartida = equipoAsignado.getPartidas().size() + 1;
+
+
+    String nuevoIdPartida = prefijoId + "-" + numeroPartida;
+
+
+
+    Partida nuevaPartida = new Partida(nuevoIdPartida, equipoAsignado, pEquipoRival, pPuntuacionPropia, pPuntuacionRival);
+
+
+    String lineaPartida = nuevaPartida.getIdPartida() + "," +
+                          nuevaPartida.getEquipo1().getIdEquipo() + "," +
+                          nuevaPartida.getEquipo2().getIdEquipo() + "," +
+                          nuevaPartida.getPuntuacionEquipo1() + "," +
+                          nuevaPartida.getPuntuacionEquipo2();
+
+    String nombreEquipoSanitizado = equipoAsignado.getNombre().replaceAll("\\s+", "_");
+    String nombreArchivo = "./data/partidas_" + nombreEquipoSanitizado + ".txt";
+
+
+    try (FileWriter fileWriter = new FileWriter(nombreArchivo, true);
+         PrintWriter printWriter = new PrintWriter(fileWriter)) {
+        printWriter.println(lineaPartida);
+    } catch (IOException e) {
+        throw new Exception("Error al guardar la partida en el archivo: " + e.getMessage(), e);
+    }
+
+    equipoAsignado.addPartida(nuevaPartida);
+
+    System.out.println("LOG: Partida " + nuevoIdPartida + " registrada y guardada en " + nombreArchivo);
+}
 
 public List<Jugador> consultarListaJugadores() {
         // Criterio 1: El director accede a la lista del equipo asignado

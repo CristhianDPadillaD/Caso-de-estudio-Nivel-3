@@ -112,4 +112,14 @@ public void addEquipo(Equipo equipo) {
         }
     }
 }
+    
+    public Equipo darEquipoPorNombre(String nombre) {
+    for (Equipo equipo : equipos) {
+        if (equipo.getNombre().equalsIgnoreCase(nombre)) {
+            return equipo;
+        }
+    }
+    return null; 
+}
+    
 }

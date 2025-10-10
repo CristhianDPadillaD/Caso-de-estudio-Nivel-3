@@ -31,7 +31,7 @@ public class Partida implements Serializable {
         } else if (puntuacionEquipo2 > puntuacionEquipo1) {
             return equipo2.getNombre();
         } else {
-            return "Empate";
+            return null;
         }
     }
 

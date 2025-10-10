@@ -282,7 +282,7 @@ public class PanelRegistroPartida extends JPanel {
                                 .addGap(22, 22, 22)));
     }
 
-    // --- Métodos para que la ventana principal pueda obtener los datos ---
+
     public String getEquipo1() {
         return (String) equipo1Registro.getSelectedItem();
     }
@@ -290,5 +290,23 @@ public class PanelRegistroPartida extends JPanel {
     public String getFecha1() {
         return fecha1Registro.getText();
     }
-    // ... (podrías agregar getters para todos los campos si los necesitas)
+    public String getRival1() { return (String) rival1Registro.getSelectedItem(); }
+    public String getMarcador1() { return marcador1Registro.getText(); }
+    public String getKills1() { return kills1Registro.getText(); }
+    public String getDeaths1() { return deaths1Registro.getText(); }
+    public String getAssists1() { return assists1Registro.getText(); }
+    
+    public String getEquipo2() { return (String) equipo2Registro.getSelectedItem(); }
+    public String getFecha2() { return fecha2Registro.getText(); }
+    public String getRival2() { return (String) rival2Registro.getSelectedItem(); }
+    public String getMarcador2() { return marcador2Registro.getText(); }
+    public String getKills2() { return kills2Registro.getText(); }
+    public String getDeaths2() { return deaths2Registro.getText(); }
+    public String getAssists2() { return assists2Registro.getText(); }
+
+    public void limpiarCampos() {
+        fecha1Registro.setText("");
+        marcador1Registro.setText("");
+    
+}
 }

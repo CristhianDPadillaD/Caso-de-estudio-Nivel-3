@@ -11,73 +11,97 @@ import static org.junit.Assert.*;
 import umariana.cupi2.esports.mundo.Partida;
 
 public class DirectorEquipoTest {
-    
-    private Equipo equipo1; 
-    private Equipo equipo2; 
+
+    private Equipo equipo1;
+    private Equipo equipo2;
     private DirectorEquipo director1;
-    
+
     @Before
-    public void setUp(){
-        
-              equipo1 = new Equipo("E01", "Dark Warriors", new ArrayList<>(), "D01", new ArrayList<>());
+    public void setUp() {
+
+        equipo1 = new Equipo("E01", "Dark Warriors", new ArrayList<>(), "D01", new ArrayList<>());
         director1 = new DirectorEquipo("D01", "E01", "Luis Ramírez", "luis@esports.com", equipo1);
-   
-          equipo2 = new Equipo("E02", "Cyber Ninjas", new ArrayList<>(), "D02", new ArrayList<>());
+
+        equipo2 = new Equipo("E02", "Cyber Ninjas", new ArrayList<>(), "D02", new ArrayList<>());
     }
-    
+
     @Test
     public void testRegistroJugador() throws Exception {
-                Jugador jugador1 = new Jugador("01", "E01", "Carlos Pérez", "Shadow", "Shadow@mail.com",0,0,0);
+        Jugador jugador1 = new Jugador("01", "E01", "Carlos Pérez", "Shadow", "Shadow@mail.com", 0, 0, 0);
         director1.agregarJugador(jugador1);
 
         assertTrue(equipo1.existeJugadorConNickname("Shadow"));
     }
+
     // invalido nombre vacío
     @Test(expected = Exception.class)
     public void testRegistrarJugador02() throws Exception {
-        Jugador jugador = new Jugador("02", "E01", "", "Zero","zero@mail.com",0,0,0);
+        Jugador jugador = new Jugador("02", "E01", "", "Zero", "zero@mail.com", 0, 0, 0);
         director1.agregarJugador(jugador);
     }
-    
-    //invalido por campos vacios
- @Test(expected = Exception.class)
+
+    // invalido por campos vacios
+    @Test(expected = Exception.class)
     public void testRegistrarJugador03() throws Exception {
-        Jugador jugador = new Jugador("03", "E01", "Carlos Pérez", "","",0,0,0);
+        Jugador jugador = new Jugador("03", "E01", "Carlos Pérez", "", "", 0, 0, 0);
         director1.agregarJugador(jugador);
     }
-    
-    
+
     // ----------------------------------------------------------------------
     // II. REGISTRO DE PARTIDAS
-    //  ----------------------------------------------------------------------
-      @Test
+    // ----------------------------------------------------------------------
+    @Test
     public void testRegistrarPartida_Exitoso() throws Exception {
         // Ejecución
-        director1.registrarPartida("P_TEST_01", equipo2, 3, 1);
+        director1.registrarPartida(equipo2, 3, 1);
 
-        // Verificación (Criterio 2: Guardar los resultados en el sistema)
+        // Verificación
         List<Partida> historial = equipo1.getPartidas();
-        
+        assertFalse("El historial no debería estar vacío", historial.isEmpty());
         assertEquals("El historial del equipo debe tener 1 partida", 1, historial.size());
-        assertEquals("La partida debe ser la registrada", "P_TEST_01", historial.get(0).getIdPartida());
-        assertEquals("El ganador debe ser el equipo propio (Dark Warriors)", equipo1.getNombre(), historial.get(0).getGanador());
+
+        // Verificar que el ID se generó correctamente (DW por Dark Warriors, -1 por ser
+        // la primera)
+        assertEquals("El ID de la partida debe ser 'DW-1'", "DW-1", historial.get(0).getIdPartida());
+
+        // Verificar el ganador
+        assertEquals("El ganador debe ser el equipo propio (Dark Warriors)", equipo1,
+                historial.get(0).getGanador());
     }
 
     /**
-     * Prueba el registro fallido por omisión de ID de partida (Criterio 3).
+     * Prueba que se genera un ID secuencial correcto para la segunda partida.
+     */
+    @Test
+    public void testRegistrarPartida_Secuencial() throws Exception {
+        // Preparación: Registrar una primera partida
+        director1.registrarPartida(equipo2, 2, 0);
+
+        // Ejecución: Registrar una segunda partida
+        director1.registrarPartida(equipo2, 1, 3);
+
+        // Verificación
+        List<Partida> historial = equipo1.getPartidas();
+        assertEquals("El historial del equipo debe tener 2 partidas", 2, historial.size());
+
+        // Verificar que el ID de la segunda partida es correcto
+        assertEquals("El ID de la segunda partida debe ser 'DW-2'", "DW-2", historial.get(1).getIdPartida());
+    }
+
+    /**
+     * Prueba el registro fallido si el equipo rival es nulo.
      */
     @Test(expected = Exception.class)
-    public void testRegistrarPartida_FaltaID() throws Exception {
-        // Se omite el ID de partida (se envía null o vacío)
-        director1.registrarPartida(null, equipo2, 5, 0); 
+    public void testRegistrarPartida_RivalNulo() throws Exception {
+        // Se envía un equipo rival nulo
+        director1.registrarPartida(null, 3, 1);
     }
-    
- 
+
     // ----------------------------------------------------------------------
     // II. CONSULTA DE LISTA DE JUGADORES
     // ----------------------------------------------------------------------
 
-     @Test
+    @Test
     public void testConsultarListaJugadores05_ConJugadores() throws Exception {
         // Preparación: Registrar jugadores
         Jugador j1 = new Jugador("J1", "E01", "Carlos Pérez", "Shadow", "s@m.com", 0, 0, 0);
@@ -96,7 +120,7 @@ public class DirectorEquipoTest {
     @Test
     public void testConsultarListaJugadores06_SinJugadores() {
         // Preparación: Equipo vacío (por setUp)
-        
+
         // Ejecución
         List<Jugador> listaConsultada = director1.consultarListaJugadores();
 
