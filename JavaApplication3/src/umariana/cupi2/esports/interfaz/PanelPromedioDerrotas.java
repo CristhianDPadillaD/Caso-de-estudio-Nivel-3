@@ -13,57 +13,43 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import umariana.cupi2.esports.mundo.Equipo;
 import umariana.cupi2.esports.mundo.Esports;
-import umariana.cupi2.esports.mundo.Jugador;
 
-public class PanelConsulta extends JPanel {
+public class PanelPromedioDerrotas extends JPanel {
 
     private InterfazEsports principal;
-    private JComboBox<String> EquipoConsulta;
-    private JList<String> listaJugadores;
+    private JComboBox<String> comboEquipos;
+    private JList<String> listaResultado;
     private JButton back;
-    private JButton refresh;
-    private JButton kdaBtn;
-    private JButton victoriasBtn;
-    private JButton derrotasBtn;
+    private JButton calcular;
 
-    public PanelConsulta(InterfazEsports principal, Esports esports) {
+    public PanelPromedioDerrotas(InterfazEsports principal, Esports esports) {
         this.principal = principal;
         setBackground(new Color(0, 51, 102));
 
         // Crear componentes
-        JLabel titulo = new JLabel("CONSULTA EL REGISTRO DE JUGADORES");
+        JLabel titulo = new JLabel("PROMEDIO DE DERROTAS POR EQUIPO");
         titulo.setFont(new Font("Bahnschrift", 1, 24));
         titulo.setForeground(Color.WHITE);
 
-        JLabel labelEquipo = new JLabel("Selecciona el equipo del que quieres ver los jugadores");
+        JLabel labelEquipo = new JLabel("Selecciona el equipo:");
         labelEquipo.setFont(new Font("Bahnschrift", 1, 18));
         labelEquipo.setForeground(Color.WHITE);
 
-        EquipoConsulta = new JComboBox<>();
+        comboEquipos = new JComboBox<>();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (Equipo equipo : esports.getEquipos()) {
             model.addElement(equipo.getNombre());
         }
-        EquipoConsulta.setModel(model);
-        EquipoConsulta.addActionListener(e -> actualizarListaJugadores(esports));
+        comboEquipos.setModel(model);
 
-        listaJugadores = new JList<>();
-        JScrollPane scrollPane = new JScrollPane(listaJugadores);
+        listaResultado = new JList<>();
+        JScrollPane scrollPane = new JScrollPane(listaResultado);
 
         back = new JButton("Volver");
-        back.addActionListener(e -> principal.mostrarPrincipal());
+        back.addActionListener(e -> principal.mostrarConsulta());
 
-        refresh = new JButton("Refresh");
-        refresh.addActionListener(e -> actualizarListaJugadores(esports));
-
-        kdaBtn = new JButton("Ver KDA");
-        kdaBtn.addActionListener(e -> principal.mostrarKDA());
-
-        victoriasBtn = new JButton("Ver Promedio Victorias");
-        victoriasBtn.addActionListener(e -> principal.mostrarPromedioVictorias());
-
-        derrotasBtn = new JButton("Ver Promedio Derrotas");
-        derrotasBtn.addActionListener(e -> principal.mostrarPromedioDerrotas());
+        calcular = new JButton("Calcular");
+        calcular.addActionListener(e -> calcularPromedio(esports));
 
         // Layout
         GroupLayout layout = new GroupLayout(this);
@@ -73,28 +59,22 @@ public class PanelConsulta extends JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(250, 250, 250)
+                            .addGap(150, 150, 150)
                             .addComponent(titulo))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(200, 200, 200)
+                            .addGap(300, 300, 300)
                             .addComponent(labelEquipo))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(400, 400, 400)
-                            .addComponent(EquipoConsulta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(350, 350, 350)
+                            .addComponent(comboEquipos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(325, 325, 325)
+                            .addGap(250, 250, 250)
                             .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(150, 150, 150)
-                            .addComponent(kdaBtn)
-                            .addGap(20, 20, 20)
-                            .addComponent(victoriasBtn)
-                            .addGap(20, 20, 20)
-                            .addComponent(derrotasBtn)
-                            .addGap(20, 20, 20)
+                            .addGap(300, 300, 300)
                             .addComponent(back)
-                            .addGap(10, 10, 10)
-                            .addComponent(refresh)))
+                            .addGap(20, 20, 20)
+                            .addComponent(calcular)))
                     .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -105,30 +85,27 @@ public class PanelConsulta extends JPanel {
                     .addGap(30, 30, 30)
                     .addComponent(labelEquipo)
                     .addGap(10, 10, 10)
-                    .addComponent(EquipoConsulta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboEquipos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addGap(30, 30, 30)
                     .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
                     .addGap(20, 20, 20)
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(kdaBtn)
-                        .addComponent(victoriasBtn)
-                        .addComponent(derrotasBtn)
                         .addComponent(back)
-                        .addComponent(refresh))
+                        .addComponent(calcular))
                     .addContainerGap(50, Short.MAX_VALUE))
         );
     }
 
-    private void actualizarListaJugadores(Esports esports) {
-        String equipoSeleccionado = (String) EquipoConsulta.getSelectedItem();
+    private void calcularPromedio(Esports esports) {
+        String equipoSeleccionado = (String) comboEquipos.getSelectedItem();
         if (equipoSeleccionado != null) {
             Equipo equipo = esports.darEquipoPorNombre(equipoSeleccionado);
             if (equipo != null) {
-                DefaultListModel<String> listModel = new DefaultListModel<>();
-                for (Jugador jugador : equipo.getJugadores()) {
-                    listModel.addElement(jugador.getNombre() + " (" + jugador.getNickname() + ")");
-                }
-                listaJugadores.setModel(listModel);
+                double promedio = equipo.promedioDerrotas();
+                DefaultListModel<String> modelResultado = new DefaultListModel<>();
+                modelResultado.addElement("Equipo: " + equipo.getNombre());
+                modelResultado.addElement("Promedio de Derrotas: " + String.format("%.2f", promedio));
+                listaResultado.setModel(modelResultado);
             }
         }
     }

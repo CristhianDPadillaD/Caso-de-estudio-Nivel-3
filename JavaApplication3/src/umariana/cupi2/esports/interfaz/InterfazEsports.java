@@ -1,6 +1,8 @@
 package umariana.cupi2.esports.interfaz;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import java.awt.CardLayout;
 import umariana.cupi2.esports.mundo.*;
 
 public class InterfazEsports extends javax.swing.JFrame {
@@ -13,9 +15,14 @@ public class InterfazEsports extends javax.swing.JFrame {
     
     // Los paneles (las vistas)
     private PanelBanner panelBanner;
+    private JPanel panelContenedor;
     private PanelRegistroJugador panelRegistroJugador;
     private PanelRegistroPartida panelRegistroPartida;
     private PanelConsulta panelConsulta;
+    private PanelPromedioVictorias panelPromedioVictorias;
+    private PanelPromedioDerrotas panelPromedioDerrotas;
+    private PanelKDA panelKDA;
+    private CardLayout cardLayout;
 
     /**
      * Constructor de la ventana principal
@@ -135,15 +142,23 @@ public void registrarJugador() {
     }
 
     public void mostrarConsulta() {
-        panelRegistroJugador.setVisible(false);
-        panelRegistroPartida.setVisible(false);
-        panelConsulta.setVisible(true);
+        cardLayout.show(panelContenedor, "consulta");
     }
 
     public void mostrarPrincipal() {
-        panelRegistroJugador.setVisible(true);
-        panelRegistroPartida.setVisible(true);
-        panelConsulta.setVisible(false);
+        cardLayout.show(panelContenedor, "principal");
+    }
+
+    public void mostrarPromedioVictorias() {
+        cardLayout.show(panelContenedor, "promedioVictorias");
+    }
+
+    public void mostrarPromedioDerrotas() {
+        cardLayout.show(panelContenedor, "promedioDerrotas");
+    }
+
+    public void mostrarKDA() {
+        cardLayout.show(panelContenedor, "kda");
     }
 
     /**
@@ -162,37 +177,48 @@ public void registrarJugador() {
         background.setLayout(null);
         setContentPane(background);
 
-     
         // 1. Crear y añadir el panel del banner
         panelBanner = new PanelBanner();
         panelBanner.setBounds(50, 20, 920, 90);
         background.add(panelBanner);
 
-        // 2. Crear y añadir el panel de registro de jugadores
+        // 2. Crear el panel contenedor con CardLayout
+        cardLayout = new CardLayout();
+        panelContenedor = new JPanel(cardLayout);
+        panelContenedor.setBounds(40, 140, 940, 630);
+        background.add(panelContenedor);
+
+        // Panel principal (registro de jugadores y partidas)
+        JPanel panelPrincipal = new JPanel(null);
         panelRegistroJugador = new PanelRegistroJugador(this, esports);
-        panelRegistroJugador.setBounds(40, 140, 440, 630);
-        background.add(panelRegistroJugador);
+        panelRegistroJugador.setBounds(0, 0, 440, 630);
+        panelPrincipal.add(panelRegistroJugador);
 
-
-        // 3. Crear y añadir el panel de registro de partidas
         panelRegistroPartida = new PanelRegistroPartida(this, esports);
-        panelRegistroPartida.setBounds(520, 140, 460, 630); // Lo posicionamos a la derecha
-        background.add(panelRegistroPartida);
+        panelRegistroPartida.setBounds(480, 0, 460, 630);
+        panelPrincipal.add(panelRegistroPartida);
 
-        // 4. Crear y añadir el panel de consulta
+        panelContenedor.add(panelPrincipal, "principal");
+
+        // 3. Crear y añadir el panel de consulta
         panelConsulta = new PanelConsulta(this, esports);
-        panelConsulta.setBounds(40, 140, 440, 630);
-        background.add(panelConsulta);
-        panelConsulta.setVisible(false);
+        panelContenedor.add(panelConsulta, "consulta");
+
+        // 4. Crear y añadir el panel de promedio de victorias
+        panelPromedioVictorias = new PanelPromedioVictorias(this, esports);
+        panelContenedor.add(panelPromedioVictorias, "promedioVictorias");
+
+        // 5. Crear y añadir el panel de promedio de derrotas
+        panelPromedioDerrotas = new PanelPromedioDerrotas(this, esports);
+        panelContenedor.add(panelPromedioDerrotas, "promedioDerrotas");
+
+        // 6. Crear y añadir el panel de KDA
+        panelKDA = new PanelKDA(this, esports);
+        panelContenedor.add(panelKDA, "kda");
 
         setSize(1010, 810);
         setResizable(false);
         setLocationRelativeTo(null);
-
-        // Ajustar tamaño final de la ventana
-        setSize(1010, 810);
-        setResizable(false);
-        setLocationRelativeTo(null); // Centrar en pantalla
     }
 
     // El método main para ejecutar la aplicación

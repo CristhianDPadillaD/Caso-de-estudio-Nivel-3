@@ -1,3 +1,5 @@
-- [x] Actualizar testCalcularGanador_Empate en PartidaTest.java para verificar null en caso de empate
-- [x] Actualizar toString en Partida.java para mostrar "Empate" cuando ganador es null
-- [ ] Ejecutar las pruebas para verificar que pasan
+- [x] Adjust JScrollPane in PanelConsulta: Increase width to 300, center it better.
+- [x] Adjust JScrollPane in PanelKDA, PanelPromedioVictorias, PanelPromedioDerrotas: Ensure they are centered and have more space if needed.
+- [x] Fix button positioning in PanelConsulta: Group all buttons (kdaBtn, victoriasBtn, derrotasBtn, back, refresh) properly.
+- [x] Center all components in PanelKDA, PanelPromedioVictorias, PanelPromedioDerrotas (titles, labels, combo boxes, scroll panes, buttons).
+- [x] Reposition ConsultarJugadores button in PanelRegistroJugador: Move below Registrar button instead of side-by-side.

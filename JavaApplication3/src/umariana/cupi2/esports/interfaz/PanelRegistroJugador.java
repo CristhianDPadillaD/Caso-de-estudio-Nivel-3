@@ -96,11 +96,12 @@ public class PanelRegistroJugador extends JPanel {
                                                                 .addComponent(nombreTitulo)
                                                                 .addComponent(nombreRegistro)))
                 .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
+                        .addGap(200, 200, 200)
                         .addComponent(registroJugadorBoton, GroupLayout.PREFERRED_SIZE, 120,
-                                GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(consultarBoton, GroupLayout.PREFERRED_SIZE, 140,
+                                GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(consultarBoton, GroupLayout.PREFERRED_SIZE, 200,
                                 GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(33, 33, 33)

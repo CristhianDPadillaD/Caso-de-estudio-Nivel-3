@@ -90,6 +90,15 @@ public class Jugador {
         this.assists = assists;
     }
 
-   
-   
+    /**
+     * Calcula el KDA (Kill/Death/Assist ratio) del jugador.
+     * KDA = (kills + assists) / max(deaths, 1)
+     * @return KDA como double
+     */
+    public double getKDA() {
+        int denominator = Math.max(deaths, 1);
+        return (double) (kills + assists) / denominator;
+    }
+
+
 }

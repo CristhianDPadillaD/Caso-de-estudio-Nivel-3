@@ -68,7 +68,7 @@ public class Equipo {
         }
         this.partidas.add(pPartida);
     }
-    
+
     // Getter esencial para las pruebas y consultas
     public ArrayList<Partida> getPartidas() {
         if (partidas == null) {
@@ -76,6 +76,41 @@ public class Equipo {
         }
         return partidas;
     }
-    
+
+    /**
+     * Calcula el promedio de victorias del equipo basado en sus partidas.
+     * @return Promedio de victorias (double)
+     */
+    public double promedioVictorias() {
+        ArrayList<Partida> partidas = getPartidas();
+        if (partidas.isEmpty()) {
+            return 0.0;
+        }
+        int victorias = 0;
+        for (Partida p : partidas) {
+            if (p.getGanador() != null && p.getGanador().equals(this)) {
+                victorias++;
+            }
+        }
+        return (double) victorias / partidas.size();
+    }
+
+    /**
+     * Calcula el promedio de derrotas del equipo basado en sus partidas.
+     * @return Promedio de derrotas (double)
+     */
+    public double promedioDerrotas() {
+        ArrayList<Partida> partidas = getPartidas();
+        if (partidas.isEmpty()) {
+            return 0.0;
+        }
+        int derrotas = 0;
+        for (Partida p : partidas) {
+            if (p.getGanador() != null && !p.getGanador().equals(this)) {
+                derrotas++;
+            }
+        }
+        return (double) derrotas / partidas.size();
+    }
 
 }
