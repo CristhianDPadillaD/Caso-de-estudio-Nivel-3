@@ -307,6 +307,20 @@ public class PanelRegistroPartida extends JPanel {
     public void limpiarCampos() {
         fecha1Registro.setText("");
         marcador1Registro.setText("");
-    
-}
+        kills1Registro.setText("");
+        deaths1Registro.setText("");
+        assists1Registro.setText("");
+
+        fecha2Registro.setText("");
+        marcador2Registro.setText("");
+        kills2Registro.setText("");
+        deaths2Registro.setText("");
+        assists2Registro.setText("");
+
+        // Reset combo boxes to first item
+        equipo1Registro.setSelectedIndex(0);
+        rival1Registro.setSelectedIndex(0);
+        equipo2Registro.setSelectedIndex(0);
+        rival2Registro.setSelectedIndex(0);
+    }
 }

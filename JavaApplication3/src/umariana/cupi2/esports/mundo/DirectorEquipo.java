@@ -91,8 +91,19 @@ public class DirectorEquipo {
     if (name.isEmpty()) {
         throw new Exception("Nombre del jugador es obligatorio.");
     }
+    // Validación: nombre solo letras y espacios
+    if (!name.matches("[a-zA-Z\\s]+")) {
+        throw new Exception("El nombre solo puede contener letras y espacios.");
+    }
     if (nickname.isEmpty()) {
         throw new Exception("Nickname del jugador es obligatorio.");
+    }
+    if (mail.isEmpty()) {
+        throw new Exception("Correo del jugador es obligatorio.");
+    }
+    // Validación: correo formato básico
+    if (!mail.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+        throw new Exception("El correo electrónico no tiene un formato válido.");
     }
 
     // Validación: nickname duplicado (usa la lista en memoria)
@@ -186,7 +197,8 @@ public void registrarPartida(Equipo pEquipoRival, int pPuntuacionPropia, int pPu
                           nuevaPartida.getEquipo1().getIdEquipo() + "," +
                           nuevaPartida.getEquipo2().getIdEquipo() + "," +
                           nuevaPartida.getPuntuacionEquipo1() + "," +
-                          nuevaPartida.getPuntuacionEquipo2();
+                          nuevaPartida.getPuntuacionEquipo2() + "," +
+                          nuevaPartida.getFechaHora().toString();
 
     String nombreEquipoSanitizado = equipoAsignado.getNombre().replaceAll("\\s+", "_");
     String nombreArchivo = pDataFolderPath+"/partidas_" + nombreEquipoSanitizado + ".txt";
@@ -202,6 +214,9 @@ public void registrarPartida(Equipo pEquipoRival, int pPuntuacionPropia, int pPu
     }
 
     equipoAsignado.addPartida(nuevaPartida);
+
+    // Añadir la partida también al equipo rival para que los promedios se calculen correctamente
+    pEquipoRival.addPartida(nuevaPartida);
 
     System.out.println("LOG: Partida " + nuevoIdPartida + " registrada y guardada en " + nombreArchivo);
 }
