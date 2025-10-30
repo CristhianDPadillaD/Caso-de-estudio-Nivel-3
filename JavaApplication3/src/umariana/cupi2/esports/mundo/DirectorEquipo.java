@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class DirectorEquipo {
@@ -228,10 +230,49 @@ public List<Jugador> consultarListaJugadores() {
             System.err.println("Advertencia: El director no tiene un equipo asignado.");
             return new ArrayList<>();
         }
-        
-        
+
+
         return equipoAsignado.getJugadores();
     }
-       
- 
+
+    /**
+     * Ordena la lista de jugadores del equipo asignado por KDA en orden descendente.
+     * @throws Exception Si no hay equipo asignado o si la lista de jugadores está vacía.
+     */
+    public void ordenarJugadoresPorKDA() throws Exception {
+        if (equipoAsignado == null) {
+            throw new Exception("No hay un equipo asignado al director.");
+        }
+        List<Jugador> jugadores = equipoAsignado.getJugadores();
+        if (jugadores.isEmpty()) {
+            throw new Exception("No hay datos disponibles para ordenar.");
+        }
+        Collections.sort(jugadores, Comparator.comparing(Jugador::getKDA).reversed());
+    }
+
+    /**
+     * Consulta el jugador con más kills en el equipo asignado.
+     * @return El jugador con más kills, o null si no hay jugadores o no hay kills.
+     * @throws Exception Si no hay equipo asignado.
+     */
+    public Jugador consultarJugadorConMasKills() throws Exception {
+        if (equipoAsignado == null) {
+            throw new Exception("No hay un equipo asignado al director.");
+        }
+        List<Jugador> jugadores = equipoAsignado.getJugadores();
+        if (jugadores.isEmpty()) {
+            return null; // No hay datos disponibles
+        }
+        Jugador maxKillsJugador = null;
+        int maxKills = -1;
+        for (Jugador j : jugadores) {
+            if (j.getKills() > maxKills) {
+                maxKills = j.getKills();
+                maxKillsJugador = j;
+            }
+        }
+        return maxKillsJugador;
+    }
+
+
 }

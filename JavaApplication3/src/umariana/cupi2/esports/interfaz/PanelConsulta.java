@@ -25,6 +25,7 @@ public class PanelConsulta extends JPanel {
     private JButton kdaBtn;
     private JButton victoriasBtn;
     private JButton derrotasBtn;
+    private JButton maxKillsBtn;
 
     public PanelConsulta(InterfazEsports principal, Esports esports) {
         this.principal = principal;
@@ -65,6 +66,9 @@ public class PanelConsulta extends JPanel {
         derrotasBtn = new JButton("Ver Promedio Derrotas");
         derrotasBtn.addActionListener(e -> principal.mostrarPromedioDerrotas());
 
+        maxKillsBtn = new JButton("Ver Jugador con Más Kills");
+        maxKillsBtn.addActionListener(e -> principal.mostrarJugadorConMasKills());
+
         // Layout
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -92,6 +96,8 @@ public class PanelConsulta extends JPanel {
                             .addGap(20, 20, 20)
                             .addComponent(derrotasBtn)
                             .addGap(20, 20, 20)
+                            .addComponent(maxKillsBtn)
+                            .addGap(20, 20, 20)
                             .addComponent(back)
                             .addGap(10, 10, 10)
                             .addComponent(refresh)))
@@ -113,6 +119,7 @@ public class PanelConsulta extends JPanel {
                         .addComponent(kdaBtn)
                         .addComponent(victoriasBtn)
                         .addComponent(derrotasBtn)
+                        .addComponent(maxKillsBtn)
                         .addComponent(back)
                         .addComponent(refresh))
                     .addContainerGap(50, Short.MAX_VALUE))
@@ -131,5 +138,9 @@ public class PanelConsulta extends JPanel {
                 listaJugadores.setModel(listModel);
             }
         }
+    }
+
+    public String getEquipoSeleccionado() {
+        return (String) EquipoConsulta.getSelectedItem();
     }
 }

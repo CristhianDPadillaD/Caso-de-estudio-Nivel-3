@@ -216,4 +216,94 @@ public class DirectorEquipoTest {
             throw new Exception("Kills deben tener más de una cifra.");
         }
     }
+
+    // ----------------------------------------------------------------------
+    // IV. ORDENAMIENTO DE JUGADORES POR KDA
+    // ----------------------------------------------------------------------
+
+    /**
+     * Prueba exitosa de ordenamiento de jugadores por KDA descendente (CID 2).
+     */
+    @Test
+    public void testOrdenarJugadoresPorKDA_Exitoso() throws Exception {
+        // Preparación: Agregar jugadores con diferentes KDA
+        Jugador j1 = new Jugador("J1", "E01", "Carlos Perez", "Shadow", "s@m.com", 10, 5, 2); // KDA = (10+2)/5 = 2.4
+        Jugador j2 = new Jugador("J2", "E01", "Ana Gomez", "Luna", "l@m.com", 5, 2, 3); // KDA = (5+3)/2 = 4.0
+        Jugador j3 = new Jugador("J3", "E01", "Pedro Ruiz", "Storm", "st@m.com", 8, 4, 1); // KDA = (8+1)/4 = 2.25
+        director1.agregarJugador(j1, TEST_DATA_PATH);
+        director1.agregarJugador(j2, TEST_DATA_PATH);
+        director1.agregarJugador(j3, TEST_DATA_PATH);
+
+        // Ejecución
+        director1.ordenarJugadoresPorKDA();
+
+        // Verificación: Orden descendente por KDA
+        List<Jugador> listaOrdenada = director1.consultarListaJugadores();
+        assertEquals("Luna debe estar primero (KDA 4.0)", "Luna", listaOrdenada.get(0).getNickname());
+        assertEquals("Shadow debe estar segundo (KDA 2.4)", "Shadow", listaOrdenada.get(1).getNickname());
+        assertEquals("Storm debe estar tercero (KDA 2.25)", "Storm", listaOrdenada.get(2).getNickname());
+    }
+
+    /**
+     * Prueba que falla si no hay equipo asignado (CID 1).
+     */
+    @Test(expected = Exception.class)
+    public void testOrdenarJugadoresPorKDA_SinEquipoAsignado() throws Exception {
+        // Preparación: Director sin equipo asignado
+        DirectorEquipo directorSinEquipo = new DirectorEquipo("D02", "E02", "Maria Lopez", "maria@esports.com", null);
+
+        // Ejecución: Debe lanzar excepción
+        directorSinEquipo.ordenarJugadoresPorKDA();
+    }
+
+    /**
+     * Prueba que falla si no hay datos disponibles para ordenar (lista vacía) (CID 3).
+     */
+    @Test(expected = Exception.class)
+    public void testOrdenarJugadoresPorKDA_SinDatos() throws Exception {
+        // Preparación: Equipo sin jugadores (por setUp)
+
+        // Ejecución: Debe lanzar excepción
+        director1.ordenarJugadoresPorKDA();
+    }
+
+    // ----------------------------------------------------------------------
+    // V. CONSULTA DEL JUGADOR CON MÁS KILLS
+    // ----------------------------------------------------------------------
+
+    /**
+     * Prueba exitosa de consulta del jugador con más kills (CID 2).
+     */
+    @Test
+    public void testConsultarJugadorConMasKills_Exitoso() throws Exception {
+        // Preparación: Agregar jugadores con diferentes kills
+        Jugador j1 = new Jugador("J1", "E01", "Carlos Perez", "Shadow", "s@m.com", 10, 5, 2); // 10 kills
+        Jugador j2 = new Jugador("J2", "E01", "Ana Gomez", "Luna", "l@m.com", 15, 2, 3); // 15 kills
+        Jugador j3 = new Jugador("J3", "E01", "Pedro Ruiz", "Storm", "st@m.com", 8, 4, 1); // 8 kills
+        director1.agregarJugador(j1, TEST_DATA_PATH);
+        director1.agregarJugador(j2, TEST_DATA_PATH);
+        director1.agregarJugador(j3, TEST_DATA_PATH);
+
+        // Ejecución
+        Jugador maxKillsJugador = director1.consultarJugadorConMasKills();
+
+        // Verificación
+        assertNotNull("El jugador con más kills no debe ser null", maxKillsJugador);
+        assertEquals("El jugador con más kills debe ser Luna", "Luna", maxKillsJugador.getNickname());
+        assertEquals("El número de kills debe ser 15", 15, maxKillsJugador.getKills());
+    }
+
+    /**
+     * Prueba que falla si no hay datos disponibles para consultar (lista vacía) (CID 3).
+     */
+    @Test
+    public void testConsultarJugadorConMasKills_SinDatos() throws Exception {
+        // Preparación: Equipo sin jugadores (por setUp)
+
+        // Ejecución
+        Jugador maxKillsJugador = director1.consultarJugadorConMasKills();
+
+        // Verificación
+        assertNull("Debe retornar null cuando no hay jugadores", maxKillsJugador);
+    }
 }

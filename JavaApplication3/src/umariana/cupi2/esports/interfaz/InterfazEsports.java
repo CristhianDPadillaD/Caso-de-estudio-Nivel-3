@@ -255,6 +255,26 @@ public void registrarJugador() {
         cardLayout.show(panelContenedor, "kda");
     }
 
+    public void mostrarJugadorConMasKills() {
+        String equipoSeleccionado = panelConsulta.getEquipoSeleccionado();
+        if (equipoSeleccionado != null) {
+            Equipo equipo = esports.darEquipoPorNombre(equipoSeleccionado);
+            if (equipo != null) {
+                director.setEquipoAsignado(equipo);
+                try {
+                    Jugador jugadorMaxKills = director.consultarJugadorConMasKills();
+                    if (jugadorMaxKills != null) {
+                        JOptionPane.showMessageDialog(this, "El jugador con más kills es: " + jugadorMaxKills.getNombre() + " (" + jugadorMaxKills.getNickname() + ") con " + jugadorMaxKills.getKills() + " kills.", "Jugador con Más Kills", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "No hay datos disponibles para mostrar.", "Información", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Error al consultar el jugador con más kills: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }
+
     /**
      * Este método construye la ventana, pero en lugar de tener miles de líneas,
      * ahora solo crea y posiciona nuestros paneles personalizados.

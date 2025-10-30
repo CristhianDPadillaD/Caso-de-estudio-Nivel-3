@@ -2,6 +2,8 @@ package umariana.cupi2.esports.interfaz;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Collections;
+import java.util.Comparator;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
@@ -9,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import umariana.cupi2.esports.mundo.Equipo;
@@ -103,12 +106,21 @@ public class PanelKDA extends JPanel {
         if (equipoSeleccionado != null) {
             Equipo equipo = esports.darEquipoPorNombre(equipoSeleccionado);
             if (equipo != null) {
-                DefaultListModel<String> listModel = new DefaultListModel<>();
-                for (Jugador jugador : equipo.getJugadores()) {
-                    double kda = jugador.getKDA();
-                    listModel.addElement(jugador.getNombre() + " (" + jugador.getNickname() + "): KDA = " + String.format("%.2f", kda));
+                try {
+                    // Ordenar jugadores por KDA descendente
+                    // Note: Esports doesn't have getDirectorEquipo, so we need to create a DirectorEquipo instance
+                    // For simplicity, we'll assume the director is set in InterfazEsports, but since it's not accessible,
+                    // we'll sort the list directly here using the same logic.
+                    Collections.sort(equipo.getJugadores(), Comparator.comparing(Jugador::getKDA).reversed());
+                    DefaultListModel<String> listModel = new DefaultListModel<>();
+                    for (Jugador jugador : equipo.getJugadores()) {
+                        double kda = jugador.getKDA();
+                        listModel.addElement(jugador.getNombre() + " (" + jugador.getNickname() + "): KDA = " + String.format("%.2f", kda));
+                    }
+                    listaKDA.setModel(listModel);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "No hay datos disponibles para ordenar.", "Información", JOptionPane.INFORMATION_MESSAGE);
                 }
-                listaKDA.setModel(listModel);
             }
         }
     }
