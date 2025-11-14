@@ -27,49 +27,137 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        sage = new javax.swing.JLabel();
+        backgroundTittle = new javax.swing.JPanel();
+        tittle = new javax.swing.JLabel();
+        nombreCompleto = new javax.swing.JTextField();
+        nickname = new javax.swing.JTextField();
+        correo = new javax.swing.JTextField();
+        equipo = new javax.swing.JComboBox<>();
+        equipoTittle = new javax.swing.JLabel();
+        KDA = new javax.swing.JTextField();
+        registrarButton = new javax.swing.JButton();
+        sageSpray = new javax.swing.JLabel();
 
-        background.setBackground(new java.awt.Color(14, 14, 30));
+        background.setBackground(new java.awt.Color(25, 25, 50));
         background.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\Sage.png")); // NOI18N
-        jLabel1.setText("jLabel1");
-        background.add(jLabel1);
-        jLabel1.setBounds(280, 120, 770, 930);
+        sage.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\Sage.png")); // NOI18N
+        background.add(sage);
+        sage.setBounds(310, 70, 790, 970);
 
-        jPanel1.setBackground(new java.awt.Color(50, 50, 94));
+        backgroundTittle.setBackground(new java.awt.Color(51, 51, 93));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+        tittle.setFont(new java.awt.Font("Top Show", 0, 48)); // NOI18N
+        tittle.setForeground(new java.awt.Color(255, 255, 255));
+        tittle.setText("Registro de jugadores");
+
+        javax.swing.GroupLayout backgroundTittleLayout = new javax.swing.GroupLayout(backgroundTittle);
+        backgroundTittle.setLayout(backgroundTittleLayout);
+        backgroundTittleLayout.setHorizontalGroup(
+            backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundTittleLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+        backgroundTittleLayout.setVerticalGroup(
+            backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundTittleLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        background.add(jPanel1);
-        jPanel1.setBounds(30, 30, 630, 70);
+        background.add(backgroundTittle);
+        backgroundTittle.setBounds(40, 40, 620, 70);
+
+        nombreCompleto.setBackground(new java.awt.Color(83, 83, 91));
+        nombreCompleto.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
+        nombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
+        nombreCompleto.setText("Nombre completo");
+        background.add(nombreCompleto);
+        nombreCompleto.setBounds(50, 190, 320, 50);
+
+        nickname.setBackground(new java.awt.Color(83, 83, 91));
+        nickname.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
+        nickname.setForeground(new java.awt.Color(255, 255, 255));
+        nickname.setText("Nickname");
+        nickname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nicknameActionPerformed(evt);
+            }
+        });
+        background.add(nickname);
+        nickname.setBounds(50, 260, 320, 50);
+
+        correo.setBackground(new java.awt.Color(83, 83, 91));
+        correo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
+        correo.setForeground(new java.awt.Color(255, 255, 255));
+        correo.setText("correo electronico");
+        background.add(correo);
+        correo.setBounds(50, 330, 320, 50);
+
+        equipo.setBackground(new java.awt.Color(83, 83, 91));
+        equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
+        equipo.setForeground(new java.awt.Color(255, 255, 255));
+        equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        background.add(equipo);
+        equipo.setBounds(50, 420, 320, 50);
+
+        equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
+        equipoTittle.setText("Selecciona tu equipo");
+        background.add(equipoTittle);
+        equipoTittle.setBounds(50, 400, 260, 18);
+
+        KDA.setBackground(new java.awt.Color(83, 83, 91));
+        KDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
+        KDA.setForeground(new java.awt.Color(255, 255, 255));
+        KDA.setText("kda");
+        background.add(KDA);
+        KDA.setBounds(50, 490, 320, 50);
+
+        registrarButton.setBackground(new java.awt.Color(133, 185, 203));
+        registrarButton.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
+        registrarButton.setForeground(new java.awt.Color(36, 52, 84));
+        registrarButton.setText("Registrar");
+        background.add(registrarButton);
+        registrarButton.setBounds(180, 590, 150, 50);
+
+        sageSpray.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\sageSpray.png")); // NOI18N
+        background.add(sageSpray);
+        sageSpray.setBounds(60, 550, 120, 130);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void nicknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nicknameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nicknameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField KDA;
     private javax.swing.JPanel background;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel backgroundTittle;
+    private javax.swing.JTextField correo;
+    private javax.swing.JComboBox<String> equipo;
+    private javax.swing.JLabel equipoTittle;
+    private javax.swing.JTextField nickname;
+    private javax.swing.JTextField nombreCompleto;
+    private javax.swing.JButton registrarButton;
+    private javax.swing.JLabel sage;
+    private javax.swing.JLabel sageSpray;
+    private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 }
