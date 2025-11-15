@@ -37,13 +37,11 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
         String nick = nickname.getText();
         String correo = this.correo.getText();
         String equipoSeleccionado = (String) equipo.getSelectedItem();
-        String kda = KDA.getText();
-        ventana.registrarJugador(nombre, nick, correo, equipoSeleccionado, kda);
+        ventana.registrarJugador(nombre, nick, correo, equipoSeleccionado);
         // Limpiar campos después de registrar
         nombreCompleto.setText("");
         nickname.setText("");
         this.correo.setText("");
-        KDA.setText("");
         equipo.setSelectedIndex(0);
     }
 
@@ -54,7 +52,7 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         background = new javax.swing.JPanel();
@@ -69,10 +67,6 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
         KDA = new javax.swing.JTextField();
         registrarButton = new javax.swing.JButton();
         sageSpray = new javax.swing.JLabel();
-        equipoTittle1 = new javax.swing.JLabel();
-        equipoTittle2 = new javax.swing.JLabel();
-        equipoTittle3 = new javax.swing.JLabel();
-        equipoTittle4 = new javax.swing.JLabel();
 
         background.setBackground(new java.awt.Color(25, 25, 50));
         background.setLayout(null);
@@ -88,19 +82,20 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
         javax.swing.GroupLayout backgroundTittleLayout = new javax.swing.GroupLayout(backgroundTittle);
         backgroundTittle.setLayout(backgroundTittleLayout);
         backgroundTittleLayout.setHorizontalGroup(
-            backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundTittleLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
+                backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundTittleLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 533,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(43, Short.MAX_VALUE)));
         backgroundTittleLayout.setVerticalGroup(
-            backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundTittleLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+                backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                backgroundTittleLayout.createSequentialGroup()
+                                        .addContainerGap(16, Short.MAX_VALUE)
+                                        .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 48,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap()));
 
         background.add(backgroundTittle);
         backgroundTittle.setBounds(40, 40, 620, 70);
@@ -108,17 +103,14 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
         nombreCompleto.setBackground(new java.awt.Color(83, 83, 91));
         nombreCompleto.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         nombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
-        nombreCompleto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreCompletoActionPerformed(evt);
-            }
-        });
+        nombreCompleto.setText("Nombre completo");
         background.add(nombreCompleto);
-        nombreCompleto.setBounds(50, 170, 320, 50);
+        nombreCompleto.setBounds(50, 190, 320, 50);
 
         nickname.setBackground(new java.awt.Color(83, 83, 91));
         nickname.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         nickname.setForeground(new java.awt.Color(255, 255, 255));
+        nickname.setText("Nickname");
         nickname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nicknameActionPerformed(evt);
@@ -130,90 +122,54 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
         correo.setBackground(new java.awt.Color(83, 83, 91));
         correo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         correo.setForeground(new java.awt.Color(255, 255, 255));
+        correo.setText("correo electronico");
         background.add(correo);
-        correo.setBounds(50, 350, 320, 50);
+        correo.setBounds(50, 330, 320, 50);
 
         equipo.setBackground(new java.awt.Color(83, 83, 91));
         equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         equipo.setForeground(new java.awt.Color(255, 255, 255));
-        equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        equipo.setModel(
+                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         equipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 equipoActionPerformed(evt);
             }
         });
         background.add(equipo);
-        equipo.setBounds(50, 440, 320, 50);
+        equipo.setBounds(50, 420, 320, 50);
 
         equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
-        equipoTittle.setText("Correo electrónico");
+        equipoTittle.setText("Selecciona tu equipo");
         background.add(equipoTittle);
-        equipoTittle.setBounds(50, 320, 260, 21);
+        equipoTittle.setBounds(50, 400, 260, 21);
 
         KDA.setBackground(new java.awt.Color(83, 83, 91));
         KDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         KDA.setForeground(new java.awt.Color(255, 255, 255));
-        KDA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KDAActionPerformed(evt);
-            }
-        });
+        KDA.setText("kda");
         background.add(KDA);
-        KDA.setBounds(50, 530, 320, 50);
+        KDA.setBounds(50, 490, 320, 50);
 
         registrarButton.setBackground(new java.awt.Color(133, 185, 203));
         registrarButton.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         registrarButton.setForeground(new java.awt.Color(36, 52, 84));
         registrarButton.setText("Registrar");
         background.add(registrarButton);
-        registrarButton.setBounds(180, 600, 150, 50);
+        registrarButton.setBounds(180, 590, 150, 50);
         background.add(sageSpray);
         sageSpray.setBounds(60, 550, 120, 130);
-
-        equipoTittle1.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
-        equipoTittle1.setForeground(new java.awt.Color(255, 255, 255));
-        equipoTittle1.setText("Kills/Deaths/assists");
-        background.add(equipoTittle1);
-        equipoTittle1.setBounds(50, 500, 260, 21);
-
-        equipoTittle2.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
-        equipoTittle2.setForeground(new java.awt.Color(255, 255, 255));
-        equipoTittle2.setText("Nombre completo");
-        background.add(equipoTittle2);
-        equipoTittle2.setBounds(50, 140, 260, 21);
-
-        equipoTittle3.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
-        equipoTittle3.setForeground(new java.awt.Color(255, 255, 255));
-        equipoTittle3.setText("Selecciona tu equipo");
-        background.add(equipoTittle3);
-        equipoTittle3.setBounds(50, 410, 260, 21);
-
-        equipoTittle4.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
-        equipoTittle4.setForeground(new java.awt.Color(255, 255, 255));
-        equipoTittle4.setText("Nombre de usuario");
-        background.add(equipoTittle4);
-        equipoTittle4.setBounds(50, 230, 260, 21);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreCompletoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombreCompletoActionPerformed
-
-    private void KDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KDAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KDAActionPerformed
 
     private void nicknameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_nicknameActionPerformed
         // TODO add your handling code here:
@@ -230,10 +186,6 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
     private javax.swing.JTextField correo;
     private javax.swing.JComboBox<String> equipo;
     private javax.swing.JLabel equipoTittle;
-    private javax.swing.JLabel equipoTittle1;
-    private javax.swing.JLabel equipoTittle2;
-    private javax.swing.JLabel equipoTittle3;
-    private javax.swing.JLabel equipoTittle4;
     private javax.swing.JTextField nickname;
     private javax.swing.JTextField nombreCompleto;
     private javax.swing.JButton registrarButton;

@@ -119,7 +119,7 @@ public void actualizarLista(String[] items) {
         verPromedioVictorias.setBackground(new java.awt.Color(0, 102, 102));
         verPromedioVictorias.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         verPromedioVictorias.setForeground(new java.awt.Color(255, 255, 255));
-        verPromedioVictorias.setText("Ver promedio victorias");
+        verPromedioVictorias.setText("ver promedio victorias");
         verPromedioVictorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verPromedioVictoriasActionPerformed(evt);
@@ -131,7 +131,7 @@ public void actualizarLista(String[] items) {
         verPromedioDerrotas.setBackground(new java.awt.Color(0, 102, 102));
         verPromedioDerrotas.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
         verPromedioDerrotas.setForeground(new java.awt.Color(255, 255, 255));
-        verPromedioDerrotas.setText("Ver promedio derrotas");
+        verPromedioDerrotas.setText("ver promedio derrotas");
         verPromedioDerrotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verPromedioDerrotasActionPerformed(evt);
@@ -171,8 +171,7 @@ public void actualizarLista(String[] items) {
         verJugadorMasKills1.setBackground(new java.awt.Color(0, 102, 102));
         verJugadorMasKills1.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
         verJugadorMasKills1.setForeground(new java.awt.Color(255, 255, 255));
-        verJugadorMasKills1.setText("Ver jugador con más kills");
-        verJugadorMasKills1.setActionCommand("Ver jugador con más kills");
+        verJugadorMasKills1.setText("ver jugador con mas kills");
         verJugadorMasKills1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verJugadorMasKills1ActionPerformed(evt);

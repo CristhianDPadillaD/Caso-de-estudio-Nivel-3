@@ -1,34 +1,36 @@
-# TODO: Implementar registro y validación de KDA en formato "kills/deaths/assists"
+# TODO: Update Panels and Connections
 
-## Información Recopilada
+## Overview
 
-- El campo KDA en PanelRegistroJugadores es un JTextField con placeholder "kda".
-- El formato esperado es "kills/deaths/assists" (ej. "5/2/3").
-- Actualmente, los jugadores se crean con KDA 0/0/0 y no se guarda en persistencia.
-- La persistencia de jugadores está en archivos "jugadores [Equipo].txt" con formato: idJugador,idEquipo,nombre,nickname,correo
-- La carga de datos inicializa KDA en 0/0/0.
+Update the specified panels (PanelRegistroJugadores, PanelRegistroPartidas, PanelConsultarJugadores, PanelNavBar) to load teams into comboboxes from data/equipos.txt, connect buttons to logic in InterfazEsports.java, and ensure functionality. Keep all logic in InterfazEsports.java, do not create new classes or files.
 
-## Plan de Implementación
+## Steps
 
-1. Modificar PanelRegistroJugadores.registrarJugador para obtener el valor del campo KDA.
-2. Modificar InterfazEsports.registrarJugador para recibir el KDA, validarlo (formato y valores >=0), y pasarlo al DirectorEquipo.
-3. Modificar DirectorEquipo.agregarJugador para recibir kills, deaths, assists, y guardarlos en el Jugador y en la persistencia.
-4. Actualizar el formato de persistencia de jugadores para incluir kills,deaths,assists al final de la línea.
-5. Actualizar Esports.cargarJugadores para leer y asignar kills, deaths, assists desde el archivo.
+1. **Edit PanelRegistroJugadores.java** ✅
 
-## Archivos a Editar
+   - Add code in constructor to load teams into 'equipo' combobox using esports.getEquipos(). ✅
+   - Add action listener to 'registrarButton' to call ventana.registrarJugador() with field values (nombreCompleto.getText(), nickname.getText(), correo.getText(), equipo.getSelectedItem().toString()). ✅
 
-- src/umariana/cupi2/esports/interfaz/PanelRegistroJugadores.java
-- src/umariana/cupi2/esports/interfaz/InterfazEsports.java
-- src/umariana/cupi2/esports/mundo/DirectorEquipo.java
-- src/umariana/cupi2/esports/mundo/Esports.java
+2. **Edit PanelRegistroPartidas.java** ✅
 
-## Pasos de Seguimiento
+   - Add code in constructor to load teams into 'equipo', 'equipo2', 'rival', 'rival2' comboboxes using esports.getEquipos(). ✅
+   - Add action listener to 'jButton1' to call ventana.registrarPartida() – note: registrarPartida() already exists and uses panel methods to get values. ✅
 
-- [ ] Editar PanelRegistroJugadores para obtener KDA.
-- [ ] Editar InterfazEsports para validar y pasar KDA.
-- [ ] Editar DirectorEquipo para recibir y guardar KDA.
-- [ ] Actualizar persistencia de jugadores.
-- [ ] Actualizar carga de datos de jugadores.
-- [ ] Probar el registro de un jugador con KDA.
-- [ ] Verificar que se guarde y cargue correctamente.
+3. **Edit PanelConsultarJugadores.java** ✅
+
+   - Add code in constructor to load teams into 'equipo' combobox using esports.getEquipos(). ✅
+   - Add action listener to 'verKDA' to call ventana.consultarKDA(equipo.getSelectedItem().toString()) and update listaJugadores with results. ✅
+   - Add action listener to 'verPromedioVictorias' to call ventana.consultarPromedioVictorias(equipo.getSelectedItem().toString()) and show result in JOptionPane or update listaJugadores. ✅
+   - Add action listener to 'verPromedioDerrotas' to call ventana.consultarPromedioDerrotas(equipo.getSelectedItem().toString()) and show result in JOptionPane. ✅
+   - Add action listener to 'verJugadorMasKills' to call ventana.consultarJugadorMasKills(equipo.getSelectedItem().toString()) and update listaJugadores with result. ✅
+
+4. **Edit InterfazEsports.java** ✅
+
+   - Add method consultarKDA(String nombreEquipo): Get team, list players with KDA. ✅
+   - Add method consultarPromedioVictorias(String nombreEquipo): Calculate and return average wins. ✅
+   - Add method consultarPromedioDerrotas(String nombreEquipo): Calculate and return average losses. ✅
+   - Add method consultarJugadorMasKills(String nombreEquipo): Find player with most kills. ✅
+   - Ensure inicializarPaneles() calls methods to load comboboxes if needed, but since panels have esports, load in constructors. ✅ Fixed card layout names.
+
+5. **Test Connections** ✅
+   - Run the application and verify comboboxes load teams, buttons trigger correct actions, and results display properly. ✅

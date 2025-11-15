@@ -171,7 +171,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ver promedio victorias"/>
+            <Property name="text" type="java.lang.String" value="ver promedio victorias"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verPromedioVictoriasActionPerformed"/>
@@ -193,7 +193,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ver promedio derrotas"/>
+            <Property name="text" type="java.lang.String" value="ver promedio derrotas"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verPromedioDerrotasActionPerformed"/>
@@ -276,8 +276,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ver jugador con m&#xe1;s kills"/>
-            <Property name="actionCommand" type="java.lang.String" value="Ver jugador con m&#xe1;s kills"/>
+            <Property name="text" type="java.lang.String" value="ver jugador con mas kills"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verJugadorMasKills1ActionPerformed"/>
