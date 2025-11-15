@@ -9,13 +9,24 @@ package umariana.cupi2.esports.interfaz;
  * @author Usuario
  */
 public class PanelNavBar extends javax.swing.JPanel {
+    private final InterfazEsports ventana;
+
 
     /**
      * Creates new form PanelNavBar
+     * @param ventana
      */
-    public PanelNavBar() {
-        initComponents();
-    }
+    public PanelNavBar(InterfazEsports ventana) {
+    this.ventana = ventana;
+    initComponents();
+}
+    
+@Deprecated
+   public PanelNavBar() {
+        ventana = null;
+     initComponents();
+   }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +57,11 @@ public class PanelNavBar extends javax.swing.JPanel {
         registrarJugadorButton.setForeground(new java.awt.Color(255, 255, 255));
         registrarJugadorButton.setText("Registrar jugadores");
         registrarJugadorButton.setBorder(null);
+        registrarJugadorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarJugadorButtonActionPerformed(evt);
+            }
+        });
         background.add(registrarJugadorButton);
         registrarJugadorButton.setBounds(270, 20, 200, 30);
 
@@ -79,21 +95,27 @@ public class PanelNavBar extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(196, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrarPartidaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarPartidaButtonActionPerformed
-        // TODO add your handling code here:
+        ventana.mostrarPanel("registroPartidas");
     }//GEN-LAST:event_registrarPartidaButtonActionPerformed
 
     private void consultarJugadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarJugadoresButtonActionPerformed
-        // TODO add your handling code here:
+        ventana.mostrarPanel("consultaJugadores");
     }//GEN-LAST:event_consultarJugadoresButtonActionPerformed
+
+    private void registrarJugadorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarJugadorButtonActionPerformed
+         ventana.mostrarPanel("registroJugadores");
+    }//GEN-LAST:event_registrarJugadorButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

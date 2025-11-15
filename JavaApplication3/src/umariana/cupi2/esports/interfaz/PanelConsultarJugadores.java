@@ -4,19 +4,23 @@
  */
 package umariana.cupi2.esports.interfaz;
 
+import umariana.cupi2.esports.mundo.Esports;
+
 /**
  *
  * @author Usuario
  */
 public class PanelConsultarJugadores extends javax.swing.JPanel {
-
+private InterfazEsports ventana;
+private Esports esports;
     /**
      * Creates new form PanelConsultarJugadores
      */
-    public PanelConsultarJugadores() {
-        initComponents();
-    }
-
+public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
+    this.ventana = ventana;
+    this.esports = modelo;
+    initComponents();
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

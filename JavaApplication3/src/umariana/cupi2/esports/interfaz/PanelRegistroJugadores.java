@@ -4,18 +4,24 @@
  */
 package umariana.cupi2.esports.interfaz;
 
+import umariana.cupi2.esports.mundo.Esports;
+
 /**
  *
  * @author Usuario
  */
 public class PanelRegistroJugadores extends javax.swing.JPanel {
+private InterfazEsports ventana;
+private Esports esports;
 
     /**
      * Creates new form PanelRegistroJugadores
      */
-    public PanelRegistroJugadores() {
-        initComponents();
-    }
+public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
+    this.ventana = ventana;
+    this.esports = modelo;
+    initComponents();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,8 +47,6 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
 
         background.setBackground(new java.awt.Color(25, 25, 50));
         background.setLayout(null);
-
-        sage.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\Sage.png")); // NOI18N
         background.add(sage);
         sage.setBounds(310, 70, 790, 970);
 
@@ -102,6 +106,11 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
         equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         equipo.setForeground(new java.awt.Color(255, 255, 255));
         equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        equipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equipoActionPerformed(evt);
+            }
+        });
         background.add(equipo);
         equipo.setBounds(50, 420, 320, 50);
 
@@ -109,7 +118,7 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
         equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
         equipoTittle.setText("Selecciona tu equipo");
         background.add(equipoTittle);
-        equipoTittle.setBounds(50, 400, 260, 18);
+        equipoTittle.setBounds(50, 400, 260, 21);
 
         KDA.setBackground(new java.awt.Color(83, 83, 91));
         KDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -124,8 +133,6 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
         registrarButton.setText("Registrar");
         background.add(registrarButton);
         registrarButton.setBounds(180, 590, 150, 50);
-
-        sageSpray.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\sageSpray.png")); // NOI18N
         background.add(sageSpray);
         sageSpray.setBounds(60, 550, 120, 130);
 
@@ -144,6 +151,10 @@ public class PanelRegistroJugadores extends javax.swing.JPanel {
     private void nicknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nicknameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nicknameActionPerformed
+
+    private void equipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_equipoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

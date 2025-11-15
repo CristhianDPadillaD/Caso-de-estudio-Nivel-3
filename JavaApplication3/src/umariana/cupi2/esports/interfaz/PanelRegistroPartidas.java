@@ -4,19 +4,23 @@
  */
 package umariana.cupi2.esports.interfaz;
 
+import umariana.cupi2.esports.mundo.Esports;
+
 /**
  *
  * @author Usuario
  */
 public class PanelRegistroPartidas extends javax.swing.JPanel {
-
+private InterfazEsports ventana;
+private Esports esports;
     /**
      * Creates new form PanelRegistroPartidas
      */
-    public PanelRegistroPartidas() {
-        initComponents();
-    }
-
+public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
+    this.ventana = ventana;
+    this.esports = modelo;
+    initComponents();
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,7 +33,6 @@ public class PanelRegistroPartidas extends javax.swing.JPanel {
         background = new javax.swing.JPanel();
         backgroundTittle = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
-        fenix = new javax.swing.JLabel();
         team1Background1 = new javax.swing.JPanel();
         equipoTittle = new javax.swing.JLabel();
         equipo = new javax.swing.JComboBox<>();
@@ -85,11 +88,6 @@ public class PanelRegistroPartidas extends javax.swing.JPanel {
         background.add(backgroundTittle);
         backgroundTittle.setBounds(100, 40, 900, 70);
 
-        fenix.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\fenix.png")); // NOI18N
-        fenix.setText("jLabel1");
-        background.add(fenix);
-        fenix.setBounds(50, 290, 190, 370);
-
         team1Background1.setBackground(new java.awt.Color(56, 56, 101));
 
         equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -114,6 +112,11 @@ public class PanelRegistroPartidas extends javax.swing.JPanel {
         rival.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         rival.setForeground(new java.awt.Color(255, 255, 255));
         rival.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rival.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rivalActionPerformed(evt);
+            }
+        });
 
         marcador.setBackground(new java.awt.Color(128, 128, 168));
         marcador.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -180,10 +183,8 @@ public class PanelRegistroPartidas extends javax.swing.JPanel {
 
         background.add(team1Background1);
         team1Background1.setBounds(170, 190, 360, 430);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\Skye.png")); // NOI18N
         background.add(jLabel1);
-        jLabel1.setBounds(860, 300, 195, 342);
+        jLabel1.setBounds(860, 300, 0, 0);
 
         team2Background.setBackground(new java.awt.Color(165, 88, 114));
         team2Background.setMinimumSize(new java.awt.Dimension(360, 470));
@@ -291,7 +292,7 @@ public class PanelRegistroPartidas extends javax.swing.JPanel {
 
         team2.setFont(new java.awt.Font("VALORANT", 0, 36)); // NOI18N
         team2.setForeground(new java.awt.Color(255, 255, 255));
-        team2.setText("tEAM 2");
+        team2.setText("TEAM 2");
         background.add(team2);
         team2.setBounds(670, 140, 150, 50);
 
@@ -320,6 +321,10 @@ public class PanelRegistroPartidas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fecha2ActionPerformed
 
+    private void rivalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rivalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rivalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField assists;
@@ -334,7 +339,6 @@ public class PanelRegistroPartidas extends javax.swing.JPanel {
     private javax.swing.JLabel equipoTittle;
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField fecha2;
-    private javax.swing.JLabel fenix;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField kills;
