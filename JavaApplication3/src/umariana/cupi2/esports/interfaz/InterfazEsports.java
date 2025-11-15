@@ -74,15 +74,34 @@ public class InterfazEsports extends javax.swing.JFrame {
 }
 
     
-    /**
+     /**
      * Este método es llamado por el PanelRegistroJugador cuando se hace clic en el
      * botón.
      */
- public void registrarJugador(String nombre, String nickname, String correo, String nombreEquipo) {
+ public void registrarJugador(String nombre, String nickname, String correo, String nombreEquipo, String kda) {
 
         try {
-            if (nombre.isEmpty() || nickname.isEmpty() || correo.isEmpty() || nombreEquipo == null) {
+            if (nombre.isEmpty() || nickname.isEmpty() || correo.isEmpty() || nombreEquipo == null || kda.isEmpty()) {
                 throw new Exception("Todos los campos son obligatorios.");
+            }
+
+            // Validar formato KDA: kills/deaths/assists
+            String[] partesKDA = kda.split("/");
+            if (partesKDA.length != 3) {
+                throw new Exception("El KDA debe tener el formato kills/deaths/assists (ej. 5/2/3).");
+            }
+
+            int kills, deaths, assists;
+            try {
+                kills = Integer.parseInt(partesKDA[0].trim());
+                deaths = Integer.parseInt(partesKDA[1].trim());
+                assists = Integer.parseInt(partesKDA[2].trim());
+            } catch (NumberFormatException ex) {
+                throw new Exception("Los valores del KDA deben ser números enteros.");
+            }
+
+            if (kills < 0 || deaths < 0 || assists < 0) {
+                throw new Exception("Los valores del KDA no pueden ser negativos.");
             }
 
             Equipo equipo = esports.darEquipoPorNombre(nombreEquipo);
@@ -97,7 +116,7 @@ public class InterfazEsports extends javax.swing.JFrame {
                     nombre,
                     nickname,
                     correo,
-                    0, 0, 0
+                    kills, deaths, assists
             );
 
             director.agregarJugador(nuevo, DATA_FOLDER_PATH);

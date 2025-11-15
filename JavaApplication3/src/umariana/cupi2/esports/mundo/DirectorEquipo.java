@@ -139,11 +139,14 @@ public class DirectorEquipo {
     String idJugador = "J" + (contador + 1);
     nuevoJugador.setIdJugador(idJugador);
     
-    String lineaJugador = (nuevoJugador.getIdJugador() != null ? nuevoJugador.getIdJugador() : "") + "," 
+    String lineaJugador = (nuevoJugador.getIdJugador() != null ? nuevoJugador.getIdJugador() : "") + ","
                         + (nuevoJugador.getIdEquipo() != null ? nuevoJugador.getIdEquipo() : "") + ","
                         + name + ","
-                        + nickname+","+
-                            mail;
+                        + nickname + ","
+                        + mail + ","
+                        + nuevoJugador.getKills() + ","
+                        + nuevoJugador.getDeaths() + ","
+                        + nuevoJugador.getAssists();
 
     // Persistencia: escribir en archivo primero
     try (FileWriter fileWriter = new FileWriter(nombreArchivo, true);

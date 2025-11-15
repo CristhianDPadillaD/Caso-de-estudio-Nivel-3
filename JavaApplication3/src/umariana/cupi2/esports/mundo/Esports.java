@@ -122,9 +122,22 @@ public void addEquipo(Equipo equipo) {
             try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
                 String linea;
                 while ((linea = br.readLine()) != null) {
-                    String[] partes = linea.split(",");
-                    // Formato: idJugador,idEquipo,nombre,nickname,correo
-                    if (partes.length >= 5) {
+                String[] partes = linea.split(",");
+                    // Formato: idJugador,idEquipo,nombre,nickname,correo,kills,deaths,assists
+                    if (partes.length >= 8) {
+                        String idJugador = partes[0].trim();
+                        String idEquipo = partes[1].trim();
+                        String nombre = partes[2].trim();
+                        String nickname = partes[3].trim();
+                        String correo = partes[4].trim();
+                        int kills = Integer.parseInt(partes[5].trim());
+                        int deaths = Integer.parseInt(partes[6].trim());
+                        int assists = Integer.parseInt(partes[7].trim());
+
+                        Jugador nuevoJugador = new Jugador(idJugador, idEquipo, nombre, nickname, correo, kills, deaths, assists);
+                        equipo.addJugador(nuevoJugador);
+                    } else if (partes.length >= 5) {
+                        // Compatibilidad hacia atrás: si no hay KDA, asumir 0/0/0
                         String idJugador = partes[0].trim();
                         String idEquipo = partes[1].trim();
                         String nombre = partes[2].trim();
