@@ -61,9 +61,9 @@ public class InterfazEsports extends javax.swing.JFrame {
         panelConsultarJugadores = new PanelConsultarJugadores(this, esports);
 
         // Añadirlos al CardLayout
-        panelContenedor.add(panelRegistroJugadores, "jugadores");
-        panelContenedor.add(panelRegistroPartida, "registro");
-        panelContenedor.add(panelConsultarJugadores, "consulta");
+        panelContenedor.add(panelRegistroJugadores, "registroJugadores");
+        panelContenedor.add(panelRegistroPartida, "registroPartidas");
+        panelContenedor.add(panelConsultarJugadores, "consultaJugadores");
     }
 
      /**
@@ -332,6 +332,58 @@ public class InterfazEsports extends javax.swing.JFrame {
     }
     
             
+
+    public void consultarKDA(String nombreEquipo) {
+        try {
+            Equipo equipo = esports.darEquipoPorNombre(nombreEquipo);
+            if (equipo == null) {
+                throw new Exception("Equipo no encontrado.");
+            }
+            String[] kdas = equipo.consultarKDAJugadores();
+            panelConsultarJugadores.actualizarLista(kdas);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void consultarPromedioVictorias(String nombreEquipo) {
+        try {
+            Equipo equipo = esports.darEquipoPorNombre(nombreEquipo);
+            if (equipo == null) {
+                throw new Exception("Equipo no encontrado.");
+            }
+            double promedio = equipo.calcularPromedioVictorias();
+            JOptionPane.showMessageDialog(this, "Promedio de victorias: " + promedio, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void consultarPromedioDerrotas(String nombreEquipo) {
+        try {
+            Equipo equipo = esports.darEquipoPorNombre(nombreEquipo);
+            if (equipo == null) {
+                throw new Exception("Equipo no encontrado.");
+            }
+            double promedio = equipo.calcularPromedioDerrotas();
+            JOptionPane.showMessageDialog(this, "Promedio de derrotas: " + promedio, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void consultarJugadorMasKills(String nombreEquipo) {
+        try {
+            Equipo equipo = esports.darEquipoPorNombre(nombreEquipo);
+            if (equipo == null) {
+                throw new Exception("Equipo no encontrado.");
+            }
+            String[] resultado = equipo.consultarJugadorMasKills();
+            panelConsultarJugadores.actualizarLista(resultado);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     // El método main para ejecutar la aplicación
     public static void main(String args[]) {
