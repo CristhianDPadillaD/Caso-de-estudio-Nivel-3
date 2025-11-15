@@ -20,22 +20,6 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
     this.ventana = ventana;
     this.esports = modelo;
     initComponents();
-    cargarEquipos();
-    verKDA.addActionListener(e -> ventana.consultarKDA((String) equipo.getSelectedItem()));
-    verPromedioVictorias.addActionListener(e -> ventana.consultarPromedioVictorias((String) equipo.getSelectedItem()));
-    verPromedioDerrotas.addActionListener(e -> ventana.consultarPromedioDerrotas((String) equipo.getSelectedItem()));
-    verJugadorMasKills1.addActionListener(e -> ventana.consultarJugadorMasKills((String) equipo.getSelectedItem()));
-}
-
-private void cargarEquipos() {
-    equipo.removeAllItems();
-    for (umariana.cupi2.esports.mundo.Equipo eq : esports.getEquipos()) {
-        equipo.addItem(eq.getNombre());
-    }
-}
-
-public void actualizarLista(String[] items) {
-    listaJugadores.setListData(items);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,16 +38,17 @@ public void actualizarLista(String[] items) {
         equipo = new javax.swing.JComboBox<>();
         verKDA = new javax.swing.JButton();
         verPromedioVictorias = new javax.swing.JButton();
-        verPromedioDerrotas = new javax.swing.JButton();
+        verJugadorMasKills = new javax.swing.JButton();
         lista = new javax.swing.JScrollPane();
         listaJugadores = new javax.swing.JList<>();
         listaBackgorund = new javax.swing.JPanel();
-        verJugadorMasKills1 = new javax.swing.JButton();
 
         background.setBackground(new java.awt.Color(27, 43, 43));
         background.setLayout(null);
+
+        viper.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\viper.png")); // NOI18N
         background.add(viper);
-        viper.setBounds(0, 90, 370, 600);
+        viper.setBounds(10, 90, 370, 600);
 
         backgroundTittle.setBackground(new java.awt.Color(23, 75, 75));
 
@@ -95,14 +80,14 @@ public void actualizarLista(String[] items) {
         equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
         equipoTittle.setText("Selecciona el equipo");
         background.add(equipoTittle);
-        equipoTittle.setBounds(330, 140, 260, 21);
+        equipoTittle.setBounds(330, 150, 260, 18);
 
         equipo.setBackground(new java.awt.Color(83, 83, 91));
         equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         equipo.setForeground(new java.awt.Color(255, 255, 255));
         equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         background.add(equipo);
-        equipo.setBounds(330, 160, 320, 50);
+        equipo.setBounds(330, 170, 320, 50);
 
         verKDA.setBackground(new java.awt.Color(0, 102, 102));
         verKDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -114,7 +99,7 @@ public void actualizarLista(String[] items) {
             }
         });
         background.add(verKDA);
-        verKDA.setBounds(350, 230, 270, 40);
+        verKDA.setBounds(350, 240, 270, 40);
 
         verPromedioVictorias.setBackground(new java.awt.Color(0, 102, 102));
         verPromedioVictorias.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
@@ -126,19 +111,19 @@ public void actualizarLista(String[] items) {
             }
         });
         background.add(verPromedioVictorias);
-        verPromedioVictorias.setBounds(350, 280, 270, 40);
+        verPromedioVictorias.setBounds(350, 300, 270, 40);
 
-        verPromedioDerrotas.setBackground(new java.awt.Color(0, 102, 102));
-        verPromedioDerrotas.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
-        verPromedioDerrotas.setForeground(new java.awt.Color(255, 255, 255));
-        verPromedioDerrotas.setText("ver promedio derrotas");
-        verPromedioDerrotas.addActionListener(new java.awt.event.ActionListener() {
+        verJugadorMasKills.setBackground(new java.awt.Color(0, 102, 102));
+        verJugadorMasKills.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
+        verJugadorMasKills.setForeground(new java.awt.Color(255, 255, 255));
+        verJugadorMasKills.setText("ver jugador con mas kills");
+        verJugadorMasKills.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verPromedioDerrotasActionPerformed(evt);
+                verJugadorMasKillsActionPerformed(evt);
             }
         });
-        background.add(verPromedioDerrotas);
-        verPromedioDerrotas.setBounds(350, 330, 270, 40);
+        background.add(verJugadorMasKills);
+        verJugadorMasKills.setBounds(350, 360, 270, 40);
 
         listaJugadores.setBackground(new java.awt.Color(221, 221, 221));
         listaJugadores.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -168,18 +153,6 @@ public void actualizarLista(String[] items) {
         background.add(listaBackgorund);
         listaBackgorund.setBounds(320, 430, 330, 220);
 
-        verJugadorMasKills1.setBackground(new java.awt.Color(0, 102, 102));
-        verJugadorMasKills1.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
-        verJugadorMasKills1.setForeground(new java.awt.Color(255, 255, 255));
-        verJugadorMasKills1.setText("ver jugador con mas kills");
-        verJugadorMasKills1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verJugadorMasKills1ActionPerformed(evt);
-            }
-        });
-        background.add(verJugadorMasKills1);
-        verJugadorMasKills1.setBounds(350, 380, 270, 40);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -202,13 +175,9 @@ public void actualizarLista(String[] items) {
         // TODO add your handling code here:
     }//GEN-LAST:event_verPromedioVictoriasActionPerformed
 
-    private void verPromedioDerrotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPromedioDerrotasActionPerformed
+    private void verJugadorMasKillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verJugadorMasKillsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_verPromedioDerrotasActionPerformed
-
-    private void verJugadorMasKills1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verJugadorMasKills1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verJugadorMasKills1ActionPerformed
+    }//GEN-LAST:event_verJugadorMasKillsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -220,9 +189,8 @@ public void actualizarLista(String[] items) {
     private javax.swing.JPanel listaBackgorund;
     private javax.swing.JList<String> listaJugadores;
     private javax.swing.JLabel tittle;
-    private javax.swing.JButton verJugadorMasKills1;
+    private javax.swing.JButton verJugadorMasKills;
     private javax.swing.JButton verKDA;
-    private javax.swing.JButton verPromedioDerrotas;
     private javax.swing.JButton verPromedioVictorias;
     private javax.swing.JLabel viper;
     // End of variables declaration//GEN-END:variables

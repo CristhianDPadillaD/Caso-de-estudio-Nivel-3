@@ -1,36 +1,10 @@
-# TODO: Update Panels and Connections
+# TODO: Implement User Story EA-8: Consulta del jugador con más kills
 
-## Overview
+## Steps to Complete
 
-Update the specified panels (PanelRegistroJugadores, PanelRegistroPartidas, PanelConsultarJugadores, PanelNavBar) to load teams into comboboxes from data/equipos.txt, connect buttons to logic in InterfazEsports.java, and ensure functionality. Keep all logic in InterfazEsports.java, do not create new classes or files.
-
-## Steps
-
-1. **Edit PanelRegistroJugadores.java** ✅
-
-   - Add code in constructor to load teams into 'equipo' combobox using esports.getEquipos(). ✅
-   - Add action listener to 'registrarButton' to call ventana.registrarJugador() with field values (nombreCompleto.getText(), nickname.getText(), correo.getText(), equipo.getSelectedItem().toString()). ✅
-
-2. **Edit PanelRegistroPartidas.java** ✅
-
-   - Add code in constructor to load teams into 'equipo', 'equipo2', 'rival', 'rival2' comboboxes using esports.getEquipos(). ✅
-   - Add action listener to 'jButton1' to call ventana.registrarPartida() – note: registrarPartida() already exists and uses panel methods to get values. ✅
-
-3. **Edit PanelConsultarJugadores.java** ✅
-
-   - Add code in constructor to load teams into 'equipo' combobox using esports.getEquipos(). ✅
-   - Add action listener to 'verKDA' to call ventana.consultarKDA(equipo.getSelectedItem().toString()) and update listaJugadores with results. ✅
-   - Add action listener to 'verPromedioVictorias' to call ventana.consultarPromedioVictorias(equipo.getSelectedItem().toString()) and show result in JOptionPane or update listaJugadores. ✅
-   - Add action listener to 'verPromedioDerrotas' to call ventana.consultarPromedioDerrotas(equipo.getSelectedItem().toString()) and show result in JOptionPane. ✅
-   - Add action listener to 'verJugadorMasKills' to call ventana.consultarJugadorMasKills(equipo.getSelectedItem().toString()) and update listaJugadores with result. ✅
-
-4. **Edit InterfazEsports.java** ✅
-
-   - Add method consultarKDA(String nombreEquipo): Get team, list players with KDA. ✅
-   - Add method consultarPromedioVictorias(String nombreEquipo): Calculate and return average wins. ✅
-   - Add method consultarPromedioDerrotas(String nombreEquipo): Calculate and return average losses. ✅
-   - Add method consultarJugadorMasKills(String nombreEquipo): Find player with most kills. ✅
-   - Ensure inicializarPaneles() calls methods to load comboboxes if needed, but since panels have esports, load in constructors. ✅ Fixed card layout names.
-
-5. **Test Connections** ✅
-   - Run the application and verify comboboxes load teams, buttons trigger correct actions, and results display properly. ✅
+- [x] Add consultarJugadorConMasKills() method in DirectorEquipo.java to find the player with the most kills in the assigned team
+- [x] Add mostrarJugadorConMasKills() method in InterfazEsports.java to handle the UI logic, get selected team, assign to director, call the method, and show JOptionPane with the result or "No hay datos disponibles para mostrar" if no players or no kills
+- [x] Add "Ver Jugador con Más Kills" button in PanelConsulta.java that calls principal.mostrarJugadorConMasKills()
+- [x] Add unit tests in DirectorEquipoTest.java for consultarJugadorConMasKills() covering successful query (CID 2), no data (CID 3)
+- [ ] Compile the project and run the unit tests to verify the implementation (to be done in NetBeans)
+- [ ] Test the UI by running the application and accessing the team statistics section to ensure the button and message display work correctly (to be done in NetBeans)
