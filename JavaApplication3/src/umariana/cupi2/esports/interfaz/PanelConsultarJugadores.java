@@ -7,21 +7,36 @@ package umariana.cupi2.esports.interfaz;
 import umariana.cupi2.esports.mundo.Esports;
 
 /**
- *
- * @author Usuario
+ * Panel que permite consultar información de los jugadores de un equipo,
+ * incluyendo estadísticas como KDA, promedios y jugador con más kills.
+ * <p>
+ * Hace parte de la interfaz de usuario del proyecto CUPI2.
+ * </p>
  */
 public class PanelConsultarJugadores extends javax.swing.JPanel {
-private InterfazEsports ventana;
-private Esports esports;
+
     /**
-     * Creates new form PanelConsultarJugadores
+     * Ventana principal de la aplicación. Permite comunicación con otros paneles.
      */
-public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
-    this.ventana = ventana;
-    this.esports = modelo;
-    initComponents();
-    cargarEquipos();
-}
+    private InterfazEsports ventana;
+
+    /**
+     * Modelo principal donde se encuentran los equipos y jugadores.
+     */
+    private Esports esports;
+
+    /**
+     * Crea el panel de consulta de jugadores e inicializa sus componentes.
+     *
+     * @param ventana Ventana principal de la aplicación.
+     * @param modelo  Modelo del mundo que contiene los equipos y jugadores.
+     */
+    public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
+        this.ventana = ventana;
+        this.esports = modelo;
+        initComponents();
+        cargarEquipos();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -184,6 +199,14 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Acción del botón "Ver KDA".
+     * <p>
+     * Muestra en la lista los valores KDA de cada jugador del equipo seleccionado.
+     * </p>
+     *
+     * @param evt Evento generado al hacer clic en el botón.
+     */
     private void verKDAActionPerformed(java.awt.event.ActionEvent evt) {
         String equipoSeleccionado = (String) equipo.getSelectedItem();
         if (equipoSeleccionado == null) {
@@ -205,6 +228,14 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         listaJugadores.setListData(kdas);
     }
 
+    /**
+     * Acción del botón "Ver Promedio Derrotas".
+     * <p>
+     * Calcula y muestra el promedio de derrotas del equipo seleccionado.
+     * </p>
+     *
+     * @param evt Evento generado al hacer clic en el botón.
+     */
     private void verPromedioDerrotasActionPerformed(java.awt.event.ActionEvent evt) {
         String equipoSeleccionado = (String) equipo.getSelectedItem();
         if (equipoSeleccionado == null) {
@@ -217,6 +248,15 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         javax.swing.JOptionPane.showMessageDialog(this, "Promedio de derrotas: " + String.format("%.2f", promedio), "Resultado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }
 
+    /**
+     * Acción del botón "Ver Jugador con Más Kills".
+     * <p>
+     * Busca el jugador con mayor cantidad de kills en el equipo seleccionado
+     * y lo muestra en pantalla.
+     * </p>
+     *
+     * @param evt Evento generado al hacer clic en el botón.
+     */
     private void verJugadorMasKillsActionPerformed(java.awt.event.ActionEvent evt) {
         String equipoSeleccionado = (String) equipo.getSelectedItem();
         if (equipoSeleccionado == null) {
@@ -238,10 +278,19 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         }
 
         if (maxKills != null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Jugador con más kills: " + maxKills.getNickname() + " (" + maxKills.getKills() + " kills)", "Resultado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Jugador con más kills: " + maxKills.getNickname()
+                    + " (" + maxKills.getKills() + " kills)", "Resultado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
+    /**
+     * Acción del botón "Ver Promedio Victorias".
+     * <p>
+     * Muestra el promedio de victorias del equipo seleccionado.
+     * </p>
+     *
+     * @param evt Evento generado al hacer clic en el botón.
+     */
     private void verPromedioVictorias1ActionPerformed(java.awt.event.ActionEvent evt) {
         String equipoSeleccionado = (String) equipo.getSelectedItem();
         if (equipoSeleccionado == null) {
@@ -254,6 +303,9 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         javax.swing.JOptionPane.showMessageDialog(this, "Promedio de victorias: " + String.format("%.2f", promedio), "Resultado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }
 
+    /**
+     * Carga en el JComboBox la lista de nombres de los equipos disponibles en el modelo.
+     */
     private void cargarEquipos() {
         equipo.removeAllItems();
         for (umariana.cupi2.esports.mundo.Equipo eq : esports.getEquipos()) {

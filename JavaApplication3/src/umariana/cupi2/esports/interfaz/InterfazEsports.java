@@ -15,93 +15,116 @@ import javax.swing.JFrame;
 import javax.swing.BorderFactory;
 import umariana.cupi2.esports.mundo.*;
 
+/**
+ * Ventana principal de la aplicación ESports.
+ * Administra la interacción gráfica, el cambio de paneles y la comunicación con el módulo del mundo.
+ */
 public class InterfazEsports extends javax.swing.JFrame {
 
-    // --- Atributos ---
+    // --- Atributos generales ---
+    /** Ruta donde se almacenan los archivos persistentes */
     private static final String DATA_FOLDER_PATH = "./data";
     
+    /** Modelo principal del sistema */
     private Esports esports; 
+
+    /** Director general que realiza operaciones sobre jugadores y partidas */
     private DirectorEquipo director; 
     
-    // Layouts y paneles principales
-    private JPanel panelContenedor;   // Donde cambian los paneles
+    // --- Manejo de paneles y layouts ---
+    /** Panel contenedor que muestra dinámicamente distintos módulos */
+    private JPanel panelContenedor;
+
+    /** CardLayout que permite cambiar entre paneles como “pantallas” */
     private CardLayout cardLayout;
 
-    // Paneles funcionales
-
+    // --- Paneles funcionales ---
     private PanelNavBar panelNavBar;
-    
     private PanelRegistroPartidas panelRegistroPartidas;
     private PanelRegistroJugadores panelRegistroJugadores;
     private PanelConsultarJugadores panelConsultarJugadores;
 
 
     /**
-     * Constructor de la ventana principal
+     * Constructor principal.
+     * Carga los datos del modelo, configura la interfaz gráfica
+     * y establece el panel por defecto.
      */
     public InterfazEsports() {
         try {
-            // Cargar los datos del mundo
+            // Cargar datos persistentes desde archivos
             Esports.CargadorDatos cargador = new Esports().new CargadorDatos();
             esports = cargador.cargarModelo();
 
+            // Director general inicial
             director = new DirectorEquipo("D1", null, "Director General", "admin@esports.com", null);
 
-            // Construir interfaz
+            // Construcción visual
             initComponents();
             inicializarPaneles();
             pack();
             setLocationRelativeTo(null); 
-            mostrarPanel("jugadores");  // Mostrar panel inicial después de inicializar
+            mostrarPanel("jugadores");  // Mostrar el panel inicial
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error fatal al cargar los datos: " + e.getMessage(), "Error",
+            JOptionPane.showMessageDialog(this, 
+                    "Error fatal al cargar los datos: " + e.getMessage(),
+                    "Error",
                     JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
     }
     
+    /**
+     * Inicializa los paneles funcionales y los agrega al contenedor principal.
+     */
     private void inicializarPaneles() {
 
         panelRegistroPartidas = new PanelRegistroPartidas(this, esports);
         panelRegistroJugadores = new PanelRegistroJugadores(this, esports);
         panelConsultarJugadores = new PanelConsultarJugadores(this, esports);
 
-        // Añadirlos al CardLayout
+        // Registrar paneles en el CardLayout
         panelContenedor.add(panelRegistroJugadores, "jugadores");
         panelContenedor.add(panelRegistroPartidas, "registro");
         panelContenedor.add(panelConsultarJugadores, "consulta");
     }
 
-     /**
-     * Cambia dinámicamente el panel dentro del contenedor central
+    /**
+     * Cambia la vista actual dentro del CardLayout.
+     * @param nombre Identificador del panel a mostrar.
      */
-  public void mostrarPanel(String nombre) {
-    cardLayout.show(panelContenedor, nombre);
-}
+    public void mostrarPanel(String nombre) {
+        cardLayout.show(panelContenedor, nombre);
+    }
 
     
     /**
-     * Este método es llamado por el PanelRegistroJugador cuando se hace clic en el
-     * botón.
+     * Método llamado desde PanelRegistroJugadores cuando se presiona "Registrar Jugador".
+     * Realiza validaciones, construye el objeto Jugador y lo envía al mundo.
      */
- public void registrarJugador(String nombre, String nickname, String correo, String nombreEquipo, int kills, int deaths, int assists) {
+    public void registrarJugador(String nombre, String nickname, String correo, String nombreEquipo, 
+                                 int kills, int deaths, int assists) {
 
         try {
+            // Validar campos básicos
             if (nombre.isEmpty() || nickname.isEmpty() || correo.isEmpty() || nombreEquipo == null) {
                 throw new Exception("Todos los campos son obligatorios.");
             }
 
+            // Validar KDA
             if (kills < 0 || deaths < 0 || assists < 0) {
                 throw new Exception("K/D/A deben ser >= 0.");
             }
 
+            // Buscar el equipo
             Equipo equipo = esports.darEquipoPorNombre(nombreEquipo);
             if (equipo == null)
                 throw new Exception("El equipo seleccionado no existe.");
 
             director.setEquipoAsignado(equipo);
 
+            // Construir jugador
             Jugador nuevo = new Jugador(
                     null,
                     equipo.getIdEquipo(),
@@ -111,6 +134,7 @@ public class InterfazEsports extends javax.swing.JFrame {
                     kills, deaths, assists
             );
 
+            // Registrar en el mundo
             director.agregarJugador(nuevo, DATA_FOLDER_PATH);
 
             JOptionPane.showMessageDialog(this,
@@ -126,226 +150,208 @@ public class InterfazEsports extends javax.swing.JFrame {
         }
     }
     
- public void registrarPartida() {
-    try {
 
-
-        String nombreEquipo1 = panelRegistroPartidas.getEquipo1();
-        String fecha1 = panelRegistroPartidas.getFecha1();
-        String nombreRival1 = panelRegistroPartidas.getRival1();
-        String marcador1Str = panelRegistroPartidas.getMarcador1();
-        String kills1Str = panelRegistroPartidas.getKills1();
-        String deaths1Str = panelRegistroPartidas.getDeaths1();
-        String assists1Str = panelRegistroPartidas.getAssists1();
-
-        String nombreEquipo2 = panelRegistroPartidas.getEquipo2();
-        String fecha2 = panelRegistroPartidas.getFecha2();
-        String nombreRival2 = panelRegistroPartidas.getRival2();
-        String marcador2Str = panelRegistroPartidas.getMarcador2();
-        String kills2Str = panelRegistroPartidas.getKills2();
-        String deaths2Str = panelRegistroPartidas.getDeaths2();
-        String assists2Str = panelRegistroPartidas.getAssists2();
-
-        // ============================================================
-        // VALIDACIONES — TEAM 1
-        // ============================================================
-        if (nombreEquipo1 == null || nombreEquipo1.trim().isEmpty() ||
-            fecha1 == null || fecha1.trim().isEmpty() || fecha1.equals("fecha") ||
-            nombreRival1 == null || nombreRival1.trim().isEmpty() ||
-            marcador1Str == null || marcador1Str.trim().isEmpty() ||
-            kills1Str == null || kills1Str.trim().isEmpty() ||
-            deaths1Str == null || deaths1Str.trim().isEmpty() ||
-            assists1Str == null || assists1Str.trim().isEmpty()) {
-            throw new Exception("Todos los campos del Equipo 1 son obligatorios.");
-        }
-
-        // ============================================================
-        // VALIDACIONES — TEAM 2
-        // ============================================================
-        if (nombreEquipo2 == null || nombreEquipo2.trim().isEmpty() ||
-            fecha2 == null || fecha2.trim().isEmpty() || fecha2.equals("fecha") ||
-            nombreRival2 == null || nombreRival2.trim().isEmpty() ||
-            marcador2Str == null || marcador2Str.trim().isEmpty() ||
-            kills2Str == null || kills2Str.trim().isEmpty() ||
-            deaths2Str == null || deaths2Str.trim().isEmpty() ||
-            assists2Str == null || assists2Str.trim().isEmpty()) {
-            throw new Exception("Todos los campos del Equipo 2 son obligatorios.");
-        }
-
-        // ============================================================
-        // VALIDAR FECHAS
-        // ============================================================
-        fecha1 = fecha1.trim();
-        fecha2 = fecha2.trim();
-
-        System.out.println("Fecha 1: '" + fecha1 + "'");
-        System.out.println("Fecha 2: '" + fecha2 + "'");
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-
-        if (!fecha1.matches("\\d{1,2}/\\d{1,2}/\\d{4}"))
-            throw new Exception("La fecha del Equipo 1 debe ser d/m/yyyy (ej: 1/1/2023 o 01/01/2023).");
-
-        LocalDate.parse(fecha1, formatter);
-
-        if (!fecha2.matches("\\d{1,2}/\\d{1,2}/\\d{4}"))
-            throw new Exception("La fecha del Equipo 2 debe ser d/m/yyyy (ej: 1/1/2023 o 01/01/2023).");
-
-        LocalDate.parse(fecha2, formatter);
-
-        // ============================================================
-        // VALIDAR QUE NO SE ENFRENTEN A SÍ MISMOS
-        // ============================================================
-        if (nombreEquipo1.equals(nombreRival1))
-            throw new Exception("El Equipo 1 no puede jugar contra sí mismo.");
-
-        if (nombreEquipo2.equals(nombreRival2))
-            throw new Exception("El Equipo 2 no puede jugar contra sí mismo.");
-
-        // ============================================================
-        // VALIDAR MARCADORES TEAM 1
-        // ============================================================
-        String[] marcadorSplit1 = marcador1Str.split("-");
-        if (marcadorSplit1.length != 2)
-            throw new Exception("Marcador de Equipo 1 debe ser X-Y.");
-
-        int puntosPropios1 = Integer.parseInt(marcadorSplit1[0].trim());
-        int puntosRival1 = Integer.parseInt(marcadorSplit1[1].trim());
-
-        // ============================================================
-        // VALIDAR MARCADORES TEAM 2
-        // ============================================================
-        String[] marcadorSplit2 = marcador2Str.split("-");
-        if (marcadorSplit2.length != 2)
-            throw new Exception("Marcador de Equipo 2 debe ser X-Y.");
-
-        int puntosPropios2 = Integer.parseInt(marcadorSplit2[0].trim());
-        int puntosRival2 = Integer.parseInt(marcadorSplit2[1].trim());
-
-        // ============================================================
-        // VALIDAR K/D/A — TEAM 1
-        // ============================================================
-        int kills1 = Integer.parseInt(kills1Str.trim());
-        int deaths1 = Integer.parseInt(deaths1Str.trim());
-        int assists1 = Integer.parseInt(assists1Str.trim());
-
-        if (kills1 < 0 || deaths1 < 0 || assists1 < 0)
-            throw new Exception("K/D/A del Equipo 1 deben ser >= 0.");
-
-        // ============================================================
-        // VALIDAR K/D/A — TEAM 2
-        // ============================================================
-        int kills2 = Integer.parseInt(kills2Str.trim());
-        int deaths2 = Integer.parseInt(deaths2Str.trim());
-        int assists2 = Integer.parseInt(assists2Str.trim());
-
-        if (kills2 < 0 || deaths2 < 0 || assists2 < 0)
-            throw new Exception("K/D/A del Equipo 2 deben ser >= 0.");
-
-        // ============================================================
-        // VALIDAR CONSISTENCIA DE MARCADORES SI ES LA MISMA PARTIDA
-        // ============================================================
-        if (nombreEquipo1.equals(nombreRival2) && nombreEquipo2.equals(nombreRival1)) {
-            if (puntosPropios1 != puntosRival2 || puntosPropios2 != puntosRival1) {
-                throw new Exception("Los marcadores no son consistentes para la misma partida entre " + nombreEquipo1 + " y " + nombreEquipo2 + ".");
-            }
-        }
-
-        // ============================================================
-        // 3. INTERACCIÓN CON EL MUNDO
-        // ============================================================
-
-        Equipo equipoPropio1 = esports.darEquipoPorNombre(nombreEquipo1);
-        Equipo equipoRival1 = esports.darEquipoPorNombre(nombreRival1);
-
-        Equipo equipoPropio2 = esports.darEquipoPorNombre(nombreEquipo2);
-        Equipo equipoRival2 = esports.darEquipoPorNombre(nombreRival2);
-
-        if (equipoPropio1 == null || equipoRival1 == null ||
-            equipoPropio2 == null || equipoRival2 == null) {
-            throw new Exception("Uno de los equipos seleccionados no existe.");
-        }
-
-        // Registrar para TEAM 1
-        director.setEquipoAsignado(equipoPropio1);
-        director.registrarPartida(equipoRival1, puntosPropios1, puntosRival1, DATA_FOLDER_PATH);
-
-        // Registrar para TEAM 2
-        director.setEquipoAsignado(equipoPropio2);
-        director.registrarPartida(equipoRival2, puntosPropios2, puntosRival2, DATA_FOLDER_PATH);
-
-        // ============================================================
-        // 4. ÉXITO
-        // ============================================================
-        JOptionPane.showMessageDialog(
-                this,
-                "Partida registrada correctamente.",
-                "Éxito",
-                JOptionPane.INFORMATION_MESSAGE);
-
-        panelRegistroPartidas.limpiarCampos();
-
-    } catch (NumberFormatException ex) {
-        JOptionPane.showMessageDialog(this, "Los campos numéricos tienen formato incorrecto.",
-                "Error", JOptionPane.ERROR_MESSAGE);
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this,
-                "Error al registrar partida:\n" + e.getMessage(),
-                "Error", JOptionPane.ERROR_MESSAGE);
-    }
-}
-
-  
-     public void irARegistroJugadores() {
-        mostrarPanel("jugadores");
-    }
-
-    public void irARegistroPartida() {
-        mostrarPanel("registro");
-    }
-
-    public void irAConsultaJugadores() {
-        mostrarPanel("consulta");
-    }
     /**
-     * Este método construye la ventana, pero en lugar de tener miles de líneas,
-     * ahora solo crea y posiciona nuestros paneles personalizados.
+     * Registra una partida en el sistema.
+     * Se ejecuta desde PanelRegistroPartidas y contiene validaciones completas
+     * sobre formato, puntuaciones, fechas y consistencia entre equipos.
      */
+    public void registrarPartida() {
+        try {
 
-      private void initComponents() {
+            // --- Obtención de datos desde el panel (Equipo 1 y Equipo 2) ---
+            String nombreEquipo1 = panelRegistroPartidas.getEquipo1();
+            String fecha1 = panelRegistroPartidas.getFecha1();
+            String nombreRival1 = panelRegistroPartidas.getRival1();
+            String marcador1Str = panelRegistroPartidas.getMarcador1();
+            String kills1Str = panelRegistroPartidas.getKills1();
+            String deaths1Str = panelRegistroPartidas.getDeaths1();
+            String assists1Str = panelRegistroPartidas.getAssists1();
+
+            String nombreEquipo2 = panelRegistroPartidas.getEquipo2();
+            String fecha2 = panelRegistroPartidas.getFecha2();
+            String nombreRival2 = panelRegistroPartidas.getRival2();
+            String marcador2Str = panelRegistroPartidas.getMarcador2();
+            String kills2Str = panelRegistroPartidas.getKills2();
+            String deaths2Str = panelRegistroPartidas.getDeaths2();
+            String assists2Str = panelRegistroPartidas.getAssists2();
+
+            // --------------------------------------------------------------
+            // VALIDACIONES: CAMPOS OBLIGATORIOS
+            // --------------------------------------------------------------
+            if (nombreEquipo1 == null || nombreEquipo1.trim().isEmpty() ||
+                fecha1 == null || fecha1.trim().isEmpty() || fecha1.equals("fecha") ||
+                nombreRival1 == null || nombreRival1.trim().isEmpty() ||
+                marcador1Str == null || marcador1Str.trim().isEmpty() ||
+                kills1Str == null || kills1Str.trim().isEmpty() ||
+                deaths1Str == null || deaths1Str.trim().isEmpty() ||
+                assists1Str == null || assists1Str.trim().isEmpty()) {
+                throw new Exception("Todos los campos del Equipo 1 son obligatorios.");
+            }
+
+            if (nombreEquipo2 == null || nombreEquipo2.trim().isEmpty() ||
+                fecha2 == null || fecha2.trim().isEmpty() || fecha2.equals("fecha") ||
+                nombreRival2 == null || nombreRival2.trim().isEmpty() ||
+                marcador2Str == null || marcador2Str.trim().isEmpty() ||
+                kills2Str == null || kills2Str.trim().isEmpty() ||
+                deaths2Str == null || deaths2Str.trim().isEmpty() ||
+                assists2Str == null || assists2Str.trim().isEmpty()) {
+                throw new Exception("Todos los campos del Equipo 2 son obligatorios.");
+            }
+
+            // --------------------------------------------------------------
+            // VALIDAR FECHAS EN FORMATO d/M/yyyy
+            // --------------------------------------------------------------
+            fecha1 = fecha1.trim();
+            fecha2 = fecha2.trim();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
+
+            if (!fecha1.matches("\\d{1,2}/\\d{1,2}/\\d{4}"))
+                throw new Exception("La fecha del Equipo 1 debe ser d/m/yyyy.");
+
+            LocalDate.parse(fecha1, formatter);
+
+            if (!fecha2.matches("\\d{1,2}/\\d{1,2}/\\d{4}"))
+                throw new Exception("La fecha del Equipo 2 debe ser d/m/yyyy.");
+
+            LocalDate.parse(fecha2, formatter);
+
+            // --------------------------------------------------------------
+            // VALIDAR QUE NO JUEGUEN CONTRA SÍ MISMOS
+            // --------------------------------------------------------------
+            if (nombreEquipo1.equals(nombreRival1))
+                throw new Exception("El Equipo 1 no puede jugar contra sí mismo.");
+
+            if (nombreEquipo2.equals(nombreRival2))
+                throw new Exception("El Equipo 2 no puede jugar contra sí mismo.");
+
+            // --------------------------------------------------------------
+            // VALIDAR MARCADORES
+            // --------------------------------------------------------------
+            String[] marcadorSplit1 = marcador1Str.split("-");
+            if (marcadorSplit1.length != 2)
+                throw new Exception("Marcador de Equipo 1 debe ser X-Y.");
+
+            int puntosPropios1 = Integer.parseInt(marcadorSplit1[0].trim());
+            int puntosRival1 = Integer.parseInt(marcadorSplit1[1].trim());
+
+            String[] marcadorSplit2 = marcador2Str.split("-");
+            if (marcadorSplit2.length != 2)
+                throw new Exception("Marcador de Equipo 2 debe ser X-Y.");
+
+            int puntosPropios2 = Integer.parseInt(marcadorSplit2[0].trim());
+            int puntosRival2 = Integer.parseInt(marcadorSplit2[1].trim());
+
+            // --------------------------------------------------------------
+            // VALIDAR KDA DE AMBOS EQUIPOS
+            // --------------------------------------------------------------
+            int kills1 = Integer.parseInt(kills1Str.trim());
+            int deaths1 = Integer.parseInt(deaths1Str.trim());
+            int assists1 = Integer.parseInt(assists1Str.trim());
+
+            int kills2 = Integer.parseInt(kills2Str.trim());
+            int deaths2 = Integer.parseInt(deaths2Str.trim());
+            int assists2 = Integer.parseInt(assists2Str.trim());
+
+            if (kills1 < 0 || deaths1 < 0 || assists1 < 0)
+                throw new Exception("K/D/A del Equipo 1 deben ser >= 0.");
+
+            if (kills2 < 0 || deaths2 < 0 || assists2 < 0)
+                throw new Exception("K/D/A del Equipo 2 deben ser >= 0.");
+
+            // --------------------------------------------------------------
+            // VALIDAR CONSISTENCIA SI ES LA MISMA PARTIDA
+            // --------------------------------------------------------------
+            if (nombreEquipo1.equals(nombreRival2) && nombreEquipo2.equals(nombreRival1)) {
+                if (puntosPropios1 != puntosRival2 || puntosPropios2 != puntosRival1) {
+                    throw new Exception("Los marcadores no son consistentes para la misma partida.");
+                }
+            }
+
+            // --------------------------------------------------------------
+            // REGISTRO EN EL MUNDO
+            // --------------------------------------------------------------
+            Equipo equipoPropio1 = esports.darEquipoPorNombre(nombreEquipo1);
+            Equipo equipoRival1 = esports.darEquipoPorNombre(nombreRival1);
+
+            Equipo equipoPropio2 = esports.darEquipoPorNombre(nombreEquipo2);
+            Equipo equipoRival2 = esports.darEquipoPorNombre(nombreRival2);
+
+            if (equipoPropio1 == null || equipoRival1 == null ||
+                equipoPropio2 == null || equipoRival2 == null) {
+                throw new Exception("Uno de los equipos seleccionados no existe.");
+            }
+
+            // Registrar partida para el equipo 1
+            director.setEquipoAsignado(equipoPropio1);
+            director.registrarPartida(equipoRival1, puntosPropios1, puntosRival1, DATA_FOLDER_PATH);
+
+            // Registrar partida para el equipo 2
+            director.setEquipoAsignado(equipoPropio2);
+            director.registrarPartida(equipoRival2, puntosPropios2, puntosRival2, DATA_FOLDER_PATH);
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Partida registrada correctamente.",
+                    "Éxito",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            // Limpiar formulario
+            panelRegistroPartidas.limpiarCampos();
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, 
+                    "Los campos numéricos tienen formato incorrecto.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al registrar partida:\n" + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
+    // --- Métodos para cambiar paneles desde botones ---
+    public void irARegistroJugadores() { mostrarPanel("jugadores"); }
+    public void irARegistroPartida() { mostrarPanel("registro"); }
+    public void irAConsultaJugadores() { mostrarPanel("consulta"); }
+
+
+    /**
+     * Configuración visual de la ventana.
+     * Construye NavBar, CardLayout y paneles principales.
+     */
+    private void initComponents() {
 
         setTitle("Gestor ESports");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(null); // Layout adaptativo
+        setLayout(null);
         setResizable(true);
         setLocationRelativeTo(null);
         setPreferredSize(new Dimension(1010, 810));
 
-        // -----------------------------------
-        // 1. NAV BAR FIJO ARRIBA
-        // -----------------------------------
+        // --- Barra de navegación fija ---
         panelNavBar = new PanelNavBar(this);
-          panelNavBar.setBounds(0, 0, 1010, 80);
+        panelNavBar.setBounds(0, 0, 1010, 80);
         add(panelNavBar);
 
-        // -----------------------------------
-        // 2. PANEL CONTENEDOR CON CARDLAYOUT
-        // -----------------------------------
-          cardLayout = new CardLayout();
+        // --- Contenedor dinámico con CardLayout ---
+        cardLayout = new CardLayout();
         panelContenedor = new JPanel(cardLayout);
         panelContenedor.setBounds(0, 80, 1010, 730);
         add(panelContenedor);
 
-        // -----------------------------------
-        // 3. MOSTRAR PANEL INICIAL
-        // -----------------------------------
-        mostrarPanel("jugadores");  // Panel por defecto
+        mostrarPanel("jugadores");  // Panel inicial
     }
     
-            
-
-    // El método main para ejecutar la aplicación
+    
+    /**
+     * Método main que lanza la aplicación.
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

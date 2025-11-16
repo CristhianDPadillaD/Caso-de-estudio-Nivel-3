@@ -8,44 +8,71 @@ import umariana.cupi2.esports.mundo.Esports;
 import umariana.cupi2.esports.mundo.Equipo;
 
 /**
- *
- * @author Usuario
+ * Panel encargado de gestionar la interfaz gráfica para el registro de partidas.
+ * Permite seleccionar los equipos participantes, ingresar estadísticas
+ * (kills, deaths, assists), el marcador y la fecha del encuentro.
+ * <p>
+ * Este panel hace parte de la interfaz principal y envía la solicitud de
+ * registro de partida a {@link InterfazEsports}.
  */
 public class PanelRegistroPartidas extends javax.swing.JPanel {
-private InterfazEsports ventana;
-private Esports esports;
+
     /**
-     * Creates new form PanelRegistroPartidas
+     * Ventana principal de la aplicación.
      */
-public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
-    this.ventana = ventana;
-    this.esports = modelo;
-    initComponents();
-    inicializarComboBoxes();
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            registrarPartidaActionPerformed(evt);
-        }
-    });
-}
+    private InterfazEsports ventana;
 
-private void inicializarComboBoxes() {
-    equipo.removeAllItems();
-    rival.removeAllItems();
-    equipo2.removeAllItems();
-    rival2.removeAllItems();
+    /**
+     * Modelo principal del mundo que contiene la información de equipos y partidas.
+     */
+    private Esports esports;
 
-    for (Equipo eq : esports.getEquipos()) {
-        equipo.addItem(eq.getNombre());
-        rival.addItem(eq.getNombre());
-        equipo2.addItem(eq.getNombre());
-        rival2.addItem(eq.getNombre());
+    /**
+     * Construye el panel encargado del registro de partidas.
+     *
+     * @param ventana Ventana principal de la aplicación.
+     * @param modelo  Modelo del mundo con los datos de equipos y partidas.
+     */
+    public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
+        this.ventana = ventana;
+        this.esports = modelo;
+        initComponents();
+        inicializarComboBoxes();
+        
+        // Acción del botón "Registrar partida"
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarPartidaActionPerformed(evt);
+            }
+        });
     }
-}
 
-private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
-    ventana.registrarPartida();
-}
+    /**
+     * Inicializa los ComboBox con los nombres de los equipos registrados en el modelo.
+     */
+    private void inicializarComboBoxes() {
+        equipo.removeAllItems();
+        rival.removeAllItems();
+        equipo2.removeAllItems();
+        rival2.removeAllItems();
+
+        for (Equipo eq : esports.getEquipos()) {
+            equipo.addItem(eq.getNombre());
+            rival.addItem(eq.getNombre());
+            equipo2.addItem(eq.getNombre());
+            rival2.addItem(eq.getNombre());
+        }
+    }
+
+    /**
+     * Método invocado cuando el usuario presiona el botón para registrar una partida.
+     * Envía la operación a la ventana principal.
+     *
+     * @param evt Evento generado por la acción del botón.
+     */
+    private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
+        ventana.registrarPartida();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -439,24 +466,56 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaActionPerformed
 
-    // Getters para acceder a los campos desde InterfazEsports
+   // ---------------------------------------------------------
+    // Getters usados por InterfazEsports para obtener los datos
+    // ---------------------------------------------------------
+
+    /** @return Nombre del equipo 1 seleccionado. */
     public String getEquipo1() { return (String) equipo.getSelectedItem(); }
+
+    /** @return Fecha ingresada para el equipo 1. */
     public String getFecha1() { return fecha.getText(); }
+
+    /** @return Nombre del rival del equipo 1. */
     public String getRival1() { return (String) rival.getSelectedItem(); }
+
+    /** @return Marcador ingresado para el equipo 1. */
     public String getMarcador1() { return marcador.getText(); }
+
+    /** @return Cantidad de kills del equipo 1. */
     public String getKills1() { return kills.getText(); }
+
+    /** @return Cantidad de deaths del equipo 1. */
     public String getDeaths1() { return deaths.getText(); }
+
+    /** @return Cantidad de assists del equipo 1. */
     public String getAssists1() { return assists.getText(); }
- 
+
+    /** @return Nombre del equipo 2 seleccionado. */
     public String getEquipo2() { return (String) equipo2.getSelectedItem(); }
+
+    /** @return Fecha ingresada para el equipo 2. */
     public String getFecha2() { return fecha2.getText(); }
+
+    /** @return Nombre del rival del equipo 2. */
     public String getRival2() { return (String) rival2.getSelectedItem(); }
+
+    /** @return Marcador ingresado para el equipo 2. */
     public String getMarcador2() { return marcador2.getText(); }
+
+    /** @return Cantidad de kills del equipo 2. */
     public String getKills2() { return kills2.getText(); }
+
+    /** @return Cantidad de deaths del equipo 2. */
     public String getDeaths2() { return deaths2.getText(); }
+
+    /** @return Cantidad de assists del equipo 2. */
     public String getAssists2() { return assists2.getText(); }
   
-
+/**
+     * Limpia todos los campos del formulario.
+     * Este método es utilizado después de registrar una partida con éxito.
+     */
     public void limpiarCampos() {
         fecha.setText("");
         marcador.setText("");

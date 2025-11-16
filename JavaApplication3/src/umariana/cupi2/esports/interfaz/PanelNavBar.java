@@ -5,27 +5,44 @@
 package umariana.cupi2.esports.interfaz;
 
 /**
- *
- * @author Usuario
+ * Panel de navegación principal de la aplicación.  
+ * <p>
+ * Proporciona acceso directo a las funciones principales:
+ * registrar jugadores, registrar partidas y consultar jugadores.
+ * </p>
+ * Hace parte de la interfaz gráfica del proyecto CUPI2.
  */
 public class PanelNavBar extends javax.swing.JPanel {
-    private final InterfazEsports ventana;
-
 
     /**
-     * Creates new form PanelNavBar
-     * @param ventana
+     * Ventana principal de la aplicación.  
+     * Permite comunicar este panel con el resto de la interfaz.
+     */
+    private final InterfazEsports ventana;
+
+    /**
+     * Constructor principal del panel.
+     *
+     * @param ventana Ventana principal de la aplicación que controla la navegación.
      */
     public PanelNavBar(InterfazEsports ventana) {
-    this.ventana = ventana;
-    initComponents();
-}
-    
-@Deprecated
-   public PanelNavBar() {
+        this.ventana = ventana;
+        initComponents();
+    }
+
+    /**
+     * Constructor alternativo sin ventana.
+     * <p>
+     * Se marca como @Deprecated porque no debería ser utilizado en condiciones normales,
+     * ya que el panel necesita acceso a la ventana principal para funcionar.
+     * </p>
+     */
+    @Deprecated
+    public PanelNavBar() {
         ventana = null;
-     initComponents();
-   }
+        initComponents();
+    }
+
 
 
     /**

@@ -7,28 +7,51 @@ package umariana.cupi2.esports.interfaz;
 import umariana.cupi2.esports.mundo.Esports;
 
 /**
- *
+ * Panel encargado del registro de nuevos jugadores en el sistema eSports.
+ * 
+ * Este panel permite al usuario ingresar los datos de un nuevo jugador,
+ * incluyendo nombre completo, nickname, correo, equipo y su KDA. Los equipos
+ * disponibles son cargados automáticamente desde el modelo.
+ * 
+ * Hace parte de la interfaz principal {@link InterfazEsports} y se comunica con el
+ * modelo central {@link Esports} para registrar nuevos jugadores.
+ * 
  * @author Usuario
  */
 public class PanelRegistroJugadores extends javax.swing.JPanel {
-private InterfazEsports ventana;
-private Esports esports;
 
     /**
-     * Creates new form PanelRegistroJugadores
+     * Referencia a la ventana principal de la interfaz.
      */
-public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
-    this.ventana = ventana;
-    this.esports = modelo;
-    initComponents();
-    cargarEquipos();
-    registrarButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            registrarJugadorActionPerformed(evt);
-        }
-    });
-}
+    private InterfazEsports ventana;
 
+    /**
+     * Referencia al modelo principal del sistema eSports.
+     */
+    private Esports esports;
+
+    /**
+     * Crea un nuevo panel para el registro de jugadores.
+     *
+     * @param ventana Ventana principal de la interfaz.
+     * @param modelo Modelo del sistema eSports donde se almacenan los datos.
+     */
+    public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
+        this.ventana = ventana;
+        this.esports = modelo;
+        initComponents();
+        cargarEquipos();
+
+        // Asigna la acción al botón de registrar
+        registrarButton.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarJugadorActionPerformed(evt);
+            }
+        });
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -199,13 +222,25 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
         // TODO add your handling code here:
     }//GEN-LAST:event_KDAActionPerformed
 
+     /**
+     * Carga los nombres de los equipos registrados en el modelo dentro del
+     * JComboBox de selección.
+     */
     private void cargarEquipos() {
         equipo.removeAllItems();
         for (umariana.cupi2.esports.mundo.Equipo eq : esports.getEquipos()) {
             equipo.addItem(eq.getNombre());
         }
     }
-
+/**
+     * Acción ejecutada al presionar el botón "Registrar".
+     * <p>
+     * Valida los datos ingresados, convierte el KDA desde el texto
+     * "K/D/A" a números y solicita a la ventana principal registrar el jugador.
+     * </p>
+     *
+     * @param evt Evento generado por el botón.
+     */
     private void registrarJugadorActionPerformed(java.awt.event.ActionEvent evt) {
         String nombre = nombreCompleto.getText().trim();
         String nick = nickname.getText().trim();
@@ -214,10 +249,11 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
         String kdaStr = KDA.getText().trim();
 
         try {
+            // Validación de campos
             if (nombre.isEmpty() || nick.isEmpty() || email.isEmpty() || equipoSeleccionado == null || kdaStr.isEmpty()) {
                 throw new Exception("Todos los campos son obligatorios.");
             }
-
+            // Validación del formato KDA
             String[] kdaParts = kdaStr.split("/");
             if (kdaParts.length != 3) {
                 throw new Exception("KDA debe ser en formato K/D/A (ej: 5/4/3).");
@@ -226,10 +262,11 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
             int kills = Integer.parseInt(kdaParts[0].trim());
             int deaths = Integer.parseInt(kdaParts[1].trim());
             int assists = Integer.parseInt(kdaParts[2].trim());
-
+            
+            // Registro del jugador en la ventana principal
             ventana.registrarJugador(nombre, nick, email, equipoSeleccionado, kills, deaths, assists);
 
-            // Limpiar campos
+            // Limpieza de campos
             nombreCompleto.setText("");
             nickname.setText("");
             correo.setText("");

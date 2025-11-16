@@ -10,6 +10,21 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import umariana.cupi2.esports.mundo.Partida;
 
+/**
+ * Clase de prueba para la clase {@link DirectorEquipo}.
+ * <p>
+ * Se encarga de verificar el correcto funcionamiento de:
+ * <ul>
+ *     <li>Registro de jugadores</li>
+ *     <li>Validaciones de datos de jugador</li>
+ *     <li>Registro de partidas entre equipos</li>
+ *     <li>Consulta de jugadores</li>
+ *     <li>Ordenamiento por KDA</li>
+ *     <li>Consulta del jugador con más kills</li>
+ *     <li>Validaciones de campos simuladas desde la interfaz</li>
+ * </ul>
+ * Cada prueba sigue el esquema estándar CUPI2.
+ */
 public class DirectorEquipoTest {
 
     private Equipo equipo1;
@@ -17,7 +32,12 @@ public class DirectorEquipoTest {
     private DirectorEquipo director1;
 
     private static final String TEST_DATA_PATH = "./test/testData";
-    
+
+    /**
+     * Escenario 1: Equipos instanciados y un director asignado al equipo1.
+     * <p>
+     * Se ejecuta antes de cada prueba.
+     */
     @Before
     public void setUp() {
 
@@ -27,6 +47,17 @@ public class DirectorEquipoTest {
         equipo2 = new Equipo("E02", "Cyber Ninjas", new ArrayList<>(), "D02", new ArrayList<>());
     }
 
+    // ----------------------------------------------------------------------
+    // I. REGISTRO DE JUGADORES
+    // ----------------------------------------------------------------------
+
+    /**
+     * Prueba 1: Registro exitoso de un jugador.
+     * <p>
+     * Condición inicial: equipo1 vacío.
+     * Acción: agregar jugador válido.
+     * Resultado esperado: el jugador debe existir en el equipo.
+     */
     @Test
     public void testRegistroJugador() throws Exception {
         Jugador jugador1 = new Jugador("01", "E01", "Carlos Perez", "Shadow", "Shadow@mail.com", 0, 0, 0);
@@ -35,28 +66,36 @@ public class DirectorEquipoTest {
         assertTrue(equipo1.existeJugadorConNickname("Shadow"));
     }
 
-    // invalido nombre vacío
+    /**
+     * Prueba 2: Nombre vacío debe generar excepción.
+     */
     @Test(expected = Exception.class)
     public void testRegistrarJugador02() throws Exception {
         Jugador jugador = new Jugador("02", "E01", "", "Zero", "zero@mail.com", 0, 0, 0);
         director1.agregarJugador(jugador, TEST_DATA_PATH);
     }
 
-    // invalido por campos vacios
+    /**
+     * Prueba 3: Nickname y correo vacíos deben fallar.
+     */
     @Test(expected = Exception.class)
     public void testRegistrarJugador03() throws Exception {
         Jugador jugador = new Jugador("03", "E01", "Carlos Perez", "", "", 0, 0, 0);
         director1.agregarJugador(jugador, TEST_DATA_PATH);
     }
 
-    // invalido por nombre con caracteres no permitidos
+    /**
+     * Prueba 4: Nombre con caracteres no permitidos.
+     */
     @Test(expected = Exception.class)
     public void testRegistrarJugador04_NombreInvalido() throws Exception {
         Jugador jugador = new Jugador("04", "E01", "Carlos123", "Shadow", "shadow@mail.com", 0, 0, 0);
         director1.agregarJugador(jugador, TEST_DATA_PATH);
     }
 
-    // invalido por correo con formato incorrecto
+    /**
+     * Prueba 5: Correo con formato incorrecto.
+     */
     @Test(expected = Exception.class)
     public void testRegistrarJugador05_CorreoInvalido() throws Exception {
         Jugador jugador = new Jugador("05", "E01", "Carlos Perez", "Shadow", "shadowmail.com", 0, 0, 0);
@@ -66,106 +105,93 @@ public class DirectorEquipoTest {
     // ----------------------------------------------------------------------
     // II. REGISTRO DE PARTIDAS
     // ----------------------------------------------------------------------
+
+    /**
+     * Prueba: registro exitoso de partida.
+     * <p>
+     * Verifica ID secuencial, ganador correcto y almacenamiento.
+     */
     @Test
     public void testRegistrarPartida_Exitoso() throws Exception {
-        // Ejecución
-        director1.registrarPartida(equipo2, 3, 1,TEST_DATA_PATH);
+        director1.registrarPartida(equipo2, 3, 1, TEST_DATA_PATH);
 
-        // Verificación
         List<Partida> historial = equipo1.getPartidas();
-        assertFalse("El historial no debería estar vacío", historial.isEmpty());
-        assertEquals("El historial del equipo debe tener 1 partida", 1, historial.size());
-
-        // Verificar que el ID se generó correctamente (DW por Dark Warriors, -1 por ser
-        // la primera)
-        assertEquals("El ID de la partida debe ser 'DW-1'", "DW-1", historial.get(0).getIdPartida());
-
-        // Verificar el ganador
-        assertEquals("El ganador debe ser el equipo propio (Dark Warriors)", equipo1,
-                historial.get(0).getGanador());
+        assertFalse(historial.isEmpty());
+        assertEquals(1, historial.size());
+        assertEquals("DW-1", historial.get(0).getIdPartida());
+        assertEquals(equipo1, historial.get(0).getGanador());
     }
 
     /**
-     * Prueba que se genera un ID secuencial correcto para la segunda partida.
+     * Prueba: ID secuencial en segunda partida registrada.
      */
     @Test
     public void testRegistrarPartida_Secuencial() throws Exception {
-        // Preparación: Registrar una primera partida
-        director1.registrarPartida(equipo2, 2, 0,TEST_DATA_PATH);
 
-        // Ejecución: Registrar una segunda partida
-        director1.registrarPartida(equipo2, 1, 3,TEST_DATA_PATH);
+        director1.registrarPartida(equipo2, 2, 0, TEST_DATA_PATH);
+        director1.registrarPartida(equipo2, 1, 3, TEST_DATA_PATH);
 
-        // Verificación
         List<Partida> historial = equipo1.getPartidas();
-        assertEquals("El historial del equipo debe tener 2 partidas", 2, historial.size());
-
-        // Verificar que el ID de la segunda partida es correcto
-        assertEquals("El ID de la segunda partida debe ser 'DW-2'", "DW-2", historial.get(1).getIdPartida());
+        assertEquals(2, historial.size());
+        assertEquals("DW-2", historial.get(1).getIdPartida());
     }
 
     /**
-     * Prueba el registro fallido si el equipo rival es nulo.
+     * Prueba: falla si el equipo rival es nulo.
      */
     @Test(expected = Exception.class)
     public void testRegistrarPartida_RivalNulo() throws Exception {
-        // Se envía un equipo rival nulo
-        director1.registrarPartida(null, 3, 1,TEST_DATA_PATH);
+        director1.registrarPartida(null, 3, 1, TEST_DATA_PATH);
     }
 
     // ----------------------------------------------------------------------
-    // II. CONSULTA DE LISTA DE JUGADORES
-    // ----------------------------------------------------------------------
-
-    @Test
-    public void testConsultarListaJugadores05_ConJugadores() throws Exception {
-        // Preparación: Registrar jugadores
-        Jugador j1 = new Jugador("J1", "E01", "Carlos Perez", "Shadow", "s@m.com", 0, 0, 0);
-        Jugador j2 = new Jugador("J2", "E01", "Ana Gomez", "Luna", "l@m.com", 0, 0, 0);
-        director1.agregarJugador(j1,TEST_DATA_PATH);
-        director1.agregarJugador(j2,TEST_DATA_PATH);
-
-        // Ejecución
-        List<Jugador> listaConsultada = director1.consultarListaJugadores();
-
-        // Verificación
-        assertFalse("La lista no debe estar vacía", listaConsultada.isEmpty());
-        assertEquals("La lista debe contener 2 jugadores", 2, listaConsultada.size());
-    }
-
-    @Test
-    public void testConsultarListaJugadores06_SinJugadores() {
-        // Preparación: Equipo vacío (por setUp)
-
-        // Ejecución
-        List<Jugador> listaConsultada = director1.consultarListaJugadores();
-
-        // Verificación
-        assertTrue("La lista debe estar vacía cuando no hay jugadores", listaConsultada.isEmpty());
-    }
-
-    // ----------------------------------------------------------------------
-    // III. VALIDACIONES PARA REGISTRO DE PARTIDAS (NUEVAS PRUEBAS)
+    // III. CONSULTA DE LISTA DE JUGADORES
     // ----------------------------------------------------------------------
 
     /**
-     * Prueba que falla si algún campo obligatorio está vacío para Equipo 1.
-     * Nota: Esta prueba simula la validación que ahora se hace en InterfazEsports.registrarPartida().
-     * Como DirectorEquipo.registrarPartida no valida campos de interfaz, esta prueba es conceptual.
-     * En un futuro, si se extiende el modelo, se puede mover aquí.
+     * Prueba: consulta exitosa de lista con jugadores.
+     */
+    @Test
+    public void testConsultarListaJugadores05_ConJugadores() throws Exception {
+        Jugador j1 = new Jugador("J1", "E01", "Carlos Perez", "Shadow", "s@m.com", 0, 0, 0);
+        Jugador j2 = new Jugador("J2", "E01", "Ana Gomez", "Luna", "l@m.com", 0, 0, 0);
+        director1.agregarJugador(j1, TEST_DATA_PATH);
+        director1.agregarJugador(j2, TEST_DATA_PATH);
+
+        List<Jugador> listaConsultada = director1.consultarListaJugadores();
+
+        assertFalse(listaConsultada.isEmpty());
+        assertEquals(2, listaConsultada.size());
+    }
+
+    /**
+     * Prueba: consulta con equipo sin jugadores.
+     */
+    @Test
+    public void testConsultarListaJugadores06_SinJugadores() {
+
+        List<Jugador> listaConsultada = director1.consultarListaJugadores();
+
+        assertTrue(listaConsultada.isEmpty());
+    }
+
+    // ----------------------------------------------------------------------
+    // IV. VALIDACIONES DE CAMPOS — SIMULADAS DESDE LA INTERFAZ
+    // ----------------------------------------------------------------------
+
+    /**
+     * Prueba conceptual: fecha vacía debe fallar.
      */
     @Test(expected = Exception.class)
     public void testValidacionCamposObligatorios_Equipo1_FechaVacia() throws Exception {
-        // Simular validación de fecha vacía (como en InterfazEsports)
         String fecha1 = "";
         if (fecha1 == null || fecha1.trim().isEmpty()) {
             throw new Exception("La fecha del Equipo 1 es obligatoria.");
         }
-        // Si llega aquí, la validación falló
     }
 
     /**
-     * Prueba que falla si la fecha es "No se".
+     * Prueba conceptual: fecha "No se" es inválida.
      */
     @Test(expected = Exception.class)
     public void testValidacionFecha_NoSe() throws Exception {
@@ -176,27 +202,27 @@ public class DirectorEquipoTest {
     }
 
     /**
-     * Prueba que falla si el formato de fecha no es dd/mm/yyyy.
+     * Prueba conceptual: formato inválido de fecha.
      */
     @Test(expected = Exception.class)
     public void testValidacionFecha_FormatoInvalido() throws Exception {
-        String fecha1 = "15-10-2023"; // Formato incorrecto
+        String fecha1 = "15-10-2023";
         if (!fecha1.matches("\\d{2}/\\d{2}/\\d{4}")) {
             throw new Exception("La fecha debe tener formato dd/mm/yyyy.");
         }
     }
 
     /**
-     * Prueba que falla si kills, deaths o assists no son números no negativos.
+     * Prueba: tratamiento de datos no numéricos en kills/deaths/assists.
      */
     @Test(expected = NumberFormatException.class)
     public void testValidacionKillsDeathsAssists_NoNumeros() throws Exception {
-        String kills1Str = "abc"; // No es número
-        Integer.parseInt(kills1Str.trim()); // Debe fallar
+        String kills1Str = "abc";
+        Integer.parseInt(kills1Str.trim());
     }
 
     /**
-     * Prueba que falla si kills, deaths o assists son negativos.
+     * Prueba: valores negativos de estadísticas deben fallar.
      */
     @Test(expected = Exception.class)
     public void testValidacionKillsDeathsAssists_Negativos() throws Exception {
@@ -207,103 +233,90 @@ public class DirectorEquipoTest {
     }
 
     /**
-     * Prueba que falla si kills, deaths o assists tienen una sola cifra.
+     * Prueba: estadísticas con una sola cifra deben fallar (regla de interfaz).
      */
     @Test(expected = Exception.class)
     public void testValidacionKillsDeathsAssists_UnaCifra() throws Exception {
-        String kills1Str = "5"; // Una sola cifra
+        String kills1Str = "5";
         if (kills1Str.length() == 1) {
             throw new Exception("Kills deben tener más de una cifra.");
         }
     }
 
     // ----------------------------------------------------------------------
-    // IV. ORDENAMIENTO DE JUGADORES POR KDA
+    // V. ORDENAMIENTO DE JUGADORES POR KDA
     // ----------------------------------------------------------------------
 
     /**
-     * Prueba exitosa de ordenamiento de jugadores por KDA descendente (CID 2).
+     * Prueba: ordenamiento correcto por KDA descendente.
      */
     @Test
     public void testOrdenarJugadoresPorKDA_Exitoso() throws Exception {
-        // Preparación: Agregar jugadores con diferentes KDA
-        Jugador j1 = new Jugador("J1", "E01", "Carlos Perez", "Shadow", "s@m.com", 10, 5, 2); // KDA = (10+2)/5 = 2.4
-        Jugador j2 = new Jugador("J2", "E01", "Ana Gomez", "Luna", "l@m.com", 5, 2, 3); // KDA = (5+3)/2 = 4.0
-        Jugador j3 = new Jugador("J3", "E01", "Pedro Ruiz", "Storm", "st@m.com", 8, 4, 1); // KDA = (8+1)/4 = 2.25
+
+        Jugador j1 = new Jugador("J1", "E01", "Carlos Perez", "Shadow", "s@m.com", 10, 5, 2);
+        Jugador j2 = new Jugador("J2", "E01", "Ana Gomez", "Luna", "l@m.com", 5, 2, 3);
+        Jugador j3 = new Jugador("J3", "E01", "Pedro Ruiz", "Storm", "st@m.com", 8, 4, 1);
         director1.agregarJugador(j1, TEST_DATA_PATH);
         director1.agregarJugador(j2, TEST_DATA_PATH);
         director1.agregarJugador(j3, TEST_DATA_PATH);
 
-        // Ejecución
         director1.ordenarJugadoresPorKDA();
 
-        // Verificación: Orden descendente por KDA
         List<Jugador> listaOrdenada = director1.consultarListaJugadores();
-        assertEquals("Luna debe estar primero (KDA 4.0)", "Luna", listaOrdenada.get(0).getNickname());
-        assertEquals("Shadow debe estar segundo (KDA 2.4)", "Shadow", listaOrdenada.get(1).getNickname());
-        assertEquals("Storm debe estar tercero (KDA 2.25)", "Storm", listaOrdenada.get(2).getNickname());
+        assertEquals("Luna", listaOrdenada.get(0).getNickname());
+        assertEquals("Shadow", listaOrdenada.get(1).getNickname());
+        assertEquals("Storm", listaOrdenada.get(2).getNickname());
     }
 
     /**
-     * Prueba que falla si no hay equipo asignado (CID 1).
+     * Prueba: falla si director no tiene equipo asignado.
      */
     @Test(expected = Exception.class)
     public void testOrdenarJugadoresPorKDA_SinEquipoAsignado() throws Exception {
-        // Preparación: Director sin equipo asignado
         DirectorEquipo directorSinEquipo = new DirectorEquipo("D02", "E02", "Maria Lopez", "maria@esports.com", null);
-
-        // Ejecución: Debe lanzar excepción
         directorSinEquipo.ordenarJugadoresPorKDA();
     }
 
     /**
-     * Prueba que falla si no hay datos disponibles para ordenar (lista vacía) (CID 3).
+     * Prueba: falla si la lista de jugadores está vacía.
      */
     @Test(expected = Exception.class)
     public void testOrdenarJugadoresPorKDA_SinDatos() throws Exception {
-        // Preparación: Equipo sin jugadores (por setUp)
-
-        // Ejecución: Debe lanzar excepción
         director1.ordenarJugadoresPorKDA();
     }
 
     // ----------------------------------------------------------------------
-    // V. CONSULTA DEL JUGADOR CON MÁS KILLS
+    // VI. CONSULTA DEL JUGADOR CON MÁS KILLS
     // ----------------------------------------------------------------------
 
     /**
-     * Prueba exitosa de consulta del jugador con más kills (CID 2).
+     * Prueba: consulta exitosa del jugador con más kills.
      */
     @Test
     public void testConsultarJugadorConMasKills_Exitoso() throws Exception {
-        // Preparación: Agregar jugadores con diferentes kills
-        Jugador j1 = new Jugador("J1", "E01", "Carlos Perez", "Shadow", "s@m.com", 10, 5, 2); // 10 kills
-        Jugador j2 = new Jugador("J2", "E01", "Ana Gomez", "Luna", "l@m.com", 15, 2, 3); // 15 kills
-        Jugador j3 = new Jugador("J3", "E01", "Pedro Ruiz", "Storm", "st@m.com", 8, 4, 1); // 8 kills
+
+        Jugador j1 = new Jugador("J1", "E01", "Carlos Perez", "Shadow", "s@m.com", 10, 5, 2);
+        Jugador j2 = new Jugador("J2", "E01", "Ana Gomez", "Luna", "l@m.com", 15, 2, 3);
+        Jugador j3 = new Jugador("J3", "E01", "Pedro Ruiz", "Storm", "st@m.com", 8, 4, 1);
         director1.agregarJugador(j1, TEST_DATA_PATH);
         director1.agregarJugador(j2, TEST_DATA_PATH);
         director1.agregarJugador(j3, TEST_DATA_PATH);
 
-        // Ejecución
         Jugador maxKillsJugador = director1.consultarJugadorConMasKills();
 
-        // Verificación
-        assertNotNull("El jugador con más kills no debe ser null", maxKillsJugador);
-        assertEquals("El jugador con más kills debe ser Luna", "Luna", maxKillsJugador.getNickname());
-        assertEquals("El número de kills debe ser 15", 15, maxKillsJugador.getKills());
+        assertNotNull(maxKillsJugador);
+        assertEquals("Luna", maxKillsJugador.getNickname());
+        assertEquals(15, maxKillsJugador.getKills());
     }
 
     /**
-     * Prueba que falla si no hay datos disponibles para consultar (lista vacía) (CID 3).
+     * Prueba: retorna null cuando la lista está vacía.
      */
     @Test
     public void testConsultarJugadorConMasKills_SinDatos() throws Exception {
-        // Preparación: Equipo sin jugadores (por setUp)
 
-        // Ejecución
         Jugador maxKillsJugador = director1.consultarJugadorConMasKills();
 
-        // Verificación
-        assertNull("Debe retornar null cuando no hay jugadores", maxKillsJugador);
+        assertNull(maxKillsJugador);
     }
 }
