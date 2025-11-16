@@ -90,9 +90,9 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
 
         nombreCompletoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         nombreCompletoTittle.setForeground(new java.awt.Color(255, 255, 255));
-        nombreCompletoTittle.setText("nombre completo");
+        nombreCompletoTittle.setText("Nombre Completo");
         background.add(nombreCompletoTittle);
-        nombreCompletoTittle.setBounds(130, 150, 260, 18);
+        nombreCompletoTittle.setBounds(130, 150, 260, 21);
 
         nombreCompleto.setBackground(new java.awt.Color(83, 83, 91));
         nombreCompleto.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -102,9 +102,9 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
 
         nicknameTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         nicknameTittle.setForeground(new java.awt.Color(255, 255, 255));
-        nicknameTittle.setText("nickname");
+        nicknameTittle.setText("Nickname");
         background.add(nicknameTittle);
-        nicknameTittle.setBounds(130, 230, 260, 18);
+        nicknameTittle.setBounds(130, 230, 260, 21);
 
         nickname.setBackground(new java.awt.Color(83, 83, 91));
         nickname.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -119,9 +119,9 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
 
         correoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         correoTittle.setForeground(new java.awt.Color(255, 255, 255));
-        correoTittle.setText("correo");
+        correoTittle.setText("Correo");
         background.add(correoTittle);
-        correoTittle.setBounds(130, 310, 260, 18);
+        correoTittle.setBounds(130, 310, 260, 21);
 
         correo.setBackground(new java.awt.Color(83, 83, 91));
         correo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -131,9 +131,9 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
 
         equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
-        equipoTittle.setText("Selecciona tu equipo");
+        equipoTittle.setText("Selecciona tu Equipo");
         background.add(equipoTittle);
-        equipoTittle.setBounds(130, 390, 260, 18);
+        equipoTittle.setBounds(130, 390, 260, 21);
 
         equipo.setBackground(new java.awt.Color(83, 83, 91));
         equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -149,9 +149,9 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
 
         kdaTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         kdaTittle.setForeground(new java.awt.Color(255, 255, 255));
-        kdaTittle.setText("kda");
+        kdaTittle.setText("KDA");
         background.add(kdaTittle);
-        kdaTittle.setBounds(130, 470, 260, 18);
+        kdaTittle.setBounds(130, 470, 260, 21);
 
         KDA.setBackground(new java.awt.Color(83, 83, 91));
         KDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N

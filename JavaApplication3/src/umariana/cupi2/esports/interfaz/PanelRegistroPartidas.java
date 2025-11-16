@@ -145,7 +145,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         fechaTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         fechaTittle.setForeground(new java.awt.Color(255, 255, 255));
-        fechaTittle.setText("fecha");
+        fechaTittle.setText("Fecha");
 
         fecha.setBackground(new java.awt.Color(128, 128, 168));
         fecha.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -158,7 +158,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         rivalTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         rivalTittle.setForeground(new java.awt.Color(255, 255, 255));
-        rivalTittle.setText("rival");
+        rivalTittle.setText("Rival");
 
         rival.setBackground(new java.awt.Color(128, 128, 168));
         rival.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -172,7 +172,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         marcadorTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         marcadorTittle.setForeground(new java.awt.Color(255, 255, 255));
-        marcadorTittle.setText("marcador");
+        marcadorTittle.setText("Marcador");
 
         marcador.setBackground(new java.awt.Color(128, 128, 168));
         marcador.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -180,7 +180,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         killsTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         killsTittle.setForeground(new java.awt.Color(255, 255, 255));
-        killsTittle.setText("kills");
+        killsTittle.setText("Kills");
 
         kills.setBackground(new java.awt.Color(128, 128, 168));
         kills.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -188,7 +188,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         deathsTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         deathsTittle.setForeground(new java.awt.Color(255, 255, 255));
-        deathsTittle.setText("deaths");
+        deathsTittle.setText("Deaths");
 
         deaths.setBackground(new java.awt.Color(128, 128, 168));
         deaths.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -200,7 +200,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         jLabel1.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("assists");
+        jLabel1.setText("Assists");
 
         javax.swing.GroupLayout team1Background1Layout = new javax.swing.GroupLayout(team1Background1);
         team1Background1.setLayout(team1Background1Layout);
@@ -277,7 +277,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         fecha2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         fecha2Tittle.setForeground(new java.awt.Color(255, 255, 255));
-        fecha2Tittle.setText("fecha");
+        fecha2Tittle.setText("Fecha");
 
         fecha2.setBackground(new java.awt.Color(182, 139, 154));
         fecha2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -290,7 +290,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         rival2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         rival2Tittle.setForeground(new java.awt.Color(255, 255, 255));
-        rival2Tittle.setText("rival");
+        rival2Tittle.setText("Rival");
 
         rival2.setBackground(new java.awt.Color(182, 139, 154));
         rival2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -299,7 +299,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         marcador2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         marcador2Tittle.setForeground(new java.awt.Color(255, 255, 255));
-        marcador2Tittle.setText("marcador");
+        marcador2Tittle.setText("Marcador");
 
         marcador2.setBackground(new java.awt.Color(182, 139, 154));
         marcador2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -307,7 +307,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         kills2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         kills2Tittle.setForeground(new java.awt.Color(255, 255, 255));
-        kills2Tittle.setText("kills");
+        kills2Tittle.setText("Kills");
 
         kills2.setBackground(new java.awt.Color(182, 139, 154));
         kills2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -315,7 +315,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         deaths2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         deaths2Tittle.setForeground(new java.awt.Color(255, 255, 255));
-        deaths2Tittle.setText("deaths");
+        deaths2Tittle.setText("Deaths");
 
         deaths2.setEditable(false);
         deaths2.setBackground(new java.awt.Color(182, 139, 154));
@@ -328,7 +328,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
 
         jLabel2.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("assists");
+        jLabel2.setText("Assists");
 
         javax.swing.GroupLayout team2BackgroundLayout = new javax.swing.GroupLayout(team2Background);
         team2Background.setLayout(team2BackgroundLayout);

@@ -236,7 +236,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="fecha"/>
+                <Property name="text" type="java.lang.String" value="Fecha"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="fecha">
@@ -263,7 +263,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="rival"/>
+                <Property name="text" type="java.lang.String" value="Rival"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="rival">
@@ -301,7 +301,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="marcador"/>
+                <Property name="text" type="java.lang.String" value="Marcador"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="marcador">
@@ -325,7 +325,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="kills"/>
+                <Property name="text" type="java.lang.String" value="Kills"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="kills">
@@ -349,7 +349,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="deaths"/>
+                <Property name="text" type="java.lang.String" value="Deaths"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="deaths">
@@ -386,7 +386,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="assists"/>
+                <Property name="text" type="java.lang.String" value="Assists"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -513,7 +513,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="fecha"/>
+                <Property name="text" type="java.lang.String" value="Fecha"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="fecha2">
@@ -540,7 +540,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="rival"/>
+                <Property name="text" type="java.lang.String" value="Rival"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="rival2">
@@ -575,7 +575,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="marcador"/>
+                <Property name="text" type="java.lang.String" value="Marcador"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="marcador2">
@@ -599,7 +599,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="kills"/>
+                <Property name="text" type="java.lang.String" value="Kills"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="kills2">
@@ -623,7 +623,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="deaths"/>
+                <Property name="text" type="java.lang.String" value="Deaths"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="deaths2">
@@ -661,7 +661,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="assists"/>
+                <Property name="text" type="java.lang.String" value="Assists"/>
               </Properties>
             </Component>
           </SubComponents>

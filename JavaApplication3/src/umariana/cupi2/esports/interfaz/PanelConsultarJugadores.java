@@ -82,7 +82,7 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
         equipoTittle.setText("Selecciona el equipo");
         background.add(equipoTittle);
-        equipoTittle.setBounds(490, 140, 260, 18);
+        equipoTittle.setBounds(490, 140, 260, 21);
 
         equipo.setBackground(new java.awt.Color(83, 83, 91));
         equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -106,7 +106,7 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         verPromedioVictorias1.setBackground(new java.awt.Color(0, 102, 102));
         verPromedioVictorias1.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         verPromedioVictorias1.setForeground(new java.awt.Color(255, 255, 255));
-        verPromedioVictorias1.setText("ver promedio victorias");
+        verPromedioVictorias1.setText("Ver Promedio Victorias");
         verPromedioVictorias1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verPromedioVictorias1ActionPerformed(evt);
@@ -118,7 +118,7 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         verPromedioDerrotas.setBackground(new java.awt.Color(0, 102, 102));
         verPromedioDerrotas.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         verPromedioDerrotas.setForeground(new java.awt.Color(255, 255, 255));
-        verPromedioDerrotas.setText("ver promedio Derrotas");
+        verPromedioDerrotas.setText("Ver Promedio Derrotas");
         verPromedioDerrotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verPromedioDerrotasActionPerformed(evt);
@@ -130,7 +130,7 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         verJugadorMasKills.setBackground(new java.awt.Color(0, 102, 102));
         verJugadorMasKills.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
         verJugadorMasKills.setForeground(new java.awt.Color(255, 255, 255));
-        verJugadorMasKills.setText("ver jugador con mas kills");
+        verJugadorMasKills.setText("Ver Jugador Con Más Kills");
         verJugadorMasKills.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verJugadorMasKillsActionPerformed(evt);
