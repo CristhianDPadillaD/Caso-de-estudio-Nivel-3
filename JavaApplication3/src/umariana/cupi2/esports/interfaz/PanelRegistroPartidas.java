@@ -56,29 +56,40 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
+        skye = new javax.swing.JLabel();
+        fenix = new javax.swing.JLabel();
         backgroundTittle = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
         team1Background1 = new javax.swing.JPanel();
         equipoTittle = new javax.swing.JLabel();
         equipo = new javax.swing.JComboBox<>();
+        fechaTittle = new javax.swing.JLabel();
         fecha = new javax.swing.JTextField();
         rivalTittle = new javax.swing.JLabel();
         rival = new javax.swing.JComboBox<>();
+        marcadorTittle = new javax.swing.JLabel();
         marcador = new javax.swing.JTextField();
+        killsTittle = new javax.swing.JLabel();
         kills = new javax.swing.JTextField();
+        deathsTittle = new javax.swing.JLabel();
         deaths = new javax.swing.JTextField();
         assists = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         team2Background = new javax.swing.JPanel();
         equipo2Tittle = new javax.swing.JLabel();
         equipo2 = new javax.swing.JComboBox<>();
+        fecha2Tittle = new javax.swing.JLabel();
         fecha2 = new javax.swing.JTextField();
         rival2Tittle = new javax.swing.JLabel();
         rival2 = new javax.swing.JComboBox<>();
+        marcador2Tittle = new javax.swing.JLabel();
         marcador2 = new javax.swing.JTextField();
+        kills2Tittle = new javax.swing.JLabel();
         kills2 = new javax.swing.JTextField();
+        deaths2Tittle = new javax.swing.JLabel();
         deaths2 = new javax.swing.JTextField();
         assists2 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         team1 = new javax.swing.JLabel();
         team2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -86,6 +97,14 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         background.setBackground(new java.awt.Color(25, 13, 25));
         background.setForeground(new java.awt.Color(255, 255, 255));
         background.setLayout(null);
+
+        skye.setIcon(new javax.swing.ImageIcon(getClass().getResource("/umariana/cupi2/esports/interfaz/Skye.png"))); // NOI18N
+        background.add(skye);
+        skye.setBounds(800, 280, 190, 310);
+
+        fenix.setIcon(new javax.swing.ImageIcon(getClass().getResource("/umariana/cupi2/esports/interfaz/fenix.png"))); // NOI18N
+        background.add(fenix);
+        fenix.setBounds(-30, 250, 190, 340);
 
         backgroundTittle.setBackground(new java.awt.Color(65, 35, 65));
 
@@ -98,9 +117,9 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         backgroundTittleLayout.setHorizontalGroup(
             backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundTittleLayout.createSequentialGroup()
-                .addContainerGap(203, Short.MAX_VALUE)
+                .addContainerGap(192, Short.MAX_VALUE)
                 .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(187, 187, 187))
+                .addGap(158, 158, 158))
         );
         backgroundTittleLayout.setVerticalGroup(
             backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,11 +130,11 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         );
 
         background.add(backgroundTittle);
-        backgroundTittle.setBounds(100, 40, 900, 70);
+        backgroundTittle.setBounds(60, 30, 860, 70);
 
         team1Background1.setBackground(new java.awt.Color(56, 56, 101));
 
-        equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
+        equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
         equipoTittle.setText("Equipo");
 
@@ -123,6 +142,10 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         equipo.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         equipo.setForeground(new java.awt.Color(255, 255, 255));
         equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        fechaTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        fechaTittle.setForeground(new java.awt.Color(255, 255, 255));
+        fechaTittle.setText("fecha");
 
         fecha.setBackground(new java.awt.Color(128, 128, 168));
         fecha.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -133,7 +156,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
             }
         });
 
-        rivalTittle.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
+        rivalTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         rivalTittle.setForeground(new java.awt.Color(255, 255, 255));
         rivalTittle.setText("rival");
 
@@ -147,13 +170,25 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
             }
         });
 
+        marcadorTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        marcadorTittle.setForeground(new java.awt.Color(255, 255, 255));
+        marcadorTittle.setText("marcador");
+
         marcador.setBackground(new java.awt.Color(128, 128, 168));
         marcador.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         marcador.setForeground(new java.awt.Color(255, 255, 255));
 
+        killsTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        killsTittle.setForeground(new java.awt.Color(255, 255, 255));
+        killsTittle.setText("kills");
+
         kills.setBackground(new java.awt.Color(128, 128, 168));
         kills.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         kills.setForeground(new java.awt.Color(255, 255, 255));
+
+        deathsTittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        deathsTittle.setForeground(new java.awt.Color(255, 255, 255));
+        deathsTittle.setText("deaths");
 
         deaths.setBackground(new java.awt.Color(128, 128, 168));
         deaths.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -163,13 +198,22 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         assists.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         assists.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("assists");
+
         javax.swing.GroupLayout team1Background1Layout = new javax.swing.GroupLayout(team1Background1);
         team1Background1.setLayout(team1Background1Layout);
         team1Background1Layout.setHorizontalGroup(
             team1Background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(team1Background1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(51, 51, 51)
                 .addGroup(team1Background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(deathsTittle)
+                    .addComponent(killsTittle)
+                    .addComponent(marcadorTittle)
+                    .addComponent(fechaTittle)
                     .addComponent(assists, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deaths, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kills, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,41 +224,49 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
                         .addComponent(equipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rival, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(marcador, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         team1Background1Layout.setVerticalGroup(
             team1Background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(team1Background1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(25, 25, 25)
                 .addComponent(equipoTittle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fechaTittle)
+                .addGap(2, 2, 2)
                 .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rivalTittle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rival, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(marcadorTittle)
+                .addGap(5, 5, 5)
                 .addComponent(marcador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(killsTittle)
+                .addGap(2, 2, 2)
                 .addComponent(kills, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deathsTittle)
+                .addGap(2, 2, 2)
                 .addComponent(deaths, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(3, 3, 3)
                 .addComponent(assists, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         background.add(team1Background1);
-        team1Background1.setBounds(170, 190, 360, 430);
-        background.add(jLabel1);
-        jLabel1.setBounds(860, 300, 0, 0);
+        team1Background1.setBounds(110, 160, 360, 430);
 
         team2Background.setBackground(new java.awt.Color(165, 88, 114));
         team2Background.setMinimumSize(new java.awt.Dimension(360, 470));
 
-        equipo2Tittle.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
+        equipo2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         equipo2Tittle.setForeground(new java.awt.Color(255, 255, 255));
         equipo2Tittle.setText("Equipo");
 
@@ -222,6 +274,10 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         equipo2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         equipo2.setForeground(new java.awt.Color(255, 255, 255));
         equipo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        fecha2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        fecha2Tittle.setForeground(new java.awt.Color(255, 255, 255));
+        fecha2Tittle.setText("fecha");
 
         fecha2.setBackground(new java.awt.Color(182, 139, 154));
         fecha2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -232,7 +288,7 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
             }
         });
 
-        rival2Tittle.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
+        rival2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
         rival2Tittle.setForeground(new java.awt.Color(255, 255, 255));
         rival2Tittle.setText("rival");
 
@@ -241,15 +297,27 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         rival2.setForeground(new java.awt.Color(255, 255, 255));
         rival2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        marcador2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        marcador2Tittle.setForeground(new java.awt.Color(255, 255, 255));
+        marcador2Tittle.setText("marcador");
+
         marcador2.setBackground(new java.awt.Color(182, 139, 154));
         marcador2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         marcador2.setForeground(new java.awt.Color(255, 255, 255));
+
+        kills2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        kills2Tittle.setForeground(new java.awt.Color(255, 255, 255));
+        kills2Tittle.setText("kills");
 
         kills2.setBackground(new java.awt.Color(182, 139, 154));
         kills2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         kills2.setForeground(new java.awt.Color(255, 255, 255));
 
+        deaths2Tittle.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        deaths2Tittle.setForeground(new java.awt.Color(255, 255, 255));
+        deaths2Tittle.setText("deaths");
 
+        deaths2.setEditable(false);
         deaths2.setBackground(new java.awt.Color(182, 139, 154));
         deaths2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         deaths2.setForeground(new java.awt.Color(255, 255, 255));
@@ -258,13 +326,22 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         assists2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         assists2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel2.setFont(new java.awt.Font("VALORANT", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("assists");
+
         javax.swing.GroupLayout team2BackgroundLayout = new javax.swing.GroupLayout(team2Background);
         team2Background.setLayout(team2BackgroundLayout);
         team2BackgroundLayout.setHorizontalGroup(
             team2BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(team2BackgroundLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(51, 51, 51)
                 .addGroup(team2BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(deaths2Tittle)
+                    .addComponent(kills2Tittle)
+                    .addComponent(marcador2Tittle)
+                    .addComponent(fecha2Tittle)
                     .addComponent(assists2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deaths2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kills2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,67 +352,77 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
                         .addComponent(equipo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rival2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(marcador2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         team2BackgroundLayout.setVerticalGroup(
             team2BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(team2BackgroundLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(24, 24, 24)
                 .addComponent(equipo2Tittle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(equipo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fecha2Tittle)
+                .addGap(2, 2, 2)
                 .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rival2Tittle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rival2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
+                .addComponent(marcador2Tittle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(marcador2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kills2Tittle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kills2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deaths2Tittle)
+                .addGap(3, 3, 3)
                 .addComponent(deaths2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(2, 2, 2)
                 .addComponent(assists2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         background.add(team2Background);
-        team2Background.setBounds(570, 190, 350, 430);
+        team2Background.setBounds(510, 160, 350, 430);
 
         team1.setFont(new java.awt.Font("VALORANT", 0, 36)); // NOI18N
         team1.setForeground(new java.awt.Color(255, 255, 255));
         team1.setText("TEAM 1");
         background.add(team1);
-        team1.setBounds(280, 140, 150, 50);
+        team1.setBounds(220, 110, 150, 50);
 
         team2.setFont(new java.awt.Font("VALORANT", 0, 36)); // NOI18N
         team2.setForeground(new java.awt.Color(255, 255, 255));
         team2.setText("TEAM 2");
         background.add(team2);
-        team2.setBounds(670, 140, 150, 50);
+        team2.setBounds(610, 110, 150, 50);
 
         jButton1.setBackground(new java.awt.Color(117, 169, 169));
         jButton1.setFont(new java.awt.Font("VALORANT", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 102));
+        jButton1.setForeground(new java.awt.Color(55, 84, 84));
         jButton1.setText("Registrar partida");
         background.add(jButton1);
-        jButton1.setBounds(410, 650, 290, 50);
+        jButton1.setBounds(340, 620, 290, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 979, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
+                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -391,22 +478,33 @@ private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JPanel backgroundTittle;
     private javax.swing.JTextField deaths;
     private javax.swing.JTextField deaths2;
+    private javax.swing.JLabel deaths2Tittle;
+    private javax.swing.JLabel deathsTittle;
     private javax.swing.JComboBox<String> equipo;
     private javax.swing.JComboBox<String> equipo2;
     private javax.swing.JLabel equipo2Tittle;
     private javax.swing.JLabel equipoTittle;
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField fecha2;
+    private javax.swing.JLabel fecha2Tittle;
+    private javax.swing.JLabel fechaTittle;
+    private javax.swing.JLabel fenix;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField kills;
     private javax.swing.JTextField kills2;
+    private javax.swing.JLabel kills2Tittle;
+    private javax.swing.JLabel killsTittle;
     private javax.swing.JTextField marcador;
     private javax.swing.JTextField marcador2;
+    private javax.swing.JLabel marcador2Tittle;
+    private javax.swing.JLabel marcadorTittle;
     private javax.swing.JComboBox<String> rival;
     private javax.swing.JComboBox<String> rival2;
     private javax.swing.JLabel rival2Tittle;
     private javax.swing.JLabel rivalTittle;
+    private javax.swing.JLabel skye;
     private javax.swing.JLabel team1;
     private javax.swing.JPanel team1Background1;
     private javax.swing.JLabel team2;

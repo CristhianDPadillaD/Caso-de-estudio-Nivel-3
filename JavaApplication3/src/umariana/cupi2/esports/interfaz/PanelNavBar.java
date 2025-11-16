@@ -50,7 +50,7 @@ public class PanelNavBar extends javax.swing.JPanel {
         tittle.setForeground(new java.awt.Color(255, 255, 255));
         tittle.setText("eSports");
         background.add(tittle);
-        tittle.setBounds(30, 20, 180, 40);
+        tittle.setBounds(30, 30, 180, 40);
 
         registrarJugadorButton.setBackground(new java.awt.Color(72, 72, 72));
         registrarJugadorButton.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -63,7 +63,7 @@ public class PanelNavBar extends javax.swing.JPanel {
             }
         });
         background.add(registrarJugadorButton);
-        registrarJugadorButton.setBounds(270, 20, 200, 30);
+        registrarJugadorButton.setBounds(380, 30, 200, 30);
 
         registrarPartidaButton.setBackground(new java.awt.Color(72, 72, 72));
         registrarPartidaButton.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -76,7 +76,7 @@ public class PanelNavBar extends javax.swing.JPanel {
             }
         });
         background.add(registrarPartidaButton);
-        registrarPartidaButton.setBounds(480, 20, 170, 30);
+        registrarPartidaButton.setBounds(590, 30, 170, 30);
 
         consultarJugadoresButton.setBackground(new java.awt.Color(72, 72, 72));
         consultarJugadoresButton.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
@@ -89,19 +89,21 @@ public class PanelNavBar extends javax.swing.JPanel {
             }
         });
         background.add(consultarJugadoresButton);
-        consultarJugadoresButton.setBounds(660, 20, 180, 30);
+        consultarJugadoresButton.setBounds(770, 30, 180, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 984, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

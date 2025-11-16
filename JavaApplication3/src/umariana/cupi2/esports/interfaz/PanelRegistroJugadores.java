@@ -37,34 +37,30 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        // PANEL PRINCIPAL ==========================================
-        setBackground(new java.awt.Color(25, 25, 50)); 
-        setOpaque(true);
-        setLayout(null); // Para evitar que GroupLayout cree bordes blancos
-        
-        background = new javax.swing.JPanel();
-        background.setBackground(new java.awt.Color(25, 25, 50));
-        background.setOpaque(true);
-        background.setLayout(null);
-        background.setBounds(0, 0, 1100, 700); // Ocupa toda la ventana
-        add(background);
 
+        background = new javax.swing.JPanel();
         sage = new javax.swing.JLabel();
         backgroundTittle = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
+        nombreCompletoTittle = new javax.swing.JLabel();
         nombreCompleto = new javax.swing.JTextField();
+        nicknameTittle = new javax.swing.JLabel();
         nickname = new javax.swing.JTextField();
+        correoTittle = new javax.swing.JLabel();
         correo = new javax.swing.JTextField();
-        equipo = new javax.swing.JComboBox<>();
         equipoTittle = new javax.swing.JLabel();
+        equipo = new javax.swing.JComboBox<>();
+        kdaTittle = new javax.swing.JLabel();
         KDA = new javax.swing.JTextField();
         registrarButton = new javax.swing.JButton();
         sageSpray = new javax.swing.JLabel();
 
         background.setBackground(new java.awt.Color(25, 25, 50));
         background.setLayout(null);
+
+        sage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/umariana/cupi2/esports/interfaz/Sage.png"))); // NOI18N
         background.add(sage);
-        sage.setBounds(310, 70, 790, 970);
+        sage.setBounds(410, 100, 790, 970);
 
         backgroundTittle.setBackground(new java.awt.Color(51, 51, 93));
 
@@ -76,10 +72,10 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
         backgroundTittle.setLayout(backgroundTittleLayout);
         backgroundTittleLayout.setHorizontalGroup(
             backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundTittleLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundTittleLayout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
                 .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(117, 117, 117))
         );
         backgroundTittleLayout.setVerticalGroup(
             backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,13 +86,25 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
         );
 
         background.add(backgroundTittle);
-        backgroundTittle.setBounds(40, 40, 620, 70);
+        backgroundTittle.setBounds(90, 40, 790, 70);
+
+        nombreCompletoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        nombreCompletoTittle.setForeground(new java.awt.Color(255, 255, 255));
+        nombreCompletoTittle.setText("nombre completo");
+        background.add(nombreCompletoTittle);
+        nombreCompletoTittle.setBounds(130, 150, 260, 18);
 
         nombreCompleto.setBackground(new java.awt.Color(83, 83, 91));
         nombreCompleto.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         nombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
         background.add(nombreCompleto);
-        nombreCompleto.setBounds(50, 190, 320, 50);
+        nombreCompleto.setBounds(130, 170, 320, 50);
+
+        nicknameTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        nicknameTittle.setForeground(new java.awt.Color(255, 255, 255));
+        nicknameTittle.setText("nickname");
+        background.add(nicknameTittle);
+        nicknameTittle.setBounds(130, 230, 260, 18);
 
         nickname.setBackground(new java.awt.Color(83, 83, 91));
         nickname.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -107,13 +115,25 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
             }
         });
         background.add(nickname);
-        nickname.setBounds(50, 260, 320, 50);
+        nickname.setBounds(130, 250, 320, 50);
+
+        correoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        correoTittle.setForeground(new java.awt.Color(255, 255, 255));
+        correoTittle.setText("correo");
+        background.add(correoTittle);
+        correoTittle.setBounds(130, 310, 260, 18);
 
         correo.setBackground(new java.awt.Color(83, 83, 91));
         correo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         correo.setForeground(new java.awt.Color(255, 255, 255));
         background.add(correo);
-        correo.setBounds(50, 330, 320, 50);
+        correo.setBounds(130, 330, 320, 50);
+
+        equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
+        equipoTittle.setText("Selecciona tu equipo");
+        background.add(equipoTittle);
+        equipoTittle.setBounds(130, 390, 260, 18);
 
         equipo.setBackground(new java.awt.Color(83, 83, 91));
         equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -125,13 +145,13 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
             }
         });
         background.add(equipo);
-        equipo.setBounds(50, 420, 320, 50);
+        equipo.setBounds(130, 410, 320, 50);
 
-        equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
-        equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
-        equipoTittle.setText("Selecciona tu equipo");
-        background.add(equipoTittle);
-        equipoTittle.setBounds(50, 400, 260, 21);
+        kdaTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        kdaTittle.setForeground(new java.awt.Color(255, 255, 255));
+        kdaTittle.setText("kda");
+        background.add(kdaTittle);
+        kdaTittle.setBounds(130, 470, 260, 18);
 
         KDA.setBackground(new java.awt.Color(83, 83, 91));
         KDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -142,26 +162,28 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
             }
         });
         background.add(KDA);
-        KDA.setBounds(50, 490, 320, 50);
+        KDA.setBounds(130, 490, 320, 50);
 
         registrarButton.setBackground(new java.awt.Color(133, 185, 203));
         registrarButton.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         registrarButton.setForeground(new java.awt.Color(36, 52, 84));
         registrarButton.setText("Registrar");
         background.add(registrarButton);
-        registrarButton.setBounds(180, 590, 150, 50);
+        registrarButton.setBounds(260, 580, 150, 50);
+
+        sageSpray.setIcon(new javax.swing.ImageIcon(getClass().getResource("/umariana/cupi2/esports/interfaz/sageSpray.png"))); // NOI18N
         background.add(sageSpray);
-        sageSpray.setBounds(60, 550, 120, 130);
+        sageSpray.setBounds(140, 550, 120, 130);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -226,10 +248,14 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
     private javax.swing.JPanel background;
     private javax.swing.JPanel backgroundTittle;
     private javax.swing.JTextField correo;
+    private javax.swing.JLabel correoTittle;
     private javax.swing.JComboBox<String> equipo;
     private javax.swing.JLabel equipoTittle;
+    private javax.swing.JLabel kdaTittle;
     private javax.swing.JTextField nickname;
+    private javax.swing.JLabel nicknameTittle;
     private javax.swing.JTextField nombreCompleto;
+    private javax.swing.JLabel nombreCompletoTittle;
     private javax.swing.JButton registrarButton;
     private javax.swing.JLabel sage;
     private javax.swing.JLabel sageSpray;

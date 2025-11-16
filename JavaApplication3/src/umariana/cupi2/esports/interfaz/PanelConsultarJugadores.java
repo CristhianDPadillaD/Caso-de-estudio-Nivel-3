@@ -38,17 +38,19 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         equipoTittle = new javax.swing.JLabel();
         equipo = new javax.swing.JComboBox<>();
         verKDA = new javax.swing.JButton();
+        verPromedioVictorias1 = new javax.swing.JButton();
         verPromedioDerrotas = new javax.swing.JButton();
         verJugadorMasKills = new javax.swing.JButton();
+        listaBackgorund = new javax.swing.JPanel();
         lista = new javax.swing.JScrollPane();
         listaJugadores = new javax.swing.JList<>();
-        listaBackgorund = new javax.swing.JPanel();
-        verPromedioVictorias1 = new javax.swing.JButton();
 
         background.setBackground(new java.awt.Color(27, 43, 43));
         background.setLayout(null);
+
+        viper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/umariana/cupi2/esports/interfaz/viper.png"))); // NOI18N
         background.add(viper);
-        viper.setBounds(10, 90, 370, 600);
+        viper.setBounds(140, 140, 320, 600);
 
         backgroundTittle.setBackground(new java.awt.Color(23, 75, 75));
 
@@ -60,10 +62,10 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         backgroundTittle.setLayout(backgroundTittleLayout);
         backgroundTittleLayout.setHorizontalGroup(
             backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundTittleLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundTittleLayout.createSequentialGroup()
+                .addContainerGap(162, Short.MAX_VALUE)
                 .addComponent(tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(140, 140, 140))
         );
         backgroundTittleLayout.setVerticalGroup(
             backgroundTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,20 +76,20 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         );
 
         background.add(backgroundTittle);
-        backgroundTittle.setBounds(40, 30, 630, 80);
+        backgroundTittle.setBounds(90, 30, 810, 80);
 
         equipoTittle.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
         equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
         equipoTittle.setText("Selecciona el equipo");
         background.add(equipoTittle);
-        equipoTittle.setBounds(330, 130, 260, 21);
+        equipoTittle.setBounds(490, 140, 260, 18);
 
         equipo.setBackground(new java.awt.Color(83, 83, 91));
         equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         equipo.setForeground(new java.awt.Color(255, 255, 255));
         equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         background.add(equipo);
-        equipo.setBounds(330, 150, 320, 50);
+        equipo.setBounds(490, 160, 320, 50);
 
         verKDA.setBackground(new java.awt.Color(0, 102, 102));
         verKDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -99,59 +101,7 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
             }
         });
         background.add(verKDA);
-        verKDA.setBounds(350, 210, 270, 40);
-
-        verPromedioDerrotas.setBackground(new java.awt.Color(0, 102, 102));
-        verPromedioDerrotas.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
-        verPromedioDerrotas.setForeground(new java.awt.Color(255, 255, 255));
-        verPromedioDerrotas.setText("ver promedio Derrotas");
-        verPromedioDerrotas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verPromedioDerrotasActionPerformed(evt);
-            }
-        });
-        background.add(verPromedioDerrotas);
-        verPromedioDerrotas.setBounds(350, 310, 270, 40);
-
-        verJugadorMasKills.setBackground(new java.awt.Color(0, 102, 102));
-        verJugadorMasKills.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
-        verJugadorMasKills.setForeground(new java.awt.Color(255, 255, 255));
-        verJugadorMasKills.setText("ver jugador con mas kills");
-        verJugadorMasKills.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verJugadorMasKillsActionPerformed(evt);
-            }
-        });
-        background.add(verJugadorMasKills);
-        verJugadorMasKills.setBounds(350, 360, 270, 40);
-
-        listaJugadores.setBackground(new java.awt.Color(221, 221, 221));
-        listaJugadores.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
-        listaJugadores.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        lista.setViewportView(listaJugadores);
-
-        background.add(lista);
-        lista.setBounds(340, 450, 290, 180);
-
-        listaBackgorund.setBackground(new java.awt.Color(34, 71, 71));
-
-        javax.swing.GroupLayout listaBackgorundLayout = new javax.swing.GroupLayout(listaBackgorund);
-        listaBackgorund.setLayout(listaBackgorundLayout);
-        listaBackgorundLayout.setHorizontalGroup(
-            listaBackgorundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
-        );
-        listaBackgorundLayout.setVerticalGroup(
-            listaBackgorundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
-        );
-
-        background.add(listaBackgorund);
-        listaBackgorund.setBounds(320, 430, 330, 220);
+        verKDA.setBounds(490, 220, 320, 40);
 
         verPromedioVictorias1.setBackground(new java.awt.Color(0, 102, 102));
         verPromedioVictorias1.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
@@ -163,18 +113,73 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
             }
         });
         background.add(verPromedioVictorias1);
-        verPromedioVictorias1.setBounds(350, 260, 270, 40);
+        verPromedioVictorias1.setBounds(490, 270, 320, 40);
+
+        verPromedioDerrotas.setBackground(new java.awt.Color(0, 102, 102));
+        verPromedioDerrotas.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        verPromedioDerrotas.setForeground(new java.awt.Color(255, 255, 255));
+        verPromedioDerrotas.setText("ver promedio Derrotas");
+        verPromedioDerrotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verPromedioDerrotasActionPerformed(evt);
+            }
+        });
+        background.add(verPromedioDerrotas);
+        verPromedioDerrotas.setBounds(490, 320, 320, 40);
+
+        verJugadorMasKills.setBackground(new java.awt.Color(0, 102, 102));
+        verJugadorMasKills.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
+        verJugadorMasKills.setForeground(new java.awt.Color(255, 255, 255));
+        verJugadorMasKills.setText("ver jugador con mas kills");
+        verJugadorMasKills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verJugadorMasKillsActionPerformed(evt);
+            }
+        });
+        background.add(verJugadorMasKills);
+        verJugadorMasKills.setBounds(490, 370, 320, 40);
+
+        listaBackgorund.setBackground(new java.awt.Color(34, 71, 71));
+
+        listaJugadores.setBackground(new java.awt.Color(221, 221, 221));
+        listaJugadores.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
+        listaJugadores.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        lista.setViewportView(listaJugadores);
+
+        javax.swing.GroupLayout listaBackgorundLayout = new javax.swing.GroupLayout(listaBackgorund);
+        listaBackgorund.setLayout(listaBackgorundLayout);
+        listaBackgorundLayout.setHorizontalGroup(
+            listaBackgorundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listaBackgorundLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lista, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        listaBackgorundLayout.setVerticalGroup(
+            listaBackgorundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listaBackgorundLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(lista, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+        );
+
+        background.add(listaBackgorund);
+        listaBackgorund.setBounds(490, 440, 330, 220);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
