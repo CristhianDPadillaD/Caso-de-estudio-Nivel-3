@@ -55,7 +55,7 @@ public class PanelNavBar extends javax.swing.JPanel {
         registrarJugadorButton.setBackground(new java.awt.Color(72, 72, 72));
         registrarJugadorButton.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         registrarJugadorButton.setForeground(new java.awt.Color(255, 255, 255));
-        registrarJugadorButton.setText("Registrar jugadores");
+        registrarJugadorButton.setText("Registrar Jugadores");
         registrarJugadorButton.setBorder(null);
         registrarJugadorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +68,7 @@ public class PanelNavBar extends javax.swing.JPanel {
         registrarPartidaButton.setBackground(new java.awt.Color(72, 72, 72));
         registrarPartidaButton.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         registrarPartidaButton.setForeground(new java.awt.Color(255, 255, 255));
-        registrarPartidaButton.setText("registrar partida");
+        registrarPartidaButton.setText("Registrar Partida");
         registrarPartidaButton.setBorder(null);
         registrarPartidaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +81,7 @@ public class PanelNavBar extends javax.swing.JPanel {
         consultarJugadoresButton.setBackground(new java.awt.Color(72, 72, 72));
         consultarJugadoresButton.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         consultarJugadoresButton.setForeground(new java.awt.Color(255, 255, 255));
-        consultarJugadoresButton.setText("consultar jugadores");
+        consultarJugadoresButton.setText("Consultar Jugadores");
         consultarJugadoresButton.setBorder(null);
         consultarJugadoresButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,26 +95,26 @@ public class PanelNavBar extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrarPartidaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarPartidaButtonActionPerformed
-        ventana.mostrarPanel("registroPartidas");
+        ventana.mostrarPanel("registro");
     }//GEN-LAST:event_registrarPartidaButtonActionPerformed
 
     private void consultarJugadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarJugadoresButtonActionPerformed
-        ventana.mostrarPanel("consultaJugadores");
+        ventana.mostrarPanel("consulta");
     }//GEN-LAST:event_consultarJugadoresButtonActionPerformed
 
     private void registrarJugadorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarJugadorButtonActionPerformed
-         ventana.mostrarPanel("registroJugadores");
+         ventana.mostrarPanel("jugadores");
     }//GEN-LAST:event_registrarJugadorButtonActionPerformed
 
 

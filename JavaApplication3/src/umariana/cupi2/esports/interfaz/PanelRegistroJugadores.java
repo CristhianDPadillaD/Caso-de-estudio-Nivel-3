@@ -21,6 +21,12 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
     this.ventana = ventana;
     this.esports = modelo;
     initComponents();
+    cargarEquipos();
+    registrarButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            registrarJugadorActionPerformed(evt);
+        }
+    });
 }
 
     /**
@@ -31,8 +37,18 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        // PANEL PRINCIPAL ==========================================
+        setBackground(new java.awt.Color(25, 25, 50)); 
+        setOpaque(true);
+        setLayout(null); // Para evitar que GroupLayout cree bordes blancos
+        
         background = new javax.swing.JPanel();
+        background.setBackground(new java.awt.Color(25, 25, 50));
+        background.setOpaque(true);
+        background.setLayout(null);
+        background.setBounds(0, 0, 1100, 700); // Ocupa toda la ventana
+        add(background);
+
         sage = new javax.swing.JLabel();
         backgroundTittle = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
@@ -79,14 +95,12 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
         nombreCompleto.setBackground(new java.awt.Color(83, 83, 91));
         nombreCompleto.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         nombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
-        nombreCompleto.setText("Nombre completo");
         background.add(nombreCompleto);
         nombreCompleto.setBounds(50, 190, 320, 50);
 
         nickname.setBackground(new java.awt.Color(83, 83, 91));
         nickname.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         nickname.setForeground(new java.awt.Color(255, 255, 255));
-        nickname.setText("Nickname");
         nickname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nicknameActionPerformed(evt);
@@ -98,7 +112,6 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
         correo.setBackground(new java.awt.Color(83, 83, 91));
         correo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         correo.setForeground(new java.awt.Color(255, 255, 255));
-        correo.setText("correo electronico");
         background.add(correo);
         correo.setBounds(50, 330, 320, 50);
 
@@ -123,7 +136,11 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
         KDA.setBackground(new java.awt.Color(83, 83, 91));
         KDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         KDA.setForeground(new java.awt.Color(255, 255, 255));
-        KDA.setText("kda");
+        KDA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KDAActionPerformed(evt);
+            }
+        });
         background.add(KDA);
         KDA.setBounds(50, 490, 320, 50);
 
@@ -156,6 +173,53 @@ public PanelRegistroJugadores(InterfazEsports ventana, Esports modelo) {
         // TODO add your handling code here:
     }//GEN-LAST:event_equipoActionPerformed
 
+    private void KDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KDAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KDAActionPerformed
+
+    private void cargarEquipos() {
+        equipo.removeAllItems();
+        for (umariana.cupi2.esports.mundo.Equipo eq : esports.getEquipos()) {
+            equipo.addItem(eq.getNombre());
+        }
+    }
+
+    private void registrarJugadorActionPerformed(java.awt.event.ActionEvent evt) {
+        String nombre = nombreCompleto.getText().trim();
+        String nick = nickname.getText().trim();
+        String email = correo.getText().trim();
+        String equipoSeleccionado = (String) equipo.getSelectedItem();
+        String kdaStr = KDA.getText().trim();
+
+        try {
+            if (nombre.isEmpty() || nick.isEmpty() || email.isEmpty() || equipoSeleccionado == null || kdaStr.isEmpty()) {
+                throw new Exception("Todos los campos son obligatorios.");
+            }
+
+            String[] kdaParts = kdaStr.split("/");
+            if (kdaParts.length != 3) {
+                throw new Exception("KDA debe ser en formato K/D/A (ej: 5/4/3).");
+            }
+
+            int kills = Integer.parseInt(kdaParts[0].trim());
+            int deaths = Integer.parseInt(kdaParts[1].trim());
+            int assists = Integer.parseInt(kdaParts[2].trim());
+
+            ventana.registrarJugador(nombre, nick, email, equipoSeleccionado, kills, deaths, assists);
+
+            // Limpiar campos
+            nombreCompleto.setText("");
+            nickname.setText("");
+            correo.setText("");
+            KDA.setText("");
+            equipo.setSelectedIndex(-1);
+
+        } catch (NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "KDA debe contener números válidos.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField KDA;

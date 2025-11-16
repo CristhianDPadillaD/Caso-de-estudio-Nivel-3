@@ -20,6 +20,7 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
     this.ventana = ventana;
     this.esports = modelo;
     initComponents();
+    cargarEquipos();
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,16 +38,15 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         equipoTittle = new javax.swing.JLabel();
         equipo = new javax.swing.JComboBox<>();
         verKDA = new javax.swing.JButton();
-        verPromedioVictorias = new javax.swing.JButton();
+        verPromedioDerrotas = new javax.swing.JButton();
         verJugadorMasKills = new javax.swing.JButton();
         lista = new javax.swing.JScrollPane();
         listaJugadores = new javax.swing.JList<>();
         listaBackgorund = new javax.swing.JPanel();
+        verPromedioVictorias1 = new javax.swing.JButton();
 
         background.setBackground(new java.awt.Color(27, 43, 43));
         background.setLayout(null);
-
-        viper.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\Caso-de-estudio-Nivel-3\\JavaApplication3\\data\\imagenes\\viper.png")); // NOI18N
         background.add(viper);
         viper.setBounds(10, 90, 370, 600);
 
@@ -80,14 +80,14 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         equipoTittle.setForeground(new java.awt.Color(255, 255, 255));
         equipoTittle.setText("Selecciona el equipo");
         background.add(equipoTittle);
-        equipoTittle.setBounds(330, 150, 260, 18);
+        equipoTittle.setBounds(330, 130, 260, 21);
 
         equipo.setBackground(new java.awt.Color(83, 83, 91));
         equipo.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
         equipo.setForeground(new java.awt.Color(255, 255, 255));
         equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         background.add(equipo);
-        equipo.setBounds(330, 170, 320, 50);
+        equipo.setBounds(330, 150, 320, 50);
 
         verKDA.setBackground(new java.awt.Color(0, 102, 102));
         verKDA.setFont(new java.awt.Font("VALORANT", 0, 18)); // NOI18N
@@ -99,19 +99,19 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
             }
         });
         background.add(verKDA);
-        verKDA.setBounds(350, 240, 270, 40);
+        verKDA.setBounds(350, 210, 270, 40);
 
-        verPromedioVictorias.setBackground(new java.awt.Color(0, 102, 102));
-        verPromedioVictorias.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
-        verPromedioVictorias.setForeground(new java.awt.Color(255, 255, 255));
-        verPromedioVictorias.setText("ver promedio victorias");
-        verPromedioVictorias.addActionListener(new java.awt.event.ActionListener() {
+        verPromedioDerrotas.setBackground(new java.awt.Color(0, 102, 102));
+        verPromedioDerrotas.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        verPromedioDerrotas.setForeground(new java.awt.Color(255, 255, 255));
+        verPromedioDerrotas.setText("ver promedio Derrotas");
+        verPromedioDerrotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verPromedioVictoriasActionPerformed(evt);
+                verPromedioDerrotasActionPerformed(evt);
             }
         });
-        background.add(verPromedioVictorias);
-        verPromedioVictorias.setBounds(350, 300, 270, 40);
+        background.add(verPromedioDerrotas);
+        verPromedioDerrotas.setBounds(350, 310, 270, 40);
 
         verJugadorMasKills.setBackground(new java.awt.Color(0, 102, 102));
         verJugadorMasKills.setFont(new java.awt.Font("VALORANT", 0, 15)); // NOI18N
@@ -153,6 +153,18 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         background.add(listaBackgorund);
         listaBackgorund.setBounds(320, 430, 330, 220);
 
+        verPromedioVictorias1.setBackground(new java.awt.Color(0, 102, 102));
+        verPromedioVictorias1.setFont(new java.awt.Font("VALORANT", 0, 16)); // NOI18N
+        verPromedioVictorias1.setForeground(new java.awt.Color(255, 255, 255));
+        verPromedioVictorias1.setText("ver promedio victorias");
+        verPromedioVictorias1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verPromedioVictorias1ActionPerformed(evt);
+            }
+        });
+        background.add(verPromedioVictorias1);
+        verPromedioVictorias1.setBounds(350, 260, 270, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,18 +179,82 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void verKDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verKDAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verKDAActionPerformed
+    private void verKDAActionPerformed(java.awt.event.ActionEvent evt) {
+        String equipoSeleccionado = (String) equipo.getSelectedItem();
+        if (equipoSeleccionado == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un equipo.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-    private void verPromedioVictoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPromedioVictoriasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verPromedioVictoriasActionPerformed
+        umariana.cupi2.esports.mundo.Equipo eq = esports.darEquipoPorNombre(equipoSeleccionado);
+        if (eq == null || eq.getJugadores().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No hay jugadores en este equipo.", "Información", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
 
-    private void verJugadorMasKillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verJugadorMasKillsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verJugadorMasKillsActionPerformed
+        String[] kdas = new String[eq.getJugadores().size()];
+        for (int i = 0; i < eq.getJugadores().size(); i++) {
+            umariana.cupi2.esports.mundo.Jugador j = eq.getJugadores().get(i);
+            kdas[i] = j.getNickname() + " - KDA: " + String.format("%.2f", j.getKDA());
+        }
+        listaJugadores.setListData(kdas);
+    }
 
+    private void verPromedioDerrotasActionPerformed(java.awt.event.ActionEvent evt) {
+        String equipoSeleccionado = (String) equipo.getSelectedItem();
+        if (equipoSeleccionado == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un equipo.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        umariana.cupi2.esports.mundo.Equipo eq = esports.darEquipoPorNombre(equipoSeleccionado);
+        double promedio = eq.promedioDerrotas();
+        javax.swing.JOptionPane.showMessageDialog(this, "Promedio de derrotas: " + String.format("%.2f", promedio), "Resultado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void verJugadorMasKillsActionPerformed(java.awt.event.ActionEvent evt) {
+        String equipoSeleccionado = (String) equipo.getSelectedItem();
+        if (equipoSeleccionado == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un equipo.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        umariana.cupi2.esports.mundo.Equipo eq = esports.darEquipoPorNombre(equipoSeleccionado);
+        if (eq == null || eq.getJugadores().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No hay jugadores en este equipo.", "Información", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        umariana.cupi2.esports.mundo.Jugador maxKills = null;
+        for (umariana.cupi2.esports.mundo.Jugador j : eq.getJugadores()) {
+            if (maxKills == null || j.getKills() > maxKills.getKills()) {
+                maxKills = j;
+            }
+        }
+
+        if (maxKills != null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Jugador con más kills: " + maxKills.getNickname() + " (" + maxKills.getKills() + " kills)", "Resultado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void verPromedioVictorias1ActionPerformed(java.awt.event.ActionEvent evt) {
+        String equipoSeleccionado = (String) equipo.getSelectedItem();
+        if (equipoSeleccionado == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un equipo.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        umariana.cupi2.esports.mundo.Equipo eq = esports.darEquipoPorNombre(equipoSeleccionado);
+        double promedio = eq.promedioVictorias();
+        javax.swing.JOptionPane.showMessageDialog(this, "Promedio de victorias: " + String.format("%.2f", promedio), "Resultado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void cargarEquipos() {
+        equipo.removeAllItems();
+        for (umariana.cupi2.esports.mundo.Equipo eq : esports.getEquipos()) {
+            equipo.addItem(eq.getNombre());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
@@ -191,7 +267,8 @@ public PanelConsultarJugadores(InterfazEsports ventana, Esports modelo) {
     private javax.swing.JLabel tittle;
     private javax.swing.JButton verJugadorMasKills;
     private javax.swing.JButton verKDA;
-    private javax.swing.JButton verPromedioVictorias;
+    private javax.swing.JButton verPromedioDerrotas;
+    private javax.swing.JButton verPromedioVictorias1;
     private javax.swing.JLabel viper;
     // End of variables declaration//GEN-END:variables
 }

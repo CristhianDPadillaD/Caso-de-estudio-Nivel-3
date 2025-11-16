@@ -5,6 +5,7 @@
 package umariana.cupi2.esports.interfaz;
 
 import umariana.cupi2.esports.mundo.Esports;
+import umariana.cupi2.esports.mundo.Equipo;
 
 /**
  *
@@ -20,6 +21,30 @@ public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
     this.ventana = ventana;
     this.esports = modelo;
     initComponents();
+    inicializarComboBoxes();
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            registrarPartidaActionPerformed(evt);
+        }
+    });
+}
+
+private void inicializarComboBoxes() {
+    equipo.removeAllItems();
+    rival.removeAllItems();
+    equipo2.removeAllItems();
+    rival2.removeAllItems();
+
+    for (Equipo eq : esports.getEquipos()) {
+        equipo.addItem(eq.getNombre());
+        rival.addItem(eq.getNombre());
+        equipo2.addItem(eq.getNombre());
+        rival2.addItem(eq.getNombre());
+    }
+}
+
+private void registrarPartidaActionPerformed(java.awt.event.ActionEvent evt) {
+    ventana.registrarPartida();
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,7 +127,11 @@ public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
         fecha.setBackground(new java.awt.Color(128, 128, 168));
         fecha.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         fecha.setForeground(new java.awt.Color(255, 255, 255));
-        fecha.setText("fecha");
+        fecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaActionPerformed(evt);
+            }
+        });
 
         rivalTittle.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         rivalTittle.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,22 +150,18 @@ public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
         marcador.setBackground(new java.awt.Color(128, 128, 168));
         marcador.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         marcador.setForeground(new java.awt.Color(255, 255, 255));
-        marcador.setText("marcador");
 
         kills.setBackground(new java.awt.Color(128, 128, 168));
         kills.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         kills.setForeground(new java.awt.Color(255, 255, 255));
-        kills.setText("kills");
 
         deaths.setBackground(new java.awt.Color(128, 128, 168));
         deaths.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         deaths.setForeground(new java.awt.Color(255, 255, 255));
-        deaths.setText("deaths");
 
         assists.setBackground(new java.awt.Color(128, 128, 168));
         assists.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         assists.setForeground(new java.awt.Color(255, 255, 255));
-        assists.setText("assists");
 
         javax.swing.GroupLayout team1Background1Layout = new javax.swing.GroupLayout(team1Background1);
         team1Background1.setLayout(team1Background1Layout);
@@ -178,7 +203,7 @@ public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
                 .addComponent(deaths, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(assists, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         background.add(team1Background1);
@@ -201,7 +226,6 @@ public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
         fecha2.setBackground(new java.awt.Color(182, 139, 154));
         fecha2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         fecha2.setForeground(new java.awt.Color(255, 255, 255));
-        fecha2.setText("fecha");
         fecha2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fecha2ActionPerformed(evt);
@@ -220,23 +244,19 @@ public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
         marcador2.setBackground(new java.awt.Color(182, 139, 154));
         marcador2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         marcador2.setForeground(new java.awt.Color(255, 255, 255));
-        marcador2.setText("marcador");
 
         kills2.setBackground(new java.awt.Color(182, 139, 154));
         kills2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         kills2.setForeground(new java.awt.Color(255, 255, 255));
-        kills2.setText("kills");
 
-        deaths2.setEditable(false);
+
         deaths2.setBackground(new java.awt.Color(182, 139, 154));
         deaths2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         deaths2.setForeground(new java.awt.Color(255, 255, 255));
-        deaths2.setText("deaths");
 
         assists2.setBackground(new java.awt.Color(182, 139, 154));
         assists2.setFont(new java.awt.Font("VALORANT", 0, 14)); // NOI18N
         assists2.setForeground(new java.awt.Color(255, 255, 255));
-        assists2.setText("assists");
 
         javax.swing.GroupLayout team2BackgroundLayout = new javax.swing.GroupLayout(team2Background);
         team2Background.setLayout(team2BackgroundLayout);
@@ -307,7 +327,10 @@ public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 1094, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,6 +348,41 @@ public PanelRegistroPartidas(InterfazEsports ventana, Esports modelo) {
         // TODO add your handling code here:
     }//GEN-LAST:event_rivalActionPerformed
 
+    private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaActionPerformed
+
+    // Getters para acceder a los campos desde InterfazEsports
+    public String getEquipo1() { return (String) equipo.getSelectedItem(); }
+    public String getFecha1() { return fecha.getText(); }
+    public String getRival1() { return (String) rival.getSelectedItem(); }
+    public String getMarcador1() { return marcador.getText(); }
+    public String getKills1() { return kills.getText(); }
+    public String getDeaths1() { return deaths.getText(); }
+    public String getAssists1() { return assists.getText(); }
+ 
+    public String getEquipo2() { return (String) equipo2.getSelectedItem(); }
+    public String getFecha2() { return fecha2.getText(); }
+    public String getRival2() { return (String) rival2.getSelectedItem(); }
+    public String getMarcador2() { return marcador2.getText(); }
+    public String getKills2() { return kills2.getText(); }
+    public String getDeaths2() { return deaths2.getText(); }
+    public String getAssists2() { return assists2.getText(); }
+  
+
+    public void limpiarCampos() {
+        fecha.setText("");
+        marcador.setText("");
+        kills.setText("");
+        deaths.setText("");
+        assists.setText("");
+
+        fecha2.setText("");
+        marcador2.setText("");
+        kills2.setText("");
+        deaths2.setText("");
+        assists2.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField assists;
